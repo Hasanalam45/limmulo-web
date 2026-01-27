@@ -1,7 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import {
   motion,
   useReducedMotion,
@@ -71,10 +71,34 @@ function StepCard({
     <motion.div
       variants={variants}
       whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-      className="rounded-[18px] mt-[100px] bg-white px-6 py-8 shadow-[0_18px_40px_rgba(0,0,0,0.10)] ring-1 ring-black/5 transform-gpu"
+      className="rounded-[18px] mt-[100px] bg-white px-4 py-8 shadow-[0_18px_40px_rgba(0,0,0,0.10)] ring-1 ring-black/5 transform-gpu"
     >
       <div className="text-center">
-        <div className="text-[48px] font-black leading-none text-[#F6A73A]">{item.number}</div>
+        {item.number === 1 ? (
+          <div className="flex justify-center">
+            <img 
+              src="/landingpage/number-one.svg" 
+              alt="1" 
+              className="h-[45px] w-[50px]"
+            />
+          </div>
+        ) : item.number === 2 ? (
+          <div className="flex justify-center">
+            <img 
+              src="/landingpage/number-two.svg" 
+              alt="2" 
+              className="h-[45px] w-[50px]"
+            />
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <img 
+              src="/landingpage/number-three.svg" 
+              alt="3" 
+              className="h-[45px] w-[50px]"
+            />
+          </div>
+        )}
 
         <div className="mt-3 text-[12px] font-extrabold leading-[1.15] text-black">
           {item.title.split("\n").map((line, idx) => (
@@ -99,7 +123,7 @@ export default function StepsCtaSection({
   ctaLabel,
   testimonial,
 }: Props) {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.35, once: true });
@@ -108,23 +132,23 @@ export default function StepsCtaSection({
     steps ?? [
       {
         number: 1,
-        title: t('steps.step1Title'),
-        description: t('steps.step1Desc'),
+        title: "Speel, leer\nen groei",
+        description: "Korte, speelse activiteiten die bouwen aan de fundering van je kind - thuis, met aandacht en intentie.",
       },
       {
         number: 2,
-        title: t('steps.step2Title'),
-        description: t('steps.step2Desc'),
+        title: "Versterk de band\nmet je kind",
+        description: "Creëer momenten van verbinding, plezier en groei. Samen ontdekken, lachen en leren.",
       },
       {
         number: 3,
-        title: t('steps.step3Title'),
-        description: t('steps.step3Desc'),
+        title: "Groei op 3 vlakken:\nhoofd, hart en handen",
+        description: "Elke activiteit versterkt emotionele, praktische en sociale vaardigheden, volg jullie voortgang!",
       },
     ];
   
-  const finalCtaLabel = ctaLabel || t('steps.cta');
-  const finalTestimonial = testimonial || t('steps.testimonial');
+  const finalCtaLabel = ctaLabel || "PREREGISTREER HIER";
+  const finalTestimonial = testimonial || "\"Mijn kind heeft faalangst, maar de 'zelfliefde' oefening deed hem enorm goed.\"";
 
   const container: Variants = {
     hidden: { opacity: 1 },
@@ -166,7 +190,7 @@ export default function StepsCtaSection({
       <div ref={ref} className="relative z-10 mx-auto max-w-[999px] px-4 sm:px-6">
         {/* Cards row */}
         <motion.div
-          className="mx-auto grid max-w-[820px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-7"
+          className="mx-auto grid max-w-[620px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-4"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}

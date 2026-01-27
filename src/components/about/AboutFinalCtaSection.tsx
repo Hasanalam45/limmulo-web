@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaRocket, FaStar } from "react-icons/fa";
 import { FiArrowDownRight } from "react-icons/fi";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import {
   motion,
   useInView,
@@ -59,7 +59,7 @@ function Rocket({ className }: { className?: string }) {
 }
 
 export default function AboutFinalCtaSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.35, once: true });
@@ -142,21 +142,21 @@ export default function AboutFinalCtaSection() {
                 variants={item}
                 className="text-[18px] sm:text-[20px] lg:text-[22px] font-black tracking-tight text-black"
               >
-                {t('about.finalCta.title')}
+                Ga mee op reis!
               </motion.h3>
 
               <motion.p
                 variants={item}
                 className="mt-3 text-[11px] sm:text-[12px] lg:text-[13px] font-medium leading-6 text-black/80"
               >
-                {t('about.finalCta.p1')}
+                Wij nodigen je uit om Luumilo te ontdekken, de activiteiten uit te proberen, de voortgang van je kind te volgen en te genieten van de leerzame en grappige momentjes die je onderweg tegenkomt.
               </motion.p>
 
               <motion.p
                 variants={item}
                 className="mt-5 text-[11px] sm:text-[12px] lg:text-[13px] font-extrabold leading-6 text-black/85"
               >
-                {t('about.finalCta.p2')}
+                Laten we samen een betere toekomst bouwen, één dag, één missie tegelijk.
               </motion.p>
 
               <motion.div variants={item} className="mt-7 flex justify-center">
@@ -175,7 +175,7 @@ export default function AboutFinalCtaSection() {
                       ring-1 ring-black/10 transition hover:bg-emerald-300
                     "
                   >
-                    {t('about.finalCta.cta')}
+                    PREREGISTREER HIER
                   </Link>
                 </motion.div>
               </motion.div>

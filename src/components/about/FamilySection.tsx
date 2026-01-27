@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 
 function RedBlobIcon() {
@@ -16,7 +16,7 @@ function RedBlobIcon() {
 }
 
 export default function FamilySection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.35, once: true });
@@ -48,7 +48,7 @@ export default function FamilySection() {
             <div className="relative overflow-hidden rounded-[18px] sm:rounded-[24px] shadow-[0_22px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/5 max-w-[400px] mx-auto lg:mx-0">
               <img
                 src="/landingpage/aboutPage/Luumilo 26-11-250045_LR.jpg.png"
-                alt={t('about.family.imageAlt')}
+                alt="Gelukkige familieportret"
                 className="h-auto w-full object-cover"
               />
             </div>
@@ -64,7 +64,7 @@ export default function FamilySection() {
                   text-[40px] xs:text-[44px] sm:text-[54px] md:text-[58px]
                 "
               >
-                {t('about.family.title')}
+                Waarom het ertoe doet
               </h2>
             </motion.div>
 
@@ -76,7 +76,7 @@ export default function FamilySection() {
                 leading-6 sm:leading-7
               "
             >
-              {t('about.family.description')}
+              Wist je dat 90% van de hersenontwikkeling plaatsvindt vóór het 7e levensjaar? Juist in deze vormende jaren legt Luumilo de basis voor gezonde gewoonten en emotionele veerkracht. Zo groeien kinderen op tot zelfverzekerde, empathische en sterke mensen, met kwaliteiten waar ze hun hele leven op kunnen bouwen.
             </motion.p>
           </motion.div>
         </motion.div>

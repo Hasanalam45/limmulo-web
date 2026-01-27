@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 
 function Sparkle({ className, delay = 0 }: { className?: string; delay?: number }) {
   const reduce = useReducedMotion();
@@ -24,7 +24,7 @@ function Sparkle({ className, delay = 0 }: { className?: string; delay?: number 
 }
 
 export default function HeroSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
 
   const container: Variants = {
@@ -74,11 +74,11 @@ export default function HeroSection() {
               </div>
               
               <h1 className="text-[40px] sm:text-[54px] lg:text-[64px] font-black leading-[0.95] tracking-tight text-black mt-[120px]">
-                {t('hero.title')}
+                Geef je kind een sterke start.
               </h1>
 
               <p className="mt-4 sm:mt-5 max-w-[540px] text-[13px] sm:text-sm font-medium leading-6 text-black/75">
-                {t('hero.subtitle')}
+                Voor kinderen van 3-6 jaar: 10 minuten per dag samen lachen, leren en groeien. Speelse missies die jullie band versterken, schermvrij.
               </p>
             </motion.div>
 
@@ -87,9 +87,9 @@ export default function HeroSection() {
                 <motion.div variants={item} className="flex items-start gap-3">
                     <img src="/landingpage/orange-blob.svg" alt="" aria-hidden="true" />
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-black mt-2">{t('hero.forParents')}</p>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-black mt-2">Voor ouders</p>
                     <p className="mt-1 max-w-[120px] text-[12px] sm:text-xs leading-5 text-black/70">
-                      {t('hero.forParentsDesc')}
+                      die voelen dat innerlijke kracht belangrijker is dan hoge cijfers.
                     </p>
                   </div>
                 </motion.div>
@@ -97,9 +97,9 @@ export default function HeroSection() {
                 <motion.div variants={item} className="flex items-start gap-3 lg:pl-[25%]">
                   <img src="/landingpage/pink-blob.svg" alt="" aria-hidden="true" />
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-black mt-4">{t('hero.forChildren')}</p>
+                    <p className="text-[13px] sm:text-sm font-extrabold text-black mt-4">Voor kinderen</p>
                     <p className="mt-1 max-w-[120px] text-[12px] sm:text-xs leading-5 text-black/70">
-                      {t('hero.forChildrenDesc')}
+                      die zelfstandig, sterk en nieuwsgierig de wereld in stappen.
                     </p>
                   </div>
                 </motion.div>
@@ -119,7 +119,7 @@ export default function HeroSection() {
             >
               <div className="relative">
                 <span className="inline-flex rotate-[-2deg] items-center rounded-[10px] bg-yellow-300 px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs font-black tracking-wide text-black shadow-[0_14px_25px_rgba(0,0,0,0.12)]">
-                  {t('hero.only3Spots')}
+                  NOG 3 PLEKKEN!
                 </span>
 
                 <img
@@ -137,26 +137,26 @@ export default function HeroSection() {
               className="rounded-[22px] sm:rounded-[26px] bg-white/95 p-6 sm:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu"
             >
               <h2 className="text-[30px] sm:text-4xl font-black leading-[0.95] tracking-tight text-black">
-                {t('hero.joinAsTestFamily')}
+                Doe mee als testgezin
               </h2>
 
               <div className="mt-4 h-[4px] w-14 rounded-full bg-sky-400" />
 
               <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-slate-700 marker:text-slate-400">
-                <li>{t('hero.benefits.lifetime')}</li>
-                <li>{t('hero.benefits.exclusive')}</li>
-                <li>{t('hero.benefits.direct')}</li>
+                <li>Levenslang gratis toegang</li>
+                <li>Exclusieve toegang tot nieuwe features</li>
+                <li>Direct contact met ontwikkelaars</li>
               </ul>
 
               <Link
                 to="/word-testgezin"
                 className="mt-6 sm:mt-7 inline-flex w-full items-center justify-center rounded-xl bg-emerald-200 px-4 py-3 text-xs font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
               >
-                {t('hero.signUp')}
+                MELD JE AAN
               </Link>
 
               <p className="mt-3 text-[10px] font-medium text-slate-400">
-                {t('hero.formNote')}
+                Vragenlijst met voor/achternaam, leeftijd kind, ervaring
               </p>
             </motion.div>
 
@@ -167,32 +167,32 @@ export default function HeroSection() {
               className="rounded-[22px] sm:rounded-[26px] bg-white/95 p-6 sm:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu"
             >
               <h2 className="text-[30px] sm:text-4xl font-black leading-[0.95] tracking-tight text-black">
-                {t('hero.preregister')}
+                Preregistreer voor de app
               </h2>
 
               <div className="mt-4 h-[4px] w-14 rounded-full bg-sky-400" />
 
               <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-slate-700 marker:text-slate-400">
-                <li>{t('hero.preregisterBenefits.discount')}</li>
-                <li>{t('hero.preregisterBenefits.free')}</li>
-                <li>{t('hero.preregisterBenefits.notify')}</li>
+                <li>Eerste maand 50% korting</li>
+                <li>Ontvang nu onze best en meest beoordeelde oefening gratis</li>
+                <li>Hoor als eerste wanneer we officieel lanceren</li>
               </ul>
 
               <div className="mt-5 sm:mt-6">
                 <input
                   type="email"
-                  placeholder={t('hero.emailPlaceholder')}
+                  placeholder="Vul je e-mailadres in"
                   className="h-11 w-full rounded-xl border border-black/40 bg-white px-4 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-black/60"
                 />
                 <p className="mt-2 text-center text-[10px] font-medium text-slate-400">
-                  {t('hero.emailNote')}
+                  Alleen je e-mailadres, meer niet
                 </p>
 
                 <Link
                   to="/preregistreer"
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-emerald-200 px-4 py-3 text-xs font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
                 >
-                  {t('hero.keepMeUpdated')}
+                  HOUD ME OP DE HOOGTE
                 </Link>
               </div>
             </motion.div>

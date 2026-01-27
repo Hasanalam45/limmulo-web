@@ -21,15 +21,10 @@ const aboutHeroBackground = [
 
 const creamBackground = "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
 
-const aboutBottomBackground = [
-  "radial-gradient(1100px 620px at 18% 22%, rgba(185,167,255,0.55) 0%, rgba(185,167,255,0) 62%)",
-  "radial-gradient(1100px 620px at 86% 28%, rgba(255,154,117,0.50) 0%, rgba(255,154,117,0) 62%)",
-  "linear-gradient(135deg, rgba(185,167,255,0.95) 0%, rgba(215,138,212,0.92) 48%, rgba(242,154,126,0.92) 100%)",
-].join(",");
-
 export default function AboutBackground({ children }: { children: React.ReactNode }) {
   const items = React.Children.toArray(children);
-  const [navbar, hero, whatWeDo, familySection, whyItMatters, missionVision, finalCta, footer, ...rest] = items;
+  // Since finalCta is commented out, footer is at index 6 instead of 7
+  const [navbar, hero, whatWeDo, familySection, whyItMatters, missionVision, footer, ...rest] = items;
 
   return (
     <main className="min-h-screen bg-[#FFFCFA]">
@@ -49,25 +44,18 @@ export default function AboutBackground({ children }: { children: React.ReactNod
                 {whatWeDo}
                 {familySection}
                 {whyItMatters}
-                {missionVision}
               </div>
+            </div>
+            {/* Mission/Vision section - full width, no side padding */}
+            <div className="relative z-10">
+              {missionVision}
             </div>
           </section>
 
-          {/* BOTTOM GRADIENT (final CTA + footer) */}
-          <section className="relative" style={{ background: aboutBottomBackground }}>
-            {/* ✅ IMPORTANT: you were missing px-6 + pb on mobile */}
-            <div className="relative z-10 px-6 pb-16 pt-16 sm:px-10 sm:pb-20 sm:pt-20">
-              {/* keep CTA aligned with page content width */}
-              <div className="mx-auto max-w-[999px]">{finalCta}</div>
-
-              {/* ✅ Footer should look like a clean panel on the gradient */}
-              <div className="mt-14 sm:mt-16">
-                <div className="mx-auto max-w-[1100px] overflow-hidden rounded-[26px] shadow-[0_22px_55px_rgba(0,0,0,0.14)] ring-1 ring-black/10">
-                  {footer}
-                </div>
-              </div>
-
+          {/* BOTTOM (footer - same as home page) */}
+          <section className="relative" style={{ background: "" }}>
+            <div className="relative z-10 pt-8 sm:pt-10">
+              {footer}
               {rest.length ? rest : null}
             </div>
           </section>

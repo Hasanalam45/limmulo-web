@@ -8,10 +8,10 @@ import {
   useScroll,
   type Transition,
 } from "framer-motion";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import LuumiloLogo from "../brand/LuumiloLogo";
 
-const linkBase = "text-sm font-semibold text-slate-900/90 transition";
+const linkBase = "text-lg font-bold text-slate-900/90 transition";
 
 function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
   return (
@@ -42,7 +42,7 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
 }
 
 export default function Navbar() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
 
@@ -93,28 +93,28 @@ export default function Navbar() {
     >
       <div
         className={[
-          "flex w-full max-w-[999px] items-center justify-between rounded-xl px-5 py-3 backdrop-blur-md",
+          "flex w-full max-w-full md:max-w-[999px] items-center justify-between rounded-xl px-5 py-3 backdrop-blur-md",
           shellClass,
         ].join(" ")}
       >
-        <Link to="/" className="flex items-center gap-2">
-          <LuumiloLogo />
+        <Link to="/" className="flex items-center gap-2 md:ml-8">
+          <LuumiloLogo size={42} className="h-14 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
-          <NavItem to="/">{t('nav.home')}</NavItem>
-          <NavItem to="/over-ons">{t('nav.about')}</NavItem>
-          <NavItem to="/over-de-app">{t('nav.aboutApp')}</NavItem>
-          <NavItem to="/word-testgezin">{t('nav.testFamily')}</NavItem>
+        <nav className="hidden items-center gap-8 md:flex">
+          <NavItem to="/">Home</NavItem>
+          <NavItem to="/over-ons">Over ons</NavItem>
+          <NavItem to="/over-de-app">Over de app</NavItem>
+          <NavItem to="/word-testgezin">Word testgezin</NavItem>
         </nav>
 
         {/* Desktop Preregister Button */}
         <Link
           to="/preregistreer"
-          className="hidden rounded-full bg-emerald-200 px-4 py-2 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-emerald-300 md:block"
+          className="hidden rounded-lg bg-emerald-200 px-4 py-2 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-emerald-300 md:block md:mr-8"
         >
-          {t('nav.preregister')}
+          Preregistreer hier!
         </Link>
 
         {/* Mobile Menu Button */}
@@ -195,17 +195,17 @@ export default function Navbar() {
           transition={{ duration: 0.2 }}
         >
           <nav className="flex flex-col py-2">
-            <MobileNavItem to="/">{t('nav.home')}</MobileNavItem>
-            <MobileNavItem to="/over-ons">{t('nav.about')}</MobileNavItem>
-            <MobileNavItem to="/over-de-app">{t('nav.aboutApp')}</MobileNavItem>
-            <MobileNavItem to="/word-testgezin">{t('nav.testFamily')}</MobileNavItem>
+            <MobileNavItem to="/">Home</MobileNavItem>
+            <MobileNavItem to="/over-ons">Over ons</MobileNavItem>
+            <MobileNavItem to="/over-de-app">Over de app</MobileNavItem>
+            <MobileNavItem to="/word-testgezin">Word testgezin</MobileNavItem>
             <div className="border-t border-slate-200 px-4 py-3">
               <Link
                 to="/preregistreer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full rounded-full bg-emerald-200 px-4 py-2.5 text-center text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+                className="block w-full rounded-lg bg-emerald-200 px-4 py-2.5 text-center text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-emerald-300"
               >
-                {t('nav.preregister')}
+                Preregistreer hier!
               </Link>
             </div>
           </nav>

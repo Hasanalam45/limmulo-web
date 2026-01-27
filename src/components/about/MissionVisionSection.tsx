@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import {
   motion,
   useInView,
@@ -66,7 +66,7 @@ function Card({
 }
 
 export default function MissionVisionSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.35, once: true });
@@ -127,15 +127,15 @@ export default function MissionVisionSection() {
             className="transform-gpu"
           >
             <Card
-              title={t('about.missionVision.mission.title')}
+              title="Missie"
               icon={<BlobIcon variant="yellow" />}
             >
               <p>
-                {t('about.missionVision.mission.p1')}
+                Bij Luumilo helpen we jou als ouder om op een eenvoudige en inspirerende manier thuis te bouwen aan de innerlijke kracht van je kind.
               </p>
 
               <p>
-                {t('about.missionVision.mission.p2')}
+                Met ons leerplatform ondersteun je je kind (3–6) in het ontwikkelen van veerkracht, dankbaarheid, zelfzorg en essentiële levensvaardigheden – via kleine, haalbare stappen die passen in jullie dagelijks leven. Zonder extra stress en vrij van schermtijd.
               </p>
             </Card>
           </motion.div>
@@ -147,19 +147,19 @@ export default function MissionVisionSection() {
             className="transform-gpu"
           >
             <Card
-              title={t('about.missionVision.vision.title')}
+              title="Visie"
               icon={<BlobIcon variant="pink" />}
             >
               <p>
-                {t('about.missionVision.vision.p1')}
+                Wij geloven dat kinderen die stevig in hun schoenen staan, klaar zijn voor de toekomst.
               </p>
 
               <p>
-                {t('about.missionVision.vision.p2')}
+                In een wereld vol prikkels, prestatiedruk en constante veranderingen, bieden wij jou een toegankelijke, unieke en speelse methode om je kind een sterke basis te leggen: met aandacht en intentie, passend in jullie gezinsleven.
               </p>
 
               <p>
-                {t('about.missionVision.vision.p3')}
+                Ons doel is om samen met miljoenen ouders zoals jij een krachtiger, betekenisvoller begin te bouwen in de belangrijkste en meest vormende jaren van jullie kinderen.
               </p>
             </Card>
           </motion.div>

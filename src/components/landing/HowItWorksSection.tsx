@@ -1,5 +1,5 @@
 // import React from "react";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import PhoneMock from "./PhoneMock";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
@@ -25,7 +25,7 @@ type Props = {
 // }
 
 export default function HowItWorksSection({ phones }: Props) {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
 
   const phoneData: HowItWorksPhone[] = phones ?? [
@@ -118,7 +118,7 @@ export default function HowItWorksSection({ phones }: Props) {
               text-[34px] xs:text-[40px] sm:text-[46px] md:text-[52px]
             "
           >
-            {t('howItWorks.title')}
+            Hoe het werkt
           </motion.h2>
 
           <div className="space-y-6 sm:space-y-7">
@@ -136,10 +136,10 @@ export default function HowItWorksSection({ phones }: Props) {
 
               <div>
                 <p className="font-extrabold text-black text-[14px] sm:text-[15px] md:text-[16px] leading-[1.15]">
-                  {t('howItWorks.learningAreas')}
+                  7 leergebieden
                 </p>
                 <p className="mt-1 text-black/60 text-[12px] sm:text-[13px] md:text-[14px] leading-5">
-                  {t('howItWorks.learningAreasDesc')}
+                  van emotionele gezondheid tot ondernemerschap
                 </p>
               </div>
             </motion.div>
@@ -157,10 +157,10 @@ export default function HowItWorksSection({ phones }: Props) {
                 />
               <div>
                 <p className="font-extrabold text-black text-[14px] sm:text-[15px] md:text-[16px] leading-[1.15]">
-                  {t('howItWorks.timePerDay')}
+                  5 – 15 minuten per dag
                 </p>
                 <p className="mt-1 text-black/60 text-[12px] sm:text-[13px] md:text-[14px] leading-5">
-                  {t('howItWorks.timePerDayDesc')}
+                  past altijd in jullie dagritme
                 </p>
               </div>
             </motion.div>
@@ -179,10 +179,10 @@ export default function HowItWorksSection({ phones }: Props) {
                 />
               <div>
                 <p className="font-extrabold text-black text-[14px] sm:text-[15px] md:text-[16px] leading-[1.15]">
-                  {t('howItWorks.noScreen')}
+                  geen scherm
                 </p>
                 <p className="mt-1 text-black/60 text-[12px] sm:text-[13px] md:text-[14px] leading-5">
-                  {t('howItWorks.noScreenDesc')}
+                  samen spelen, samen groeien
                 </p>
               </div>
             </motion.div>

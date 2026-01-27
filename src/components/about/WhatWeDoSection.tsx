@@ -10,7 +10,7 @@ import {
   FiZap,
   FiHelpCircle,
 } from "react-icons/fi";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 type Item = {
@@ -73,7 +73,7 @@ function ItemRow({ item }: { item: Item }) {
 }
 
 export default function WhatWeDoSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
 
   const container: Variants = {
@@ -97,50 +97,50 @@ export default function WhatWeDoSection() {
 
   const items: Item[] = [
     {
-      title: t('about.whatWeDo.items.emotionele_gezondheid.title'),
-      desc: t('about.whatWeDo.items.emotionele_gezondheid.desc'),
+      title: "Emotionele gezondheid",
+      desc: "Herken wat je voelt en leer dat ook zeggen",
       bg: "rgba(239, 68, 68, 0.14)",
       color: "text-rose-600",
       Icon: FiHeart,
     },
     {
-      title: t('about.whatWeDo.items.veerkracht.title'),
-      desc: t('about.whatWeDo.items.veerkracht.desc'),
+      title: "Veerkracht",
+      desc: "Blijf proberen, ook als iets moeilijk is",
       bg: "rgba(37, 99, 235, 0.14)",
       color: "text-blue-600",
       Icon: FiShield,
     },
     {
-      title: t('about.whatWeDo.items.dankbaarheid.title'),
-      desc: t('about.whatWeDo.items.dankbaarheid.desc'),
+      title: "Dankbaarheid",
+      desc: "Zie wat er wél is — en voel hoe fijn dat is",
       bg: "rgba(245, 158, 11, 0.16)",
       color: "text-amber-600",
       Icon: FiSmile,
     },
     {
-      title: t('about.whatWeDo.items.zelfzorg.title'),
-      desc: t('about.whatWeDo.items.zelfzorg.desc'),
+      title: "Zelfzorg",
+      desc: "Zorg goed voor je lichaam én je hoofd",
       bg: "rgba(34, 197, 94, 0.14)",
       color: "text-green-600",
       Icon: FiFeather,
     },
     {
-      title: t('about.whatWeDo.items.geldwijsheid.title'),
-      desc: t('about.whatWeDo.items.geldwijsheid.desc'),
+      title: "Geldwijsheid",
+      desc: "Leer omgaan met geld, spullen en slimme keuzes maken",
       bg: "rgba(124, 58, 237, 0.14)",
       color: "text-violet-600",
       Icon: FiDollarSign,
     },
     {
-      title: t('about.whatWeDo.items.ondernemerschap.title'),
-      desc: t('about.whatWeDo.items.ondernemerschap.desc'),
+      title: "Ondernemerschap",
+      desc: "Kijk anders, denk verder, vind je eigen idee",
       bg: "rgba(249, 115, 22, 0.14)",
       color: "text-orange-600",
       Icon: FiBriefcase,
     },
     {
-      title: t('about.whatWeDo.items.anders_denken.title'),
-      desc: t('about.whatWeDo.items.anders_denken.desc'),
+      title: "Anders denken",
+      desc: "Kijk anders, denk verder, vind je eigen idee",
       bg: "rgba(56, 189, 248, 0.16)",
       color: "text-sky-600",
       Icon: FiZap,
@@ -167,7 +167,7 @@ export default function WhatWeDoSection() {
                   text-[40px] xs:text-[44px] sm:text-[54px] md:text-[58px]
                 "
               >
-                {t('about.whatWeDo.title')}
+                Wat wij doen
               </h2>
             </motion.div>
 
@@ -179,7 +179,7 @@ export default function WhatWeDoSection() {
                 leading-6 sm:leading-7
               "
             >
-              {t('about.whatWeDo.description')}
+              Elke week biedt Luumilo een samengestelde set van vijf praktische activiteiten aan, in de Speelweek, gericht op leren door te spelen. Elke activiteit is ontworpen om de band tussen ouder en kind te versterken en thema's te verkennen zoals:
             </motion.p>
 
             <motion.div

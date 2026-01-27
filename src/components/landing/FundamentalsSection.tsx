@@ -8,7 +8,7 @@ import {
   FiShield,
   FiSmile,
 } from "react-icons/fi";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { Link } from "react-router-dom";
 
 type TopicId =
@@ -169,67 +169,67 @@ function TabButton({
 }
 
 export default function FundamentalsSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const topics: Topic[] = useMemo(
     () => [
       {
         id: "emotionele_gezondheid",
-        label: t('fundamentals.topics.emotionele_gezondheid.label'),
+        label: "Emotionele gezondheid",
         border: "#EF4444",
         icon: <HeartIcon />,
-        title: t('fundamentals.topics.emotionele_gezondheid.title'),
-        description: t('fundamentals.topics.emotionele_gezondheid.description'),
+        title: "EMOTIONELE GEZONDHEID",
+        description: "Herken wat je voelt en leer dat ook zeggen",
       },
       {
         id: "veerkracht",
-        label: t('fundamentals.topics.veerkracht.label'),
+        label: "Veerkracht",
         border: "#2563EB",
         icon: <ShieldIcon />,
-        title: t('fundamentals.topics.veerkracht.title'),
-        description: t('fundamentals.topics.veerkracht.description'),
+        title: "VEERKRACHT",
+        description: "Omgaan met tegenslag en weer opstaan",
       },
       {
         id: "dankbaarheid",
-        label: t('fundamentals.topics.dankbaarheid.label'),
+        label: "Dankbaarheid",
         border: "#F59E0B",
         icon: <SmileIcon />,
-        title: t('fundamentals.topics.dankbaarheid.title'),
-        description: t('fundamentals.topics.dankbaarheid.description'),
+        title: "DANKBAARHEID",
+        description: "Zie het goede en geniet van kleine momenten",
       },
       {
         id: "zelfzorg",
-        label: t('fundamentals.topics.zelfzorg.label'),
+        label: "Zelfzorg",
         border: "#22C55E",
         icon: <LeafIcon />,
-        title: t('fundamentals.topics.zelfzorg.title'),
-        description: t('fundamentals.topics.zelfzorg.description'),
+        title: "ZELFZORG",
+        description: "Zorg goed voor jezelf – lichaam en hoofd",
       },
       {
         id: "geldwijsheid",
-        label: t('fundamentals.topics.geldwijsheid.label'),
+        label: "Geldwijsheid",
         border: "#7C3AED",
         icon: <CoinIcon />,
-        title: t('fundamentals.topics.geldwijsheid.title'),
-        description: t('fundamentals.topics.geldwijsheid.description'),
+        title: "GELDWIJSHEID",
+        description: "Slimme keuzes maken en begrijpen wat geld is",
       },
       {
         id: "ondernemerschap",
-        label: t('fundamentals.topics.ondernemerschap.label'),
+        label: "Ondernemerschap",
         border: "#F97316",
         icon: <BriefcaseIcon />,
-        title: t('fundamentals.topics.ondernemerschap.title'),
-        description: t('fundamentals.topics.ondernemerschap.description'),
+        title: "ONDERNEMERSCHAP",
+        description: "Ideeën bedenken, proberen en doorzetten",
       },
       {
         id: "anders_denken",
-        label: t('fundamentals.topics.anders_denken.label'),
+        label: "Anders denken",
         border: "#38BDF8",
         icon: <BulbIcon />,
-        title: t('fundamentals.topics.anders_denken.title'),
-        description: t('fundamentals.topics.anders_denken.description'),
+        title: "ANDERS DENKEN",
+        description: "Creatief denken en nieuwe oplossingen vinden",
       },
     ],
-    [t]
+    []
   );
 
   const [active, setActive] = useState<TopicId>("emotionele_gezondheid");
@@ -256,7 +256,7 @@ export default function FundamentalsSection() {
 
                 <div className="absolute inset-0 grid place-items-center text-center">
                   <p className="text-[11px] font-semibold leading-5 text-black/65">
-                    {t('fundamentals.title')}
+                    7 fundamenten voor<br />een sterke start in<br />de wereld<br />van morgen.
                   </p>
                 </div>
               </div>
@@ -286,18 +286,18 @@ export default function FundamentalsSection() {
 
               {/* Label bubbles (speech style) */}
               <LabelBubble
-                text={t('fundamentals.topics.emotionele_gezondheid.label')}
+                text="Emotionele gezondheid"
                 border="#EF4444"
                 tail="none"
                 className="left-1/2 top-[46px] -translate-x-1/2"
               />
-              <LabelBubble text={t('fundamentals.topics.veerkracht.label')} border="#2563EB" tail="left" className="left-[560px] top-[100px]" />
-              <LabelBubble text={t('fundamentals.topics.dankbaarheid.label')} border="#F59E0B" tail="left" className="left-[600px] top-[172px]" />
-              <LabelBubble text={t('fundamentals.topics.zelfzorg.label')} border="#22C55E" tail="left" className="left-[565px] top-[242px]" />
+              <LabelBubble text="Veerkracht" border="#2563EB" tail="left" className="left-[560px] top-[100px]" />
+              <LabelBubble text="Dankbaarheid" border="#F59E0B" tail="left" className="left-[600px] top-[172px]" />
+              <LabelBubble text="Zelfzorg" border="#22C55E" tail="left" className="left-[565px] top-[242px]" />
 
-              <LabelBubble text={t('fundamentals.topics.anders_denken.label')} border="#38BDF8" tail="right" className="left-[70px] top-[100px]" />
-              <LabelBubble text={t('fundamentals.topics.ondernemerschap.label')} border="#F97316" tail="right" className="left-[28px] top-[172px]" />
-              <LabelBubble text={t('fundamentals.topics.geldwijsheid.label')} border="#7C3AED" tail="right" className="left-[62px] top-[242px]" />
+              <LabelBubble text="Anders denken" border="#38BDF8" tail="right" className="left-[70px] top-[100px]" />
+              <LabelBubble text="Ondernemerschap" border="#F97316" tail="right" className="left-[28px] top-[172px]" />
+              <LabelBubble text="Geldwijsheid" border="#7C3AED" tail="right" className="left-[62px] top-[242px]" />
 
               {/* CTA */}
               <div className="absolute left-1/2 top-[322px] -translate-x-1/2">
@@ -305,7 +305,7 @@ export default function FundamentalsSection() {
                   to="/preregistreer"
                   className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
                 >
-                  {t('fundamentals.cta')}
+                  PREREGISTREER HIER
                 </Link>
               </div>
 
@@ -324,13 +324,13 @@ export default function FundamentalsSection() {
         <div className="mx-auto mt-12 max-w-[860px] md:mt-12">
           <div className="rounded-2xl bg-white/85 shadow-[0_18px_50px_rgba(0,0,0,0.10)] ring-2 ring-black/5 backdrop-blur">
             <div className="flex overflow-x-auto rounded-t-2xl bg-white/80 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <TabButton label={t('fundamentals.topics.emotionele_gezondheid.label')} active={active === "emotionele_gezondheid"} onClick={() => setActive("emotionele_gezondheid")} hasDivider />
-              <TabButton label={t('fundamentals.topics.veerkracht.label')} active={active === "veerkracht"} onClick={() => setActive("veerkracht")} hasDivider />
-              <TabButton label={t('fundamentals.topics.dankbaarheid.label')} active={active === "dankbaarheid"} onClick={() => setActive("dankbaarheid")} hasDivider />
-              <TabButton label={t('fundamentals.topics.zelfzorg.label')} active={active === "zelfzorg"} onClick={() => setActive("zelfzorg")} />
-              <TabButton label={t('fundamentals.topics.geldwijsheid.label')} active={active === "geldwijsheid"} onClick={() => setActive("geldwijsheid")} />
-              <TabButton label={t('fundamentals.topics.ondernemerschap.label')} active={active === "ondernemerschap"} onClick={() => setActive("ondernemerschap")} />
-              <TabButton label={t('fundamentals.topics.anders_denken.label')} active={active === "anders_denken"} onClick={() => setActive("anders_denken")} />
+              <TabButton label="Emotionele gezondheid" active={active === "emotionele_gezondheid"} onClick={() => setActive("emotionele_gezondheid")} hasDivider />
+              <TabButton label="Veerkracht" active={active === "veerkracht"} onClick={() => setActive("veerkracht")} hasDivider />
+              <TabButton label="Dankbaarheid" active={active === "dankbaarheid"} onClick={() => setActive("dankbaarheid")} hasDivider />
+              <TabButton label="Zelfzorg" active={active === "zelfzorg"} onClick={() => setActive("zelfzorg")} />
+              <TabButton label="Geldwijsheid" active={active === "geldwijsheid"} onClick={() => setActive("geldwijsheid")} />
+              <TabButton label="Ondernemerschap" active={active === "ondernemerschap"} onClick={() => setActive("ondernemerschap")} />
+              <TabButton label="Anders denken" active={active === "anders_denken"} onClick={() => setActive("anders_denken")} />
             </div>
 
             <div className="rounded-b-2xl bg-white px-6 py-5">
@@ -352,7 +352,7 @@ export default function FundamentalsSection() {
         {/* ✅ Bottom headline (like screenshot) */}
         <div className="relative mt-16 flex items-center justify-center pb-6">
           <h3 className="text-center text-[44px] font-black leading-[0.95] tracking-tight text-black">
-            {t('fundamentals.noLesson')}
+            Geen lesstof.<br />Levensstof.
           </h3>
 
           <Sparkle className="pointer-events-none absolute right-[40%] top-[8px] h-4 w-4 opacity-85" />

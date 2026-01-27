@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 
 type Stat = {
@@ -21,18 +21,18 @@ export default function StatsCtaSection({
   ctaHref = "/preregistreer",
   ctaLabel,
 }: Props) {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.35, once: true });
 
-  const finalHeadline = headline || t('stats.headline');
-  const finalCtaLabel = ctaLabel || t('stats.cta');
+  const finalHeadline = headline || "90% van het brein ontwikkelt vóór jaar 7.\nKleine momentjes, grote impact.";
+  const finalCtaLabel = ctaLabel || "PREREGISTREER HIER";
   const data: Stat[] =
     stats ?? [
-      { value: t('stats.stat1Value'), label: t('stats.stat1Label') },
-      { value: t('stats.stat2Value'), label: t('stats.stat2Label') },
-      { value: t('stats.stat3Value'), label: t('stats.stat3Label') },
+      { value: "10 min", label: "gemiddelde tijd\nper activiteit" },
+      { value: "80%", label: "ervaart sterkere\nouder-kind band" },
+      { value: "94%", label: "van kinderen toont\nverbetering in emotionele\nintelligentie" },
     ];
 
   const container: Variants = {

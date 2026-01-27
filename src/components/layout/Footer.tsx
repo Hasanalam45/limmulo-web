@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import LuumiloLogo from "../brand/LuumiloLogo";
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 
 export default function Footer() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLElement | null>(null);
   const inView = useInView(ref, { amount: 0.25, once: true });
@@ -49,7 +49,7 @@ export default function Footer() {
             </Link>
 
             <div className="mt-6 space-y-1 text-[12px] sm:text-[11px] font-medium leading-5 text-black/60">
-              <p className="font-extrabold text-black/75">{t('footer.contact')}</p>
+              <p className="font-extrabold text-black/75">Contact</p>
 
               <a className="block hover:text-black/80" href="tel:+31627583306">
                 +31 6 27 58 33 06
@@ -96,40 +96,40 @@ export default function Footer() {
 
           {/* Company */}
           <motion.div variants={item} className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black/60">
-            <p className="font-extrabold text-black/75">{t('footer.company')}</p>
+            <p className="font-extrabold text-black/75">Bedrijf</p>
 
             <motion.div whileHover={linkHover}>
               <Link className="block transition hover:text-black/80" to="/over-ons">
-                {t('footer.about')}
+                Over ons
               </Link>
             </motion.div>
 
             <motion.div whileHover={linkHover}>
               <Link className="block transition hover:text-black/80" to="/vacatures">
-                {t('footer.jobs')}
+                Vacatures
               </Link>
             </motion.div>
 
             <motion.div whileHover={linkHover}>
               <Link className="block transition hover:text-black/80" to="/pers">
-                {t('footer.press')}
+                Pers
               </Link>
             </motion.div>
           </motion.div>
 
           {/* Support */}
           <motion.div variants={item} className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black/60">
-            <p className="font-extrabold text-black/75">{t('footer.support')}</p>
+            <p className="font-extrabold text-black/75">Ondersteuning</p>
 
             <motion.div whileHover={linkHover}>
               <Link className="block transition hover:text-black/80" to="/veelgestelde-vragen">
-                {t('footer.faq')}
+                Veelgestelde vragen
               </Link>
             </motion.div>
 
             <motion.div whileHover={linkHover}>
               <Link className="block transition hover:text-black/80" to="/privacybeleid">
-                {t('footer.privacy')}
+                Privacybeleid
               </Link>
             </motion.div>
           </motion.div>
@@ -140,7 +140,7 @@ export default function Footer() {
             className="text-left sm:text-left lg:text-right"
           >
             <p className="text-[12px] sm:text-[11px] font-medium leading-5 text-black/50">
-              "{t('footer.quote')}"
+              "Het platform dat kinderen vandaag voorbereidt op de wereld van morgen."
             </p>
 
             <div className="mt-3 inline-flex items-center gap-2 lg:justify-end">
@@ -162,8 +162,8 @@ export default function Footer() {
             sm:flex-row sm:items-center sm:justify-between
           "
         >
-          <p>{t('footer.rights')}</p>
-          <p>{t('footer.madeWithLove')}</p>
+          <p>Alle rechten voorbehouden. © 2026 door Luumilo</p>
+          <p>Met liefde gemaakt voor kinderen over de hele wereld.</p>
         </motion.div>
       </motion.div>
     </footer>

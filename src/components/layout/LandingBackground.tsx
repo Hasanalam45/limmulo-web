@@ -22,18 +22,20 @@ const howItWorksBackground =
   "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
 
 const stepsBackground = [
-  // Top-left: light blue-grey (much darker)
-  "radial-gradient(1200px 800px at 0% 0%, rgba(180,190,200,1) 0%, rgba(180,190,200,0.98) 20%, rgba(180,190,200,0.92) 40%, rgba(180,190,200,0.8) 60%, rgba(180,190,200,0.5) 80%, rgba(180,190,200,0) 95%)",
-  // Top-middle: pale yellowish-green (much darker)
-  "radial-gradient(1000px 700px at 35% 10%, rgba(200,220,180,1) 0%, rgba(200,220,180,0.95) 20%, rgba(200,220,180,0.88) 40%, rgba(200,220,180,0.75) 60%, rgba(200,220,180,0.5) 80%, rgba(200,220,180,0) 95%)",
-  // Middle-right: soft warm orange/peach (much darker)
-  "radial-gradient(1100px 900px at 75% 35%, rgba(255,180,140,1) 0%, rgba(255,180,140,0.98) 15%, rgba(255,180,140,0.95) 30%, rgba(255,180,140,0.88) 50%, rgba(255,180,140,0.7) 70%, rgba(255,180,140,0.4) 85%, rgba(255,180,140,0) 95%)",
-  // Bottom-left: light lavender/purple (much darker)
-  "radial-gradient(1000px 800px at 10% 80%, rgba(200,180,220,1) 0%, rgba(200,180,220,0.98) 20%, rgba(200,180,220,0.92) 40%, rgba(200,180,220,0.8) 60%, rgba(200,180,220,0.55) 80%, rgba(200,180,220,0) 95%)",
-  // Right side: white/light (replacing pink)
-  "radial-gradient(1400px 1000px at 100% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0) 80%)",
-  // Base gradient overlay (much darker)
-  "linear-gradient(180deg, rgba(180,190,200,0.85) 0%, rgba(200,220,180,0.8) 20%, rgba(255,180,140,0.9) 50%, rgba(200,180,220,0.8) 70%, rgba(255,255,255,0.4) 100%)",
+  // Top-left: light blue-grey (lighter)
+  "radial-gradient(1200px 800px at 0% 0%, rgba(190,200,210,1) 0%, rgba(190,200,210,0.98) 20%, rgba(190,200,210,0.92) 40%, rgba(190,200,210,0.8) 60%, rgba(190,200,210,0.5) 80%, rgba(190,200,210,0) 95%)",
+  // Top-middle: pale yellowish-green (slightly darker)
+  "radial-gradient(1000px 700px at 35% 10%, rgba(180,200,160,1) 0%, rgba(180,200,160,0.95) 20%, rgba(180,200,160,0.88) 40%, rgba(180,200,160,0.75) 60%, rgba(180,200,160,0.5) 80%, rgba(180,200,160,0) 95%)",
+  // Middle-right: soft warm orange/peach (slightly darker)
+  "radial-gradient(1100px 900px at 75% 35%, rgba(235,160,120,1) 0%, rgba(235,160,120,0.98) 15%, rgba(235,160,120,0.95) 30%, rgba(235,160,120,0.88) 50%, rgba(235,160,120,0.7) 70%, rgba(235,160,120,0.4) 85%, rgba(235,160,120,0) 95%)",
+  // Bottom-left: light lavender/purple (darker pinkish)
+  "radial-gradient(1000px 800px at 10% 80%, rgba(150,130,170,1) 0%, rgba(150,130,170,0.98) 20%, rgba(150,130,170,0.92) 40%, rgba(150,130,170,0.8) 60%, rgba(150,130,170,0.55) 80%, rgba(150,130,170,0) 95%)",
+  // Bottom-center: darker pinkish purple
+  "radial-gradient(1000px 800px at 50% 85%, rgba(130,110,150,0.9) 0%, rgba(130,110,150,0.85) 20%, rgba(130,110,150,0.75) 40%, rgba(130,110,150,0.6) 60%, rgba(130,110,150,0.4) 80%, rgba(130,110,150,0) 95%)",
+  // Right side: white/light (slightly darker)
+  "radial-gradient(1400px 1000px at 100% 50%, rgba(240,240,240,0.95) 0%, rgba(240,240,240,0.85) 20%, rgba(240,240,240,0.6) 40%, rgba(240,240,240,0.3) 60%, rgba(240,240,240,0) 80%)",
+  // Base gradient overlay (slightly darker)
+  "linear-gradient(180deg, rgba(190,200,210,0.85) 0%, rgba(180,200,160,0.8) 20%, rgba(235,160,120,0.9) 50%, rgba(130,110,150,0.85) 70%, rgba(240,240,240,0.4) 100%)",
 ].join(",");
 
 const fundamentalsBackground = [

@@ -6,7 +6,7 @@ import WhatWeDoSection from "../components/about/WhatWeDoSection";
 import FamilySection from "../components/about/FamilySection";
 import WhyItMattersSection from "../components/about/WhyItMattersSection";
 import MissionVisionSection from "../components/about/MissionVisionSection";
-import AboutFinalCtaSection from "../components/about/AboutFinalCtaSection";
+// import AboutFinalCtaSection from "../components/about/AboutFinalCtaSection";
 
 import AboutBackground from "../components/layout/AboutBackground";
 
@@ -49,9 +49,9 @@ export default function AboutPage() {
         </SectionReveal>
 
         {/* 7) Final CTA slot */}
-        <SectionReveal>
+        {/* <SectionReveal>
           <AboutFinalCtaSection />
-        </SectionReveal>
+        </SectionReveal> */}
 
         {/* 8) Footer slot */}
         <SectionReveal>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 
 function Sparkle({ className, delay = 0 }: { className?: string; delay?: number }) {
@@ -47,7 +47,7 @@ function Rocket({ className }: { className?: string }) {
 }
 
 export default function AboutFinalCtaSection() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.35, once: true });
@@ -132,7 +132,7 @@ export default function AboutFinalCtaSection() {
                   variants={item}
                   className="text-black font-black tracking-tight text-[18px] sm:text-[20px] lg:text-[22px]"
                 >
-                  {t('about.finalCta.title')}
+                  Ga mee op reis!
                 </motion.h3>
 
                 <motion.p
@@ -144,7 +144,7 @@ export default function AboutFinalCtaSection() {
                     leading-6 sm:leading-6 lg:leading-7
                   "
                 >
-                  {t('about.finalCta.p1')}
+                  Wij nodigen je uit om Luumilo te ontdekken, de activiteiten uit te proberen, de voortgang van je kind te volgen en te genieten van de leerzame en grappige momentjes die je onderweg tegenkomt.
                 </motion.p>
 
                 <motion.p
@@ -155,7 +155,7 @@ export default function AboutFinalCtaSection() {
                     text-[11px] sm:text-[12px] lg:text-[13px]
                     leading-6 sm:leading-6 lg:leading-7
                   "
-                  dangerouslySetInnerHTML={{ __html: t('about.finalCta.p2') }}
+                  dangerouslySetInnerHTML={{ __html: "Laten we samen een betere toekomst bouwen,<br /> één dag, één missie tegelijk." }}
                 />
 
                 <motion.div variants={item} className="mt-6 flex justify-center">
@@ -168,7 +168,7 @@ export default function AboutFinalCtaSection() {
                       to="/preregistreer"
                       className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-10 sm:px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
                     >
-                      {t('about.finalCta.cta')}
+                      PREREGISTREER HIER
                     </Link>
                   </motion.div>
                 </motion.div>
