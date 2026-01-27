@@ -1,0 +1,13 @@
+<svg width="759" height="680" viewBox="0 0 759 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="purpleGradient" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#C48CD1" stop-opacity="1" />
+    <stop offset="60%" stop-color="#C48CD1" stop-opacity="1" />
+    <stop offset="85%" stop-color="#C48CD1" stop-opacity="0.95" />
+    <stop offset="95%" stop-color="#C48CD1" stop-opacity="0.7" />
+    <stop offset="100%" stop-color="#C48CD1" stop-opacity="0" />
+  </radialGradient>
+</defs>
+<path d="M343.268 635.026C456.167 775.721 758.647 558.271 758.647 368.404C758.647 227.015 621.462 12.8979 431.99 0.793418C262.954 -10.0038 12.5763 89.6648 0.475781 283.571C-11.6247 477.478 209.908 468.835 343.268 635.026Z" fill="url(#purpleGradient)"/>
+</svg>
+

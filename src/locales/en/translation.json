@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "aboutApp": "About the App",
+    "testFamily": "Become a Test Family",
+    "preregister": "Preregister Here!"
+  },
+  "hero": {
+    "title": "Give your child a strong start.",
+    "subtitle": "For children aged 3-6: 10 minutes a day laughing, learning and growing together. Playful missions that strengthen your bond, screen-free.",
+    "forParents": "For parents",
+    "forParentsDesc": "who feel that inner strength is more important than high grades.",
+    "forChildren": "For children",
+    "forChildrenDesc": "who step into the world independently, strongly and curiously.",
+    "only3Spots": "ONLY 3 SPOTS LEFT!",
+    "joinAsTestFamily": "Join as a test family",
+    "benefits": {
+      "lifetime": "Lifetime free access",
+      "exclusive": "Exclusive access to new features",
+      "direct": "Direct contact with developers"
+    },
+    "signUp": "SIGN UP",
+    "formNote": "Questionnaire with first/last name, child's age, experience",
+    "preregister": "Preregister for the app",
+    "preregisterBenefits": {
+      "discount": "First month 50% discount",
+      "free": "Receive our best and most rated exercise for free now",
+      "notify": "Be the first to hear when we officially launch"
+    },
+    "emailPlaceholder": "Enter your email address",
+    "emailNote": "Only your email address, nothing more",
+    "keepMeUpdated": "KEEP ME UPDATED"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "learningAreas": "7 learning areas",
+    "learningAreasDesc": "from emotional health to entrepreneurship",
+    "timePerDay": "5 – 15 minutes per day",
+    "timePerDayDesc": "always fits into your daily routine",
+    "noScreen": "no screen",
+    "noScreenDesc": "play together, grow together"
+  },
+  "steps": {
+    "step1Title": "Play, learn\nand grow",
+    "step1Desc": "Short, playful activities that build your child's foundation - at home, with attention and intention.",
+    "step2Title": "Strengthen the bond\nwith your child",
+    "step2Desc": "Create moments of connection, joy and growth. Discover, laugh and learn together.",
+    "step3Title": "Grow on 3 levels:\nhead, heart and hands",
+    "step3Desc": "Every activity strengthens emotional, practical and social skills, track your progress!",
+    "testimonial": "\"My child has fear of failure, but the 'self-love' exercise did him a lot of good.\"",
+    "cta": "PREREGISTER HERE"
+  },
+  "fundamentals": {
+    "title": "7 fundamentals for\na strong start in\ntomorrow's\nworld.",
+    "noLesson": "No curriculum.\nLife skills.",
+    "cta": "PREREGISTER HERE",
+    "topics": {
+      "emotionele_gezondheid": {
+        "label": "Emotional health",
+        "title": "EMOTIONAL HEALTH",
+        "description": "Recognize what you feel and learn to say it"
+      },
+      "veerkracht": {
+        "label": "Resilience",
+        "title": "RESILIENCE",
+        "description": "Deal with setbacks and get back up"
+      },
+      "dankbaarheid": {
+        "label": "Gratitude",
+        "title": "GRATITUDE",
+        "description": "See the good and enjoy small moments"
+      },
+      "zelfzorg": {
+        "label": "Self-care",
+        "title": "SELF-CARE",
+        "description": "Take good care of yourself – body and mind"
+      },
+      "geldwijsheid": {
+        "label": "Financial wisdom",
+        "title": "FINANCIAL WISDOM",
+        "description": "Make smart choices and understand what money is"
+      },
+      "ondernemerschap": {
+        "label": "Entrepreneurship",
+        "title": "ENTREPRENEURSHIP",
+        "description": "Come up with ideas, try and persevere"
+      },
+      "anders_denken": {
+        "label": "Think differently",
+        "title": "THINK DIFFERENTLY",
+        "description": "Think creatively and find new solutions"
+      }
+    }
+  },
+  "stats": {
+    "headline": "90% of the brain develops before age 7.\nSmall moments, big impact.",
+    "stat1Value": "10 min",
+    "stat1Label": "average time\nper activity",
+    "stat2Value": "80%",
+    "stat2Label": "experience stronger\nparent-child bond",
+    "stat3Value": "94%",
+    "stat3Label": "of children show\nimprovement in emotional\nintelligence",
+    "cta": "PREREGISTER HERE"
+  },
+  "footer": {
+    "contact": "Contact",
+    "company": "Company",
+    "support": "Support",
+    "about": "About Us",
+    "jobs": "Jobs",
+    "press": "Press",
+    "faq": "Frequently Asked Questions",
+    "privacy": "Privacy Policy",
+    "quote": "The platform that prepares children today for tomorrow's world.",
+    "rights": "All rights reserved. © 2026 by Luumilo",
+    "madeWithLove": "Made with love for children all over the world."
+  },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "p1": "At Luumilo, we believe that some of the most important life skills – such as emotional resilience, gratitude and self-care – can best be learned early on, through real experiences and playful interaction.",
+      "p2": "That's why we've created a platform that helps families introduce these essential values to children aged 3 to 6 through fun, screen-free daily activities.",
+      "cta": "PREREGISTER HERE"
+    },
+    "whatWeDo": {
+      "title": "What we do",
+      "description": "Every week, Luumilo offers a curated set of five practical activities in the Play Week, focused on learning through play. Each activity is designed to strengthen the bond between parent and child and explore themes such as:",
+      "items": {
+        "emotionele_gezondheid": {
+          "title": "Emotional health",
+          "desc": "Recognize what you feel and learn to say it"
+        },
+        "veerkracht": {
+          "title": "Resilience",
+          "desc": "Keep trying, even when something is difficult"
+        },
+        "dankbaarheid": {
+          "title": "Gratitude",
+          "desc": "See what is there — and feel how good that is"
+        },
+        "zelfzorg": {
+          "title": "Self-care",
+          "desc": "Take good care of your body and your mind"
+        },
+        "geldwijsheid": {
+          "title": "Financial wisdom",
+          "desc": "Learn to deal with money, things and make smart choices"
+        },
+        "ondernemerschap": {
+          "title": "Entrepreneurship",
+          "desc": "Look differently, think further, find your own idea"
+        },
+        "anders_denken": {
+          "title": "Think differently",
+          "desc": "Look differently, think further, find your own idea"
+        }
+      }
+    },
+    "family": {
+      "title": "Why it matters",
+      "description": "Did you know that 90% of brain development occurs before the 7th year of life? Precisely in these formative years, Luumilo lays the foundation for healthy habits and emotional resilience. This way, children grow up to be self-confident, empathetic, and strong people, with qualities they can build on throughout their lives.",
+      "imageAlt": "Happy family portrait"
+    },
+    "missionVision": {
+      "mission": {
+        "title": "Mission",
+        "p1": "At Luumilo, we help you as a parent to build your child's inner strength at home in a simple and inspiring way.",
+        "p2": "With our learning platform, you support your child (3–6) in developing resilience, gratitude, self-care and essential life skills – through small, achievable steps that fit into your daily life. Without extra stress and free from screen time."
+      },
+      "vision": {
+        "title": "Vision",
+        "p1": "We believe that children who stand firm in their shoes are ready for the future.",
+        "p2": "In a world full of stimuli, performance pressure and constant changes, we offer you an accessible, unique and playful method to give your child a strong foundation: with attention and intention, fitting into your family life.",
+        "p3": "Our goal is to build a more powerful, meaningful beginning together with millions of parents like you in the most important and formative years of your children."
+      }
+    },
+    "finalCta": {
+      "title": "Come along on the journey!",
+      "p1": "We invite you to discover Luumilo, try out the activities, track your child's progress and enjoy the educational and fun moments you encounter along the way.",
+      "p2": "Let's build a better future together,<br /> one day, one mission at a time.",
+      "cta": "PREREGISTER HERE"
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "aboutApp": "Over de app",
+    "testFamily": "Word testgezin",
+    "preregister": "Preregistreer hier!"
+  },
+  "hero": {
+    "title": "Geef je kind een sterke start.",
+    "subtitle": "Voor kinderen van 3-6 jaar: 10 minuten per dag samen lachen, leren en groeien. Speelse missies die jullie band versterken, schermvrij.",
+    "forParents": "Voor ouders",
+    "forParentsDesc": "die voelen dat innerlijke kracht belangrijker is dan hoge cijfers.",
+    "forChildren": "Voor kinderen",
+    "forChildrenDesc": "die zelfstandig, sterk en nieuwsgierig de wereld in stappen.",
+    "only3Spots": "NOG 3 PLEKKEN!",
+    "joinAsTestFamily": "Doe mee als testgezin",
+    "benefits": {
+      "lifetime": "Levenslang gratis toegang",
+      "exclusive": "Exclusieve toegang tot nieuwe features",
+      "direct": "Direct contact met ontwikkelaars"
+    },
+    "signUp": "MELD JE AAN",
+    "formNote": "Vragenlijst met voor/achternaam, leeftijd kind, ervaring",
+    "preregister": "Preregistreer voor de app",
+    "preregisterBenefits": {
+      "discount": "Eerste maand 50% korting",
+      "free": "Ontvang nu onze best en meest beoordeelde oefening gratis",
+      "notify": "Hoor als eerste wanneer we officieel lanceren"
+    },
+    "emailPlaceholder": "Vul je e-mailadres in",
+    "emailNote": "Alleen je e-mailadres, meer niet",
+    "keepMeUpdated": "HOUD ME OP DE HOOGTE"
+  },
+  "howItWorks": {
+    "title": "Hoe het werkt",
+    "learningAreas": "7 leergebieden",
+    "learningAreasDesc": "van emotionele gezondheid tot ondernemerschap",
+    "timePerDay": "5 – 15 minuten per dag",
+    "timePerDayDesc": "past altijd in jullie dagritme",
+    "noScreen": "geen scherm",
+    "noScreenDesc": "samen spelen, samen groeien"
+  },
+  "steps": {
+    "step1Title": "Speel, leer\nen groei",
+    "step1Desc": "Korte, speelse activiteiten die bouwen aan de fundering van je kind - thuis, met aandacht en intentie.",
+    "step2Title": "Versterk de band\nmet je kind",
+    "step2Desc": "Creëer momenten van verbinding, plezier en groei. Samen ontdekken, lachen en leren.",
+    "step3Title": "Groei op 3 vlakken:\nhoofd, hart en handen",
+    "step3Desc": "Elke activiteit versterkt emotionele, praktische en sociale vaardigheden, volg jullie voortgang!",
+    "testimonial": "\"Mijn kind heeft faalangst, maar de 'zelfliefde' oefening deed hem enorm goed.\"",
+    "cta": "PREREGISTREER HIER"
+  },
+  "fundamentals": {
+    "title": "7 fundamenten voor\neen sterke start in\nde wereld\nvan morgen.",
+    "noLesson": "Geen lesstof.\nLevensstof.",
+    "cta": "PREREGISTREER HIER",
+    "topics": {
+      "emotionele_gezondheid": {
+        "label": "Emotionele gezondheid",
+        "title": "EMOTIONELE GEZONDHEID",
+        "description": "Herken wat je voelt en leer dat ook zeggen"
+      },
+      "veerkracht": {
+        "label": "Veerkracht",
+        "title": "VEERKRACHT",
+        "description": "Omgaan met tegenslag en weer opstaan"
+      },
+      "dankbaarheid": {
+        "label": "Dankbaarheid",
+        "title": "DANKBAARHEID",
+        "description": "Zie het goede en geniet van kleine momenten"
+      },
+      "zelfzorg": {
+        "label": "Zelfzorg",
+        "title": "ZELFZORG",
+        "description": "Zorg goed voor jezelf – lichaam en hoofd"
+      },
+      "geldwijsheid": {
+        "label": "Geldwijsheid",
+        "title": "GELDWIJSHEID",
+        "description": "Slimme keuzes maken en begrijpen wat geld is"
+      },
+      "ondernemerschap": {
+        "label": "Ondernemerschap",
+        "title": "ONDERNEMERSCHAP",
+        "description": "Ideeën bedenken, proberen en doorzetten"
+      },
+      "anders_denken": {
+        "label": "Anders denken",
+        "title": "ANDERS DENKEN",
+        "description": "Creatief denken en nieuwe oplossingen vinden"
+      }
+    }
+  },
+  "stats": {
+    "headline": "90% van het brein ontwikkelt vóór jaar 7.\nKleine momentjes, grote impact.",
+    "stat1Value": "10 min",
+    "stat1Label": "gemiddelde tijd\nper activiteit",
+    "stat2Value": "80%",
+    "stat2Label": "ervaart sterkere\nouder-kind band",
+    "stat3Value": "94%",
+    "stat3Label": "van kinderen toont\nverbetering in emotionele\nintelligentie",
+    "cta": "PREREGISTREER HIER"
+  },
+  "footer": {
+    "contact": "Contact",
+    "company": "Bedrijf",
+    "support": "Ondersteuning",
+    "about": "Over ons",
+    "jobs": "Vacatures",
+    "press": "Pers",
+    "faq": "Veelgestelde vragen",
+    "privacy": "Privacybeleid",
+    "quote": "Het platform dat kinderen vandaag voorbereidt op de wereld van morgen.",
+    "rights": "Alle rechten voorbehouden. © 2026 door Luumilo",
+    "madeWithLove": "Met liefde gemaakt voor kinderen over de hele wereld."
+  },
+  "about": {
+    "hero": {
+      "title": "Over ons",
+      "p1": "Bij Luumilo geloven we dat sommige van de belangrijkste vaardigheden in het leven – zoals emotionele veerkracht, dankbaarheid en zelfzorg – het beste al vroeg aangeleerd kunnen worden, door middel van echte ervaringen en speelse interactie.",
+      "p2": "Daarom hebben we een platform gecreëerd dat gezinnen helpt deze essentiële waarden te introduceren bij kinderen van 3 tot 6 jaar door middel van leuke, schermloze dagelijkse activiteiten.",
+      "cta": "PREREGISTREER HIER"
+    },
+    "whatWeDo": {
+      "title": "Wat wij doen",
+      "description": "Elke week biedt Luumilo een samengestelde set van vijf praktische activiteiten aan, in de Speelweek, gericht op leren door te spelen. Elke activiteit is ontworpen om de band tussen ouder en kind te versterken en thema's te verkennen zoals:",
+      "items": {
+        "emotionele_gezondheid": {
+          "title": "Emotionele gezondheid",
+          "desc": "Herken wat je voelt en leer dat ook zeggen"
+        },
+        "veerkracht": {
+          "title": "Veerkracht",
+          "desc": "Blijf proberen, ook als iets moeilijk is"
+        },
+        "dankbaarheid": {
+          "title": "Dankbaarheid",
+          "desc": "Zie wat er wél is — en voel hoe fijn dat is"
+        },
+        "zelfzorg": {
+          "title": "Zelfzorg",
+          "desc": "Zorg goed voor je lichaam én je hoofd"
+        },
+        "geldwijsheid": {
+          "title": "Geldwijsheid",
+          "desc": "Leer omgaan met geld, spullen en slimme keuzes maken"
+        },
+        "ondernemerschap": {
+          "title": "Ondernemerschap",
+          "desc": "Kijk anders, denk verder, vind je eigen idee"
+        },
+        "anders_denken": {
+          "title": "Anders denken",
+          "desc": "Kijk anders, denk verder, vind je eigen idee"
+        }
+      }
+    },
+    "family": {
+      "title": "Waarom het ertoe doet",
+      "description": "Wist je dat 90% van de hersenontwikkeling plaatsvindt vóór het 7e levensjaar? Juist in deze vormende jaren legt Luumilo de basis voor gezonde gewoonten en emotionele veerkracht. Zo groeien kinderen op tot zelfverzekerde, empathische en sterke mensen, met kwaliteiten waar ze hun hele leven op kunnen bouwen.",
+      "imageAlt": "Gelukkige familieportret"
+    },
+    "missionVision": {
+      "mission": {
+        "title": "Missie",
+        "p1": "Bij Luumilo helpen we jou als ouder om op een eenvoudige en inspirerende manier thuis te bouwen aan de innerlijke kracht van je kind.",
+        "p2": "Met ons leerplatform ondersteun je je kind (3–6) in het ontwikkelen van veerkracht, dankbaarheid, zelfzorg en essentiële levensvaardigheden – via kleine, haalbare stappen die passen in jullie dagelijks leven. Zonder extra stress en vrij van schermtijd."
+      },
+      "vision": {
+        "title": "Visie",
+        "p1": "Wij geloven dat kinderen die stevig in hun schoenen staan, klaar zijn voor de toekomst.",
+        "p2": "In een wereld vol prikkels, prestatiedruk en constante veranderingen, bieden wij jou een toegankelijke, unieke en speelse methode om je kind een sterke basis te leggen: met aandacht en intentie, passend in jullie gezinsleven.",
+        "p3": "Ons doel is om samen met miljoenen ouders zoals jij een krachtiger, betekenisvoller begin te bouwen in de belangrijkste en meest vormende jaren van jullie kinderen."
+      }
+    },
+    "finalCta": {
+      "title": "Ga mee op reis!",
+      "p1": "Wij nodigen je uit om Luumilo te ontdekken, de activiteiten uit te proberen, de voortgang van je kind te volgen en te genieten van de leerzame en grappige momentjes die je onderweg tegenkomt.",
+      "p2": "Laten we samen een betere toekomst bouwen,<br /> één dag, één missie tegelijk.",
+      "cta": "PREREGISTREER HIER"
+    }
+  }
+}
