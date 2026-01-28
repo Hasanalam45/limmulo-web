@@ -54,8 +54,11 @@ export default function CenteredCopyCtaSection({
           <motion.div
             className="absolute inset-0 transform-gpu"
             style={{
-              background:
-                "linear-gradient(90deg, rgba(255,100,160,0.90) 0%, rgba(255,170,110,0.90) 55%, rgba(255,245,235,0.95) 100%)",
+              background: [
+                "radial-gradient(53.36% 175.42% at 48.9% 49.52%, rgba(255, 252, 250, 0.15) 0%, rgba(255, 252, 250, 0.08) 50%, rgba(255, 252, 250, 0) 100%)",
+                "radial-gradient(86.2% 283.39% at 16.04% 64.17%, rgba(255, 102, 147, 0.85) 0%, rgba(255, 102, 147, 0.5) 47.04%, rgba(255, 102, 147, 0) 58%)",
+                "radial-gradient(68.99% 226.82% at 65.62% 30%, #FFB653 0%, rgba(255, 182, 83, 0.75) 25%, rgba(255, 182, 83, 0) 50%)",
+              ].join(","),
             }}
             aria-hidden="true"
             initial={false}
@@ -118,7 +121,7 @@ export default function CenteredCopyCtaSection({
                     {s.value}
                   </div>
 
-                  <div className="mx-auto mt-3 h-[3px] w-10 rounded-full bg-sky-400" />
+                  <div className="mx-auto mt-2 h-[5px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
                   <p className="mx-auto mt-4 whitespace-pre-line text-[11px] leading-4 text-black/70 sm:text-[11px] sm:leading-5 lg:text-[12px]">
                     {s.label}
@@ -151,7 +154,7 @@ export default function CenteredCopyCtaSection({
             >
               <Link
                 to={ctaHref}
-                className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300 sm:px-12"
+                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12"
               >
                 {finalCtaLabel}
               </Link>

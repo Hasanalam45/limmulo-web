@@ -1,28 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
-
-function Sparkle({ className, delay = 0 }: { className?: string; delay?: number }) {
-  const reduce = useReducedMotion();
-
-  return (
-    <motion.span
-      className={className}
-      aria-hidden="true"
-      initial={false}
-      animate={
-        reduce
-          ? { opacity: 0.9 }
-          : { opacity: [0.55, 0.95, 0.6], scale: [0.92, 1.06, 0.94], rotate: [0, 10, 0] }
-      }
-      transition={reduce ? { duration: 0 } : { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay }}
-    >
-      <FaStar className="h-full w-full text-white" />
-    </motion.span>
-  );
-}
 
 function DoodleArrow({ className }: { className?: string }) {
   return (
@@ -104,19 +83,30 @@ export default function AboutFinalCtaSection() {
               <div
                 className="
                   relative z-10 text-center
-                  px-7 py-12
-                  sm:px-10 sm:py-14
+                  px-6 py-10
+                  sm:px-8 sm:py-12
+                  md:px-10 md:py-14
                   lg:px-12 lg:py-16
                 "
               >
                 {/* sparkles */}
-                <Sparkle className="pointer-events-none absolute right-12 top-10 h-4 w-4 opacity-90" delay={0.0} />
-                <Sparkle className="pointer-events-none absolute right-16 top-16 h-3.5 w-3.5 opacity-85" delay={0.4} />
-                <Sparkle className="pointer-events-none absolute left-16 top-20 h-3.5 w-3.5 opacity-85" delay={0.8} />
+                <motion.span
+                  className="pointer-events-none absolute right-4 top-4 h-[40px] w-[40px] sm:right-8 sm:top-8 sm:h-[50px] sm:w-[50px]"
+                  aria-hidden="true"
+                  initial={false}
+                  animate={
+                    reduce
+                      ? { opacity: 0.85 }
+                      : { opacity: [0.55, 0.95, 0.6], scale: [0.92, 1.06, 0.94], rotate: [0, 10, 0] }
+                  }
+                  transition={reduce ? { duration: 0 } : { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                >
+                  <img src="/landingpage/big-star.svg" alt="" className="h-full w-full" />
+                </motion.span>
 
                 {/* rocket left (animated) */}
                 <motion.div
-                  className="pointer-events-none absolute -left-12 sm:-left-10 top-14 sm:top-16"
+                  className="pointer-events-none absolute -left-8 sm:-left-4 md:-left-[20px] top-8 sm:top-12 md:top-[70px]"
                   initial={false}
                   animate={
                     reduce
@@ -125,12 +115,12 @@ export default function AboutFinalCtaSection() {
                   }
                   transition={reduce ? { duration: 0 } : { duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Rocket className="h-[96px] w-[78px] sm:h-[108px] sm:w-[86px]" />
+                  <Rocket className="h-[90px] w-[70px] sm:h-[120px] sm:w-[70px] md:h-[180px] md:w-[80px] lg:h-[230px] lg:w-[100px]" />
                 </motion.div>
 
                 <motion.h3
                   variants={item}
-                  className="text-black font-black tracking-tight text-[18px] sm:text-[20px] lg:text-[22px]"
+                  className="text-left text-black font-black tracking-tight text-[18px] sm:text-[18px] md:text-[20px] lg:text-[30px] ml-4 sm:ml-10"
                 >
                   Ga mee op reis!
                 </motion.h3>
@@ -138,10 +128,11 @@ export default function AboutFinalCtaSection() {
                 <motion.p
                   variants={item}
                   className="
-                    mx-auto mt-3 max-w-[420px]
+                    text-left mt-3 max-w-[420px]
                     text-black/80 font-medium
-                    text-[11px] sm:text-[12px] lg:text-[13px]
-                    leading-6 sm:leading-6 lg:leading-7
+                    text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px]
+                    leading-5 sm:leading-6 md:leading-6 lg:leading-7
+                    ml-4 sm:ml-10
                   "
                 >
                   Wij nodigen je uit om Luumilo te ontdekken, de activiteiten uit te proberen, de voortgang van je kind te volgen en te genieten van de leerzame en grappige momentjes die je onderweg tegenkomt.
@@ -150,23 +141,24 @@ export default function AboutFinalCtaSection() {
                 <motion.p
                   variants={item}
                   className="
-                    mx-auto mt-5 max-w-[420px]
+                    text-left mt-4 sm:mt-5 max-w-[420px]
                     text-black/85 font-extrabold
-                    text-[11px] sm:text-[12px] lg:text-[13px]
-                    leading-6 sm:leading-6 lg:leading-7
+                    text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px]
+                    leading-5 sm:leading-6 md:leading-6 lg:leading-7
+                    ml-4 sm:ml-10
                   "
                   dangerouslySetInnerHTML={{ __html: "Laten we samen een betere toekomst bouwen,<br /> één dag, één missie tegelijk." }}
                 />
 
-                <motion.div variants={item} className="mt-6 flex justify-center">
+                <motion.div variants={item} className="mt-5 sm:mt-6 flex justify-center">
                   <motion.div
                     whileHover={reduce ? undefined : { y: -2 }}
                     whileTap={reduce ? undefined : { scale: 0.98 }}
-                    className="inline-block transform-gpu"
+                    className="inline-block transform-gpu w-full max-w-[350px]"
                   >
                     <Link
                       to="/preregistreer"
-                      className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-10 sm:px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+                      className="inline-flex items-center justify-center w-full rounded-xl bg-[rgba(134,255,186,1)] px-8 py-2.5 text-[10px] sm:px-10 sm:py-3 sm:text-[11px] md:px-12 font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                     >
                       PREREGISTREER HIER
                     </Link>
@@ -175,12 +167,12 @@ export default function AboutFinalCtaSection() {
 
                 {/* doodle arrow inside blob (animated) */}
                 <motion.div
-                  className="pointer-events-none absolute -right-6 sm:right-20 top-[230px] sm:top-[200px]"
+                  className="pointer-events-none absolute -right-4 sm:-right-2 md:right-4 lg:right-20 top-[180px] sm:top-[200px] md:top-[220px] lg:top-[200px]"
                   initial={false}
                   animate={reduce ? undefined : { y: [0, -6, 0] }}
                   transition={reduce ? { duration: 0 } : { duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <DoodleArrow className="h-20 w-20 opacity-95" />
+                  <DoodleArrow className="h-16 w-16 sm:h-[72px] sm:w-[72px] md:h-20 md:w-20 opacity-95" />
                 </motion.div>
               </div>
             </div>

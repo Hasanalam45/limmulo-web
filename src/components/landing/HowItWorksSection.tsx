@@ -80,7 +80,7 @@ export default function HowItWorksSection({ phones }: Props) {
             whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
             className="transform-gpu"
           >
-            <PhoneMock src={phoneData[0].src} alt={phoneData[0].alt} className="translate-y-4" />
+            <PhoneMock src={phoneData[1].src} alt={phoneData[1].alt} className="translate-y-4" />
           </motion.div>
 
           <motion.div
@@ -90,7 +90,7 @@ export default function HowItWorksSection({ phones }: Props) {
             whileHover={reduce ? undefined : { y: -8, scale: 1.015 }}
             className="transform-gpu"
           >
-            <PhoneMock src={phoneData[1].src} alt={phoneData[1].alt} className="" />
+            <PhoneMock src={phoneData[0].src} alt={phoneData[0].alt} className="translate-y-4" />
           </motion.div>
 
           <motion.div
@@ -106,7 +106,7 @@ export default function HowItWorksSection({ phones }: Props) {
 
         {/* Text row (stagger like Hero) */}
         <motion.div
-          className="mt-8 sm:mt-10 grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+          className="mt-8 sm:mt-10 grid gap-0 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start px-0 lg:px-12"
           variants={container}
           initial="hidden"
           animate="show"
@@ -114,11 +114,9 @@ export default function HowItWorksSection({ phones }: Props) {
           <motion.h2
             variants={item}
             className="
-              font-black leading-[0.95] tracking-tight text-black
-              text-[34px] xs:text-[40px] sm:text-[46px] md:text-[52px]
-            "
+              font-black leading-[0.95] tracking-tight text-black text-[34px] xs:text-[40px] sm:text-[46px] md:text-[52px] mb-10"
           >
-            Hoe het werkt
+            Hoe het <br />werkt
           </motion.h2>
 
           <div className="space-y-6 sm:space-y-7">

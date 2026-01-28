@@ -127,7 +127,7 @@ export default function StatsCtaSection({
               <motion.div whileHover={reduce ? undefined : { y: -2 }} whileTap={reduce ? undefined : { scale: 0.98 }}>
                 <Link
                   to={ctaHref}
-                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-emerald-200 px-10 sm:px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 sm:px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                 >
                   {finalCtaLabel}
                 </Link>

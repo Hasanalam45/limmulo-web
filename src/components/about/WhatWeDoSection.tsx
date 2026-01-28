@@ -1,15 +1,4 @@
 import React from "react";
-import { FaCircle } from "react-icons/fa";
-import {
-  FiHeart,
-  FiShield,
-  FiSmile,
-  FiFeather,
-  FiDollarSign,
-  FiBriefcase,
-  FiZap,
-  FiHelpCircle,
-} from "react-icons/fi";
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
@@ -18,8 +7,31 @@ type Item = {
   desc: string;
   bg: string;     // icon circle background
   color: string;  // icon color
-  Icon: React.ElementType;
+  icon: React.ReactNode;
 };
+
+// Icon components using SVG files
+function HeartIcon() {
+  return <img src="/landingpage/heart.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
+function ShieldIcon() {
+  return <img src="/landingpage/veerkracht.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
+function SmileIcon() {
+  return <img src="/landingpage/dankbaarheid.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
+function LeafIcon() {
+  return <img src="/landingpage/zalfzorg.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
+function CoinIcon() {
+  return <img src="/landingpage/geldwidjsheid.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
+function BriefcaseIcon() {
+  return <img src="/landingpage/ondernemerschap.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
+function BulbIcon() {
+  return <img src="/landingpage/anders-denken.svg" alt="" className="h-full w-full" aria-hidden="true" />;
+}
 
 function DoodleArrow({ className }: { className?: string }) {
   return (
@@ -32,39 +44,36 @@ function DoodleArrow({ className }: { className?: string }) {
   );
 }
 
-function PurpleIcon() {
-  return (
-    <div className="relative shrink-0">
-      <FaCircle
-        className="h-14 w-14 sm:h-16 sm:w-16 text-[#B46AE6] drop-shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
-        aria-hidden="true"
-      />
+// function PurpleIcon() {
+//   return (
+//     <div className="relative shrink-0">
+//       <FaCircle
+//         className="h-14 w-14 sm:h-16 sm:w-16 text-[#B46AE6] drop-shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
+//         aria-hidden="true"
+//       />
 
-      <span className="absolute left-1/2 top-1/2 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-black/10">
-        <FiHelpCircle className="h-4 w-4 text-black" />
-      </span>
-    </div>
-  );
-}
+//       <span className="absolute left-1/2 top-1/2 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-black/10">
+//         <FiHelpCircle className="h-4 w-4 text-black" />
+//       </span>
+//     </div>
+//   );
+// }
 
 function ItemRow({ item }: { item: Item }) {
-  const { Icon } = item;
-
   return (
     <div className="flex items-start gap-4 py-4">
       <div
-        className="grid h-11 w-11 place-items-center rounded-full ring-1 ring-black/5 shrink-0"
-        style={{ background: item.bg }}
+        className="grid h-11 w-11 place-items-center shrink-0"
         aria-hidden="true"
       >
-        <Icon className={`h-5 w-5 ${item.color}`} />
+        {item.icon}
       </div>
 
       <div className="pt-0.5">
         <p className="text-[12px] sm:text-[12.5px] font-black tracking-tight text-black uppercase">
           {item.title}
         </p>
-        <p className="mt-1 text-[11px] sm:text-[12px] leading-5 text-black/55">
+        <p className="mt-1 text-[11px] sm:text-[12px] leading-5 text-black">
           {item.desc}
         </p>
       </div>
@@ -101,73 +110,73 @@ export default function WhatWeDoSection() {
       desc: "Herken wat je voelt en leer dat ook zeggen",
       bg: "rgba(239, 68, 68, 0.14)",
       color: "text-rose-600",
-      Icon: FiHeart,
+      icon: <HeartIcon />,
     },
     {
       title: "Veerkracht",
       desc: "Blijf proberen, ook als iets moeilijk is",
       bg: "rgba(37, 99, 235, 0.14)",
       color: "text-blue-600",
-      Icon: FiShield,
+      icon: <ShieldIcon />,
     },
     {
       title: "Dankbaarheid",
       desc: "Zie wat er wél is — en voel hoe fijn dat is",
       bg: "rgba(245, 158, 11, 0.16)",
       color: "text-amber-600",
-      Icon: FiSmile,
+      icon: <SmileIcon />,
     },
     {
       title: "Zelfzorg",
       desc: "Zorg goed voor je lichaam én je hoofd",
       bg: "rgba(34, 197, 94, 0.14)",
       color: "text-green-600",
-      Icon: FiFeather,
+      icon: <LeafIcon />,
     },
     {
       title: "Geldwijsheid",
       desc: "Leer omgaan met geld, spullen en slimme keuzes maken",
       bg: "rgba(124, 58, 237, 0.14)",
       color: "text-violet-600",
-      Icon: FiDollarSign,
+      icon: <CoinIcon />,
     },
     {
       title: "Ondernemerschap",
       desc: "Kijk anders, denk verder, vind je eigen idee",
       bg: "rgba(249, 115, 22, 0.14)",
       color: "text-orange-600",
-      Icon: FiBriefcase,
+      icon: <BriefcaseIcon />,
     },
     {
       title: "Anders denken",
       desc: "Kijk anders, denk verder, vind je eigen idee",
       bg: "rgba(56, 189, 248, 0.16)",
       color: "text-sky-600",
-      Icon: FiZap,
+      icon: <BulbIcon />,
     },
   ];
 
   return (
     <section className="relative bg-[#FFFCFA] py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1040px] px-4 sm:px-6">
-        <div className="grid items-start gap-10 lg:gap-14 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="grid items-center gap-10 lg:gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           {/* LEFT */}
           <motion.div
-            className="pt-2 sm:pt-4"
+            className=""
             variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ amount: 0.35, once: true }}
           >
             <motion.div variants={itemV} className="flex items-center gap-4 sm:gap-5">
-              <PurpleIcon />
+              <img src="/landingpage/aboutPage/dark-purple-blob.svg" alt="" className="h-14 w-14 sm:h-16 sm:w-16" />
               <h2
                 className="
                   font-black leading-[0.95] tracking-tight text-black
                   text-[40px] xs:text-[44px] sm:text-[54px] md:text-[58px]
                 "
               >
-                Wat wij doen
+                Wat wij <br/> doen
               </h2>
             </motion.div>
 
@@ -175,21 +184,21 @@ export default function WhatWeDoSection() {
               variants={itemV}
               className="
                 mt-6 max-w-[460px] text-black/65 font-medium
-                text-[11px] sm:text-[12px] lg:text-[13px]
+                text-[11px] sm:text-[12px] lg:text-[16px]
                 leading-6 sm:leading-7
               "
             >
-              Elke week biedt Luumilo een samengestelde set van vijf praktische activiteiten aan, in de Speelweek, gericht op leren door te spelen. Elke activiteit is ontworpen om de band tussen ouder en kind te versterken en thema's te verkennen zoals:
+              Elke week biedt Luumilo een samengestelde set van <br/ > vijf praktische activiteiten aan, in de Speelweek,<br/> gericht op leren door te spelen. Elke activiteit is <br /> ontworpen om de band tussen ouder en kind te <br /> versterken en thema's te verkennen zoals:
             </motion.p>
 
             <motion.div
               variants={itemV}
-              className="mt-8"
+              className="mt-2 ml-8 sm:ml-[300px]"
               initial={false}
               animate={reduce ? undefined : { y: [0, -6, 0] }}
               transition={reduce ? { duration: 0 } : { duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
             >
-              <DoodleArrow className="pointer-events-none h-10 w-56 opacity-95" />
+              <DoodleArrow className="pointer-events-none h-10 w-20 opacity-95" />
             </motion.div>
           </motion.div>
 

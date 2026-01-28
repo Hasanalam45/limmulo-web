@@ -41,7 +41,7 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
   );
 }
 
-export default function Navbar() {
+export default function AboutNavbar() {
   // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
@@ -82,7 +82,7 @@ export default function Navbar() {
 
   const header = (
     <motion.header
-      className="fixed inset-x-0 top-0 z-[2147483647] isolate flex justify-center px-4 pt-5"
+      className="fixed inset-x-0 top-0 z-[2147483647] isolate flex justify-start px-0 pt-0"
       initial={false}
       animate={{
         y: hidden ? -120 : 0,
@@ -93,7 +93,7 @@ export default function Navbar() {
     >
       <div
         className={[
-          "flex w-full max-w-full md:max-w-[999px] items-center justify-between rounded-xl px-5 py-3 backdrop-blur-md",
+          "flex w-full max-w-full items-center justify-between rounded-none px-6 py-3 backdrop-blur-md",
           shellClass,
         ].join(" ")}
       >
@@ -225,3 +225,4 @@ export default function Navbar() {
     </>
   );
 }
+

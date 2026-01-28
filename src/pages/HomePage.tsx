@@ -3,6 +3,7 @@ import HeroSection from "../components/landing/HeroSection";
 import HowItWorksSection from "../components/landing/HowItWorksSection";
 import StepsCtaSection from "../components/landing/StepsCtaSection";
 import FundamentalsSection from "../components/landing/FundamentalsSection";
+import LifeSkillsSection from "../components/landing/LifeSkillsSection";
 import CenteredCopyCtaSection from "../components/landing/CenteredCopyCtaSection";
 import Footer from "../components/layout/Footer";
 import LandingBackground from "../components/layout/LandingBackground";
@@ -40,17 +41,22 @@ export default function HomePage() {
           <FundamentalsSection />
         </SectionReveal>
 
-        {/* 6) Centered copy slot */}
+        {/* 6) Life Skills slot */}
+        <SectionReveal>
+          <LifeSkillsSection />
+        </SectionReveal>
+
+        {/* 7) Centered copy slot */}
         <SectionReveal>
           <CenteredCopyCtaSection />
         </SectionReveal>
 
-        {/* 7) Stats slot */}
+        {/* 8) Stats slot */}
         {/* <SectionReveal>
           <StatsCtaSection />
         </SectionReveal> */}
 
-        {/* 8) Footer slot */}
+        {/* 9) Footer slot */}
         <SectionReveal>
           <Footer />
         </SectionReveal>

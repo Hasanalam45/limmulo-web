@@ -38,7 +38,7 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col rounded-[18px] bg-white px-7 py-8 sm:px-8 sm:py-9 shadow-[0_22px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/5">
+    <div className="relative flex flex-col h-full rounded-[18px] bg-white px-5 py-8 sm:px-7 md:px-8 sm:py-9 shadow-[0_22px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/5">
       {/* soft inner gloss */}
       <div
         className="pointer-events-none absolute inset-0 rounded-[18px] opacity-[0.28]"
@@ -49,10 +49,10 @@ function Card({
         aria-hidden="true"
       />
 
-      <div className="relative flex flex-1 flex-col justify-center">
-        <div className="flex items-center gap-2">
+      <div className="relative flex flex-1 flex-col">
+        <div className="flex items-center">
           {icon}
-          <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-black tracking-tight text-black">
+          <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-black tracking-tight text-black mt-3">
             {title}
           </h3>
         </div>
@@ -87,10 +87,10 @@ export default function MissionVisionSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[#FFFCFA] py-16 sm:py-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-[#FFFCFA] pt-16 pb-32 sm:pt-20 sm:pb-40 lg:pt-24 lg:pb-48"
     >
       {/* ✅ Background gradient */}
-      <motion.div
+      <div
         className="pointer-events-none absolute inset-0"
         style={{
           background: [
@@ -103,19 +103,12 @@ export default function MissionVisionSection() {
           ].join(","),
         }}
         aria-hidden="true"
-        initial={false}
-        animate={
-          reduce
-            ? undefined
-            : { x: [0, -12, 0], y: [0, 10, 0], scale: [1, 1.01, 1] }
-        }
-        transition={reduce ? { duration: 0 } : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1040px] px-4 sm:px-6">
+      <div className="relative z-10 mx-auto w-full max-w-[1040px] px-2 sm:px-6">
         {/* ✅ cards centered + responsive spacing */}
         <motion.div
-          className="mx-auto grid max-w-[760px] gap-8 sm:gap-10 md:grid-cols-2"
+          className="mx-auto grid w-full max-w-[760px] gap-8 sm:gap-10 md:grid-cols-2 md:items-stretch"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
@@ -124,7 +117,7 @@ export default function MissionVisionSection() {
           <motion.div
             variants={item}
             whileHover={reduce ? undefined : { y: -4 }}
-            className="transform-gpu"
+            className="transform-gpu h-full flex"
           >
             <Card
               title="Missie"
@@ -144,7 +137,7 @@ export default function MissionVisionSection() {
           <motion.div
             variants={item}
             whileHover={reduce ? undefined : { y: -4 }}
-            className="transform-gpu"
+            className="transform-gpu h-full flex"
           >
             <Card
               title="Visie"
@@ -166,16 +159,19 @@ export default function MissionVisionSection() {
         </motion.div>
       </div>
 
-      {/* ✅ Bottom wave */}
+      {/* ✅ Bottom curve */}
       <svg
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[140px] sm:h-[170px] w-full"
-        viewBox="0 0 1440 240"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[88px] w-full"
+        viewBox="0 0 1440 88"
         preserveAspectRatio="none"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
+        style={{ marginBottom: '-1px' }}
       >
         <path
-          d="M0,165 C260,230 520,250 760,220 C1040,185 1240,135 1440,170 V240 H0 Z"
-          fill="#ffffff"
+          d="M1440 84.2105C1242.6 32.9263 992.475 0 720 0C447.525 0 196.875 32.9263 0 84.2105V88H1440V84.2105Z"
+          fill="#FFFCFA"
         />
       </svg>
     </section>

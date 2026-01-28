@@ -1,49 +1,32 @@
 import React from "react";
-import WaveSeparator from "../ui/WaveSeparator";
 
 const heroBackground = [
-  // Top-left: bright white to pale lavender
-  "radial-gradient(1600px 1000px at 0% 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 8%, rgba(230,210,245,0.9) 25%, rgba(225,205,240,0.8) 45%, rgba(225,205,240,0.5) 65%, rgba(225,205,240,0) 85%)",
-  // Top-right: white to darker orange/peach
-  "radial-gradient(1600px 1000px at 100% 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 8%, rgba(255,200,170,0.9) 25%, rgba(255,190,160,0.8) 45%, rgba(255,190,160,0.5) 65%, rgba(255,190,160,0) 85%)",
-  // Mid-left: pale lavender transitioning into darker rose pink
-  "radial-gradient(1400px 900px at 15% 45%, rgba(240,220,250,0.95) 0%, rgba(245,210,240,0.9) 20%, rgba(250,180,220,0.85) 40%, rgba(255,160,200,0.75) 60%, rgba(255,160,200,0.5) 75%, rgba(255,160,200,0) 90%)",
-  // Mid-center: blend of lavender, darker rose pink, and peach
-  "radial-gradient(1800px 1200px at 50% 50%, rgba(245,220,240,0.85) 0%, rgba(250,200,230,0.8) 25%, rgba(255,180,220,0.75) 45%, rgba(255,170,210,0.6) 65%, rgba(255,170,210,0.3) 80%, rgba(255,170,210,0) 95%)",
-  // Mid-right: darker orange/peach extending down
-  "radial-gradient(1400px 1000px at 80% 40%, rgba(255,200,170,0.9) 0%, rgba(255,190,160,0.85) 25%, rgba(255,180,150,0.8) 45%, rgba(255,170,140,0.65) 65%, rgba(255,170,140,0.35) 80%, rgba(255,170,140,0) 95%)",
-  // Bottom-left: darker rose pink to darker coral/salmon red
-  "radial-gradient(1500px 800px at 8% 100%, rgba(255,140,180,0.9) 0%, rgba(255,130,170,0.85) 25%, rgba(255,120,160,0.8) 45%, rgba(255,110,150,0.7) 60%, rgba(255,100,140,0.5) 75%, rgba(255,100,140,0) 90%)",
-  // Bottom-right: darker rose pink blending with darker peach
-  "radial-gradient(1400px 800px at 92% 100%, rgba(255,170,190,0.85) 0%, rgba(255,160,180,0.8) 25%, rgba(255,150,170,0.75) 45%, rgba(255,140,160,0.6) 65%, rgba(255,140,160,0.3) 80%, rgba(255,140,160,0) 95%)",
+  "radial-gradient(76.37% 67.92% at 48.9% 49.52%, rgba(255, 252, 250, 0.2) 0%, rgba(255, 252, 250, 0.1) 50%, rgba(255, 252, 250, 0) 100%)",
+  "radial-gradient(83.09% 73.9% at 42.48% 46.67%, rgba(196, 140, 209, 0.65) 0%, rgba(196, 140, 209, 0.5) 43.67%, rgba(196, 140, 209, 0) 71%)",
+  "radial-gradient(99.52% 88.52% at 76.46% 43.33%, #FAAA63 0%, rgba(250, 170, 99, 0.85) 26.5%, rgba(250, 170, 99, 0) 53%)",
+  "radial-gradient(105.71% 94.02% at 63.12% 75.42%, #FBC3D4 0%, rgba(251, 195, 212, 0.7) 17.5%, rgba(251, 195, 212, 0) 35%)",
+  "radial-gradient(137.51% 122.3% at 20.83% 100%, rgba(246, 86, 55, 0.75) 0%, rgba(246, 86, 55, 0.5) 33.44%, rgba(246, 86, 55, 0) 55%)",
 ].join(",");
 
 const howItWorksBackground =
   "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
 
 const stepsBackground = [
-  // Top-left: light blue-grey (lighter)
-  "radial-gradient(1200px 800px at 0% 0%, rgba(190,200,210,1) 0%, rgba(190,200,210,0.98) 20%, rgba(190,200,210,0.92) 40%, rgba(190,200,210,0.8) 60%, rgba(190,200,210,0.5) 80%, rgba(190,200,210,0) 95%)",
-  // Top-middle: pale yellowish-green (slightly darker)
-  "radial-gradient(1000px 700px at 35% 10%, rgba(180,200,160,1) 0%, rgba(180,200,160,0.95) 20%, rgba(180,200,160,0.88) 40%, rgba(180,200,160,0.75) 60%, rgba(180,200,160,0.5) 80%, rgba(180,200,160,0) 95%)",
-  // Middle-right: soft warm orange/peach (slightly darker)
-  "radial-gradient(1100px 900px at 75% 35%, rgba(235,160,120,1) 0%, rgba(235,160,120,0.98) 15%, rgba(235,160,120,0.95) 30%, rgba(235,160,120,0.88) 50%, rgba(235,160,120,0.7) 70%, rgba(235,160,120,0.4) 85%, rgba(235,160,120,0) 95%)",
-  // Bottom-left: light lavender/purple (darker pinkish)
-  "radial-gradient(1000px 800px at 10% 80%, rgba(150,130,170,1) 0%, rgba(150,130,170,0.98) 20%, rgba(150,130,170,0.92) 40%, rgba(150,130,170,0.8) 60%, rgba(150,130,170,0.55) 80%, rgba(150,130,170,0) 95%)",
-  // Bottom-center: darker pinkish purple
-  "radial-gradient(1000px 800px at 50% 85%, rgba(130,110,150,0.9) 0%, rgba(130,110,150,0.85) 20%, rgba(130,110,150,0.75) 40%, rgba(130,110,150,0.6) 60%, rgba(130,110,150,0.4) 80%, rgba(130,110,150,0) 95%)",
-  // Right side: white/light (slightly darker)
-  "radial-gradient(1400px 1000px at 100% 50%, rgba(240,240,240,0.95) 0%, rgba(240,240,240,0.85) 20%, rgba(240,240,240,0.6) 40%, rgba(240,240,240,0.3) 60%, rgba(240,240,240,0) 80%)",
-  // Base gradient overlay (slightly darker)
-  "linear-gradient(180deg, rgba(190,200,210,0.85) 0%, rgba(180,200,160,0.8) 20%, rgba(235,160,120,0.9) 50%, rgba(130,110,150,0.85) 70%, rgba(240,240,240,0.4) 100%)",
+  "radial-gradient(60.44% 94.5% at 48.9% 49.52%, rgba(255, 252, 250, 0.1) 0%, rgba(255, 252, 250, 0.05) 50%, rgba(255, 252, 250, 0) 100%)",
+  "radial-gradient(97.37% 152.24% at 15.42% 75.42%, rgba(207, 163, 247, 0.85) 0%, rgba(207, 163, 247, 0.6) 17.35%, rgba(207, 163, 247, 0) 36%)",
+  "radial-gradient(80.76% 126.28% at 67.92% 68.33%, rgba(239, 112, 43, 1) 0%, rgba(239, 112, 43, 0.75) 22.5%, rgba(239, 112, 43, 0) 45%)",
+  "radial-gradient(78.35% 122.5% at 40.21% 79.17%, #EB4677 0%, rgba(235, 70, 119, 0.75) 22.25%, rgba(235, 70, 119, 0) 54%)",
+  "radial-gradient(63.1% 98.66% at 47.08% 46.25%, rgba(186, 218, 85, 0.85) 0%, rgba(186, 218, 85, 0.6) 21%, rgba(186, 218, 85, 0) 42%)",
+  "radial-gradient(85.98% 134.43% at 21.67% 44.58%, rgba(61, 155, 233, 0.7) 0%, rgba(61, 155, 233, 0.5) 20.9%, rgba(61, 155, 233, 0) 44%)",
 ].join(",");
 
 const fundamentalsBackground = [
-  "radial-gradient(1100px 560px at 55% 0%, rgba(255,247,179,0.95) 0%, rgba(255,247,179,0) 62%)",
-  "radial-gradient(900px 520px at 12% 72%, rgba(142,255,236,0.70) 0%, rgba(142,255,236,0) 62%)",
-  "radial-gradient(900px 520px at 62% 58%, rgba(255,176,134,0.65) 0%, rgba(255,176,134,0) 62%)",
-  "radial-gradient(1000px 560px at 92% 78%, rgba(165,160,255,0.78) 0%, rgba(165,160,255,0) 62%)",
-  "linear-gradient(180deg, #FFFCFA 0%, #F6FFD9 18%, #F7B194 58%, #9AA6FF 100%)",
+  "radial-gradient(76.03% 68.17% at 48.9% 49.52%, rgba(255, 252, 250, 0.15) 0%, rgba(255, 252, 250, 0.08) 50%, rgba(255, 252, 250, 0) 100%)",
+  "radial-gradient(112.63% 100.99% at 51.12% 89.99%, #93C3FF 0%, rgba(147, 195, 255, 0.75) 42%, rgba(147, 195, 255, 0) 70%)",
+  "radial-gradient(111.84% 100.28% at 43.79% 13.31%, rgba(214, 222, 72, 0.7) 0%, rgba(214, 222, 72, 0.35) 25%, rgba(214, 222, 72, 0) 50%)",
+  "radial-gradient(142.14% 127.44% at 4.74% 94.58%, rgba(109, 255, 194, 0.6) 0%, rgba(109, 255, 194, 0.3) 29.9%, rgba(109, 255, 194, 0) 65%)",
+  "radial-gradient(136.59% 122.47% at 93.14% 89.58%, #A6A1FF 0%, rgba(166, 161, 255, 0.75) 34.1%, rgba(166, 161, 255, 0) 55%)",
+  "radial-gradient(86.17% 77.27% at 62.26% 53.42%, rgba(250, 170, 99, 0.95) 0%, rgba(250, 170, 99, 0.5) 28%, rgba(250, 170, 99, 0) 56%)",
 ].join(",");
 
 const whiteBackground = "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
@@ -66,6 +49,7 @@ export default function LandingBackground({
     howItWorks,
     steps,
     fundamentals,
+    lifeSkills,
     centeredCopy,
     stats,
     footer,
@@ -75,27 +59,39 @@ export default function LandingBackground({
   return (
     <main className="min-h-screen bg-white">
       <div className="mx-auto">
-        <div className="relative overflow-hidden rounded-[28px] shadow-[0_28px_70px_rgba(0,0,0,0.14)]">
+        <div className="relative overflow-visible rounded-[28px] shadow-[0_28px_70px_rgba(0,0,0,0.14)]">
           {/* HERO */}
-          <section className="relative" style={{ background: heroBackground }}>
-            <div className="relative z-10 px-6 pb-16 pt-6 sm:px-10 sm:pt-7">
+          <section className="relative min-h-[800px] sm:min-h-[900px] overflow-visible" style={{ background: heroBackground }}>
+            <div className="relative z-10 px-6 pb-20 pt-6 sm:px-10 sm:pt-7 sm:pb-40">
               {navbar}
               {hero}
             </div>
+            
+            {/* SVG Separator - positioned at the end to cover gradient */}
+            <svg
+              className="pointer-events-none absolute bottom-0 left-0 h-[131px] w-full"
+              viewBox="0 0 1440 131"
+              preserveAspectRatio="none"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M1938 121.775C1578 121.775 1578 0.274902 1218 0.274902C858 0.274902 858 121.775 498 121.775V131H1938V121.775Z"
+                fill="#FFFCFA"
+              />
+              <path
+                d="M498 121.756C138 121.756 138 0 -222 0C-582 0 -582 121.756 -942 121.756V131H498V121.756Z"
+                fill="#FFFCFA"
+              />
+            </svg>
           </section>
 
           {/* HOW IT WORKS */}
           <section
-            className="relative"
+            className="relative overflow-visible"
             style={{ background: howItWorksBackground }}
           >
-            {/* Top wave from hero into white */}
-            <WaveSeparator
-              className="absolute left-0 top-0 h-[120px] w-full -translate-y-full"
-              fill="#FFFCFA"
-              position="top"
-            />
-
             {/* spacing like screenshot: lots of white before the wave */}
             <div className="relative z-10 px-6 pt-6 pb-8 sm:px-10 sm:pt-8 sm:pb-10">
               {howItWorks}
@@ -107,39 +103,63 @@ export default function LandingBackground({
             className="relative overflow-hidden"
             style={{ background: stepsBackground }}
           >
-            {/* TOP big white curve */}
+            {/* TOP curve */}
             <svg
-              className="pointer-events-none absolute inset-x-0 top-0 h-[220px] w-full"
-              viewBox="0 0 1440 240"
+              className="pointer-events-none absolute inset-x-0 top-0 h-[101px] w-full"
+              viewBox="0 0 1440 101"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
               aria-hidden="true"
             >
-              <path
-                d="M0,0 H1440 V92
-         C1120,232 320,232 0,92
-         Z"
-                fill="#FFFCFA"
-              />
+              <g clipPath="url(#stepsTopCurveClip)">
+                <path d="M2023 6.56281C1697.25 6.56281 1697.25 93 1371.5 93C1045.75 93 1045.75 6.56281 720 6.56281V-7.62939e-06H2023V6.56281Z" fill="#FFFCFA"/>
+                <path d="M720 7.12736C394.25 7.12736 394.25 101 68.5 101C-257.25 101 -257.25 7.12736 -583 7.12736V0H720V7.12736Z" fill="#FFFCFA"/>
+              </g>
+              <defs>
+                <clipPath id="stepsTopCurveClip">
+                  <rect width="1440" height="101" fill="white"/>
+                </clipPath>
+              </defs>
             </svg>
 
-            {/* BOTTOM big white curve */}
+            {/* BOTTOM curve */}
             <svg
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-[260px] w-full"
-              viewBox="0 0 1440 260"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[75px] w-full"
+              viewBox="0 0 1440 75"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
               aria-hidden="true"
+              style={{ marginBottom: '-1px' }}
             >
-              <path
-                d="M0,165
-         C320,30 1120,30 1440,165
-         V260 H0 Z"
-                fill="#FFFCFA"
-              />
+              <path d="M1440 71.7703C1242.6 28.0622 992.475 0 720 0C447.525 0 196.875 28.0622 0 71.7703V75H1440V71.7703Z" fill="#FFFCFA"/>
             </svg>
 
-            {/*  Important: large padding so testimonial lands in the white area */}
-            <div className="relative z-10 px-6 pt-[200px] pb-[210px] sm:px-10 sm:pt-[190px] sm:pb-[240px]">
+            {/* Reduced padding */}
+            <div className="relative z-10 px-4 pt-8 pb-20 sm:px-6 sm:pt-10 sm:pb-32">
               {steps}
+            </div>
+          </section>
+
+          {/* TESTIMONIAL SECTION (white background) */}
+          <section className="relative bg-[#FFFCFA] -mt-px">
+            <div className="relative z-10 px-4 py-12 text-center sm:px-6 sm:py-16">
+              <p className="mx-auto max-w-[560px] text-[12px] font-medium text-black/50">
+                "Mijn kind heeft faalangst, maar de 'zelfliefde' <br /> oefening deed hem enorm goed."
+              </p>
+              <div className="mt-5 flex items-center justify-center gap-2" aria-label="carousel indicators">
+                <span className="h-1 w-1 rounded-full border border-black/40 bg-transparent" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+                <span className="h-1 w-1 rounded-full bg-black/50" />
+              </div>
             </div>
           </section>
 
@@ -148,8 +168,28 @@ export default function LandingBackground({
             className="relative overflow-x-visible overflow-y-hidden"
             style={{ background: fundamentalsBackground }}
           >
-            <div className="relative z-10 px-6 pt-16 pb-28 sm:px-10 sm:pt-20 sm:pb-32">
+            {/* BOTTOM curve */}
+            <svg
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[40px] w-full"
+              viewBox="0 0 1440 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              style={{ marginBottom: '-1px' }}
+            >
+              <path d="M1440 39.2345C1242.6 15.3407 992.475 0 720 0C447.525 0 196.875 15.3407 0 39.2345V41H1440V39.2345Z" fill="#FFFCFA"/>
+            </svg>
+
+            <div className="relative z-10 px-6 pt-6 pb-28 sm:px-10 sm:pt-12 sm:pb-32">
               {fundamentals}
+            </div>
+          </section>
+
+          {/* LIFE SKILLS SECTION */}
+          <section className="relative" style={{ background: whiteBackground }}>
+            <div className="relative z-10">
+              {lifeSkills}
             </div>
           </section>
 

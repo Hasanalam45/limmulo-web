@@ -1,5 +1,4 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import {
@@ -19,33 +18,12 @@ type Props = {
   steps?: StepItem[];
   ctaHref?: string;
   ctaLabel?: string;
-  testimonial?: string;
 };
 
-function Sparkle({ className, delay = 0 }: { className?: string; delay?: number }) {
-  const reduce = useReducedMotion();
-
-  return (
-    <motion.span
-      className={className}
-      aria-hidden="true"
-      initial={false}
-      animate={
-        reduce
-          ? { opacity: 0.9 }
-          : { opacity: [0.55, 0.95, 0.6], scale: [0.92, 1.06, 0.94], rotate: [0, 10, 0] }
-      }
-      transition={reduce ? { duration: 0 } : { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay }}
-    >
-      <FaStar className="h-full w-full text-white" />
-    </motion.span>
-  );
-}
-
-function Dots() {
+export function Dots() {
   return (
     <div className="mt-5 flex items-center justify-center gap-2" aria-label="carousel indicators">
-      <span className="h-1 w-1 rounded-full bg-black/70" />
+      <span className="h-1 w-1 rounded-full border border-black/40 bg-transparent" />
       <span className="h-1 w-1 rounded-full bg-black/25" />
       <span className="h-1 w-1 rounded-full bg-black/25" />
       <span className="h-1 w-1 rounded-full bg-black/25" />
@@ -71,7 +49,7 @@ function StepCard({
     <motion.div
       variants={variants}
       whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-      className="rounded-[18px] mt-[100px] bg-white px-4 py-8 shadow-[0_18px_40px_rgba(0,0,0,0.10)] ring-1 ring-black/5 transform-gpu"
+      className="rounded-[18px] mt-[120px] bg-white px-4 py-8 shadow-[0_18px_40px_rgba(0,0,0,0.10)] ring-1 ring-black/5 transform-gpu"
     >
       <div className="text-center">
         {item.number === 1 ? (
@@ -109,7 +87,7 @@ function StepCard({
           ))}
         </div>
 
-        <p className="mx-auto mt-4 max-w-[210px] text-[11px] leading-5 text-black/55">
+        <p className="mx-auto mt-4 max-w-[210px] text-[11px] leading-5 text-black">
           {item.description}
         </p>
       </div>
@@ -121,7 +99,6 @@ export default function StepsCtaSection({
   steps,
   ctaHref = "/preregistreer",
   ctaLabel,
-  testimonial,
 }: Props) {
   // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
@@ -148,7 +125,6 @@ export default function StepsCtaSection({
     ];
   
   const finalCtaLabel = ctaLabel || "PREREGISTREER HIER";
-  const finalTestimonial = testimonial || "\"Mijn kind heeft faalangst, maar de 'zelfliefde' oefening deed hem enorm goed.\"";
 
   const container: Variants = {
     hidden: { opacity: 1 },
@@ -169,10 +145,10 @@ export default function StepsCtaSection({
   };
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative w-full">
       {/* ✅ Wave removed — subtle premium glow instead */}
       <motion.div
-        className="pointer-events-none absolute left-1/2 top-6 z-0 h-[340px] w-[min(92vw,920px)] -translate-x-1/2 rounded-[999px] blur-[44px]"
+        className="pointer-events-none absolute left-1/2 top-6 z-0 h-[340px] w-full max-w-[100vw] -translate-x-1/2 rounded-[999px] blur-[44px]"
         style={{
           background:
             "radial-gradient(closest-side, rgba(246,167,58,0.18), rgba(255,255,255,0))",
@@ -200,7 +176,7 @@ export default function StepsCtaSection({
           ))}
         </motion.div>
 
-        {/* Button + sparkles */}
+        {/* Button + big star */}
         <motion.div
           className="relative mt-10 flex justify-center"
           variants={fadeUp}
@@ -210,26 +186,26 @@ export default function StepsCtaSection({
           <motion.div whileHover={reduce ? undefined : { y: -2 }} whileTap={reduce ? undefined : { scale: 0.98 }}>
             <Link
               to={ctaHref}
-              className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+              className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
             >
               {finalCtaLabel}
             </Link>
           </motion.div>
 
-          <Sparkle className="pointer-events-none absolute left-1/2 top-[10px] h-4 w-4 translate-x-[120px] opacity-90" delay={0.1} />
-          <Sparkle className="pointer-events-none absolute left-1/2 top-[28px] h-3.5 w-3.5 translate-x-[140px] opacity-80" delay={0.6} />
-        </motion.div>
-
-        {/* Testimonial + dots */}
-        <motion.div
-          className="mt-24 text-center"
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-          transition={reduce ? { duration: 0 } : { delay: 0.05 }}
-        >
-          <p className="mx-auto max-w-[560px] text-[10px] font-medium text-black/35">{finalTestimonial}</p>
-          <Dots />
+          <motion.img
+            src="/landingpage/big-star.svg"
+            alt=""
+            className="pointer-events-none absolute left-[600px] -top-[16px] -translate-y-1/2 translate-x-[160px] sm:translate-x-[180px]"
+            aria-hidden="true"
+            initial={false}
+            animate={
+              reduce
+                ? {}
+                : { rotate: [0, 10, 0] }
+            }
+            transition={reduce ? { duration: 0 } : { duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: '60px', height: '60px' }}
+          />
         </motion.div>
 
         <div className="h-10 sm:h-14" />

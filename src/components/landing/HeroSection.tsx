@@ -47,7 +47,7 @@ export default function HeroSection() {
         <motion.img
           src="/landingpage/purple-blob.svg"
           alt=""
-          className="pointer-events-none absolute z-0 left-0 md:left-[5%] lg:left-[-5%] top-2 sm:top-3 md:-top-4 lg:top-[2%] w-[min(95vw,800px)] h-[400px] sm:w-[min(95vw,900px)] sm:h-[480px] md:w-[850px] md:h-[650px] lg:w-[950px] lg:h-[720px] object-contain"
+          className="pointer-events-none absolute z-0 left-0 md:left-[5%] lg:left-[-5%] top-2 sm:top-3 md:-top-4 lg:top-[2%] w-[min(95vw,800px)] h-[400px] sm:w-[min(95vw,900px)] sm:h-[480px] md:w-[850px] md:h-[650px] lg:w-[950px] lg:h-[650px] object-contain"
           style={{
             filter: 'drop-shadow(0 0 0 rgba(196, 140, 209, 0))',
             maskImage: 'radial-gradient(ellipse 70% 70% at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.95) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)',
@@ -73,13 +73,35 @@ export default function HeroSection() {
                 <Sparkle className="pointer-events-none absolute left-[15%] top-0" delay={0.0} />
               </div>
               
-              <h1 className="text-[40px] sm:text-[54px] lg:text-[64px] font-black leading-[0.95] tracking-tight text-black mt-[120px]">
-                Geef je kind een sterke start.
+              <h1 className="text-[40px] sm:text-[54px] lg:text-[70px] font-black leading-[0.95] tracking-tight text-black mt-[140px]">
+                Geef je<br />
+                kind een<br />
+                sterke start.
               </h1>
+              
+              {/* Small stars after heading */}
+              <div className="relative mt-2 bottom-[55px]">
+                <img 
+                  src="/landingpage/small-star.svg" 
+                  alt="" 
+                  className="absolute left-[420px] top-0 h-4 w-4 sm:h-14 sm:w-14 opacity-90"
+                  aria-hidden="true"
+                />
+              </div>
 
-              <p className="mt-4 sm:mt-5 max-w-[540px] text-[13px] sm:text-sm font-medium leading-6 text-black/75">
+              <p className="mt-4 sm:mt-5 max-w-[540px] text-[13px] sm:text-sm font-medium leading-6 text-black/75 ">
                 Voor kinderen van 3-6 jaar: 10 minuten per dag samen lachen, leren en groeien. Speelse missies die jullie band versterken, schermvrij.
               </p>
+              
+              {/* Small stars after paragraph */}
+              <div className="relative mt-2 sm:mt-3 bottom-[60px]">
+                <img 
+                  src="/landingpage/small-star.svg" 
+                  alt="" 
+                  className="absolute left-[600px] top-0 h-4 w-4 sm:h-14 sm:w-14 opacity-90"
+                  aria-hidden="true"
+                />
+              </div>
             </motion.div>
 
             <div className="md:pt-2 lg:pt-4">
@@ -94,7 +116,7 @@ export default function HeroSection() {
                   </div>
                 </motion.div>
 
-                <motion.div variants={item} className="flex items-start gap-3 lg:pl-[25%]">
+                <motion.div variants={item} className="flex items-start gap-3 lg:pl-[15%]">
                   <img src="/landingpage/pink-blob.svg" alt="" aria-hidden="true" />
                   <div>
                     <p className="text-[13px] sm:text-sm font-extrabold text-black mt-4">Voor kinderen</p>
@@ -108,7 +130,7 @@ export default function HeroSection() {
           </div>
 
           {/* Cards */}
-          <div className="relative mt-9 sm:mt-10 md:mt-12 grid gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-10 lg:items-stretch">
+          <div className="relative mt-9 sm:mt-10 md:mt-12 grid gap-4 sm:gap-5 lg:grid-cols-2 lg:gap-0 lg:items-start">
             {/* Badge + arrow */}
             <motion.div
               variants={item}
@@ -117,15 +139,22 @@ export default function HeroSection() {
               animate={reduce ? undefined : { y: [0, -6, 0] }}
               transition={reduce ? { duration: 0 } : { duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="relative">
-                <span className="inline-flex rotate-[-2deg] items-center rounded-[10px] bg-yellow-300 px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs font-black tracking-wide text-black shadow-[0_14px_25px_rgba(0,0,0,0.12)]">
-                  NOG 3 PLEKKEN!
-                </span>
+              <div className="relative right-1/4">
+                <div className="relative">
+                  <img
+                    src="/landingpage/yellow-form-blob.svg"
+                    alt=""
+                    className="h-auto w-[121px] sm:w-[130px]"
+                  />
+                  <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[11px] sm:text-xs font-black tracking-wide text-black whitespace-nowrap">
+                    NOG 3 PLEKKEN!
+                  </span>
+                </div>
 
                 <img
                   src="/landingpage/Arrow.svg"
                   alt=""
-                  className="absolute left-[72%] top-[20px] h-16 w-16 sm:h-24 sm:w-24 -translate-x-1/2"
+                  className="absolute left-[160px] top-[15px] h-16 w-16 sm:h-24 sm:w-24 -translate-x-1/2"
                 />
               </div>
             </motion.div>
@@ -134,63 +163,65 @@ export default function HeroSection() {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-              className="rounded-[22px] sm:rounded-[26px] bg-white/95 p-6 sm:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu"
+              className="mx-auto w-full max-w-[320px] sm:max-w-[380px] md:max-w-[400px] lg:max-w-[360px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu "
             >
-              <h2 className="text-[30px] sm:text-4xl font-black leading-[0.95] tracking-tight text-black">
-                Doe mee als testgezin
+              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-black leading-[0.95] tracking-tight text-black">
+                Doe mee <br /> als testgezin
               </h2>
 
-              <div className="mt-4 h-[4px] w-14 rounded-full bg-sky-400" />
+              <div className="mt-8 h-[7px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
-              <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-slate-700 marker:text-slate-400">
+              <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-black marker:text-black">
                 <li>Levenslang gratis toegang</li>
                 <li>Exclusieve toegang tot nieuwe features</li>
                 <li>Direct contact met ontwikkelaars</li>
               </ul>
 
-              <Link
-                to="/word-testgezin"
-                className="mt-6 sm:mt-7 inline-flex w-full items-center justify-center rounded-xl bg-emerald-200 px-4 py-3 text-xs font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
-              >
-                MELD JE AAN
-              </Link>
+              <div className="mt-6 sm:mt-7 flex flex-col items-center">
+                <Link
+                  to="/word-testgezin"
+                  className="w-full sm:w-[255px] inline-flex items-center justify-center rounded-lg px-3 py-3 text-[10px] sm:text-[11px] font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition bg-[rgba(134,255,186,1)] hover:bg-[rgba(90,200,150,1)]"
+                >
+                  MELD JE AAN
+                </Link>
 
-              <p className="mt-3 text-[10px] font-medium text-slate-400">
-                Vragenlijst met voor/achternaam, leeftijd kind, ervaring
-              </p>
+                <p className="mt-3 text-[10px] font-medium text-black/50 text-center">
+                  Vragenlijst met voor/achternaam, leeftijd kind, ervaring
+                </p>
+              </div>
             </motion.div>
 
             {/* Card 2 */}
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-              className="rounded-[22px] sm:rounded-[26px] bg-white/95 p-6 sm:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu"
+              className="mx-auto lg:mx-0 w-full max-w-[320px] sm:max-w-[380px] md:max-w-[400px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu mt-8"
             >
-              <h2 className="text-[30px] sm:text-4xl font-black leading-[0.95] tracking-tight text-black">
+              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-black leading-[0.95] tracking-tight text-black">
                 Preregistreer voor de app
               </h2>
 
-              <div className="mt-4 h-[4px] w-14 rounded-full bg-sky-400" />
+              <div className="mt-8 h-[7px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
-              <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-slate-700 marker:text-slate-400">
+              <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-black marker:text-black">
                 <li>Eerste maand 50% korting</li>
                 <li>Ontvang nu onze best en meest beoordeelde oefening gratis</li>
                 <li>Hoor als eerste wanneer we officieel lanceren</li>
               </ul>
 
-              <div className="mt-5 sm:mt-6">
+              <div className="mt-5 sm:mt-6 flex flex-col items-center">
                 <input
                   type="email"
                   placeholder="Vul je e-mailadres in"
                   className="h-11 w-full rounded-xl border border-black/40 bg-white px-4 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-black/60"
                 />
-                <p className="mt-2 text-center text-[10px] font-medium text-slate-400">
+                <p className="mt-2 text-center text-[10px] font-medium text-black/50">
                   Alleen je e-mailadres, meer niet
                 </p>
 
                 <Link
                   to="/preregistreer"
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-emerald-200 px-4 py-3 text-xs font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+                  className="mt-6 inline-flex w-full sm:w-[255px] items-center justify-center rounded-lg px-3 py-3 text-[10px] sm:text-[11px] font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition bg-[rgba(134,255,186,1)] hover:bg-[rgba(90,200,150,1)] mb-10"
                 >
                   HOUD ME OP DE HOOGTE
                 </Link>

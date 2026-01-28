@@ -169,10 +169,10 @@ export default function AboutFinalCtaSection() {
                     to="/preregistreer"
                     className="
                       inline-flex items-center justify-center rounded-xl
-                      bg-emerald-200 px-10 sm:px-12 py-3
+                      bg-[rgba(134,255,186,1)] px-10 sm:px-12 py-3
                       text-[11px] font-black tracking-wide text-black
                       shadow-[0_14px_24px_rgba(16,185,129,0.20)]
-                      ring-1 ring-black/10 transition hover:bg-emerald-300
+                      ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]
                     "
                   >
                     PREREGISTREER HIER

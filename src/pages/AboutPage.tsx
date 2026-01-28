@@ -1,5 +1,5 @@
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
+import AboutNavbar from "../components/layout/AboutNavbar";
+import AboutFooter from "../components/layout/AboutFooter";
 
 import AboutHeroSection from "../components/about/AboutHeroSection";
 import WhatWeDoSection from "../components/about/WhatWeDoSection";
@@ -21,7 +21,7 @@ export default function AboutPage() {
     >
       <AboutBackground>
         {/* 1) Navbar slot (keep unwrapped) */}
-        <Navbar />
+        <AboutNavbar />
 
         {/* 2) About hero slot */}
         <SectionReveal>
@@ -38,14 +38,14 @@ export default function AboutPage() {
           <FamilySection />
         </SectionReveal>
 
-        {/* 5) Why it matters slot */}
-        <SectionReveal>
-          <WhyItMattersSection />
-        </SectionReveal>
-
-        {/* 6) Mission / Vision slot */}
+        {/* 5) Mission / Vision slot */}
         <SectionReveal>
           <MissionVisionSection />
+        </SectionReveal>
+
+        {/* 6) Why it matters slot */}
+        <SectionReveal>
+          <WhyItMattersSection />
         </SectionReveal>
 
         {/* 7) Final CTA slot */}
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
         {/* 8) Footer slot */}
         <SectionReveal>
-          <Footer />
+          <AboutFooter />
         </SectionReveal>
       </AboutBackground>
     </MotionConfig>

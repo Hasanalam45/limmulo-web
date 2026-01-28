@@ -1,27 +1,26 @@
 import { Link } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
-function Sparkle({ className, delay = 0 }: { className?: string; delay?: number }) {
-  const reduce = useReducedMotion();
+// function Sparkle({ className, delay = 0 }: { className?: string; delay?: number }) {
+//   const reduce = useReducedMotion();
 
-  return (
-    <motion.span
-      className={className}
-      aria-hidden="true"
-      initial={false}
-      animate={
-        reduce
-          ? { opacity: 0.85 }
-          : { opacity: [0.55, 0.95, 0.6], scale: [0.92, 1.06, 0.95], rotate: [0, 10, 0] }
-      }
-      transition={reduce ? { duration: 0 } : { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay }}
-    >
-      <FaStar className="h-full w-full text-white" />
-    </motion.span>
-  );
-}
+//   return (
+//     <motion.span
+//       className={className}
+//       aria-hidden="true"
+//       initial={false}
+//       animate={
+//         reduce
+//           ? { opacity: 0.85 }
+//           : { opacity: [0.55, 0.95, 0.6], scale: [0.92, 1.06, 0.95], rotate: [0, 10, 0] }
+//       }
+//       transition={reduce ? { duration: 0 } : { duration: 2.8, repeat: Infinity, ease: "easeInOut", delay }}
+//     >
+//       <FaStar className="h-full w-full text-white" />
+//     </motion.span>
+//   );
+// }
 
 function DoodleArrow({ className }: { className?: string }) {
   return (
@@ -78,10 +77,20 @@ export default function AboutHeroSection() {
         </motion.div>
 
         {/* ✅ Sparkles: keep them near the blob/text side */}
-        <Sparkle className="pointer-events-none absolute left-[10%] top-[10%] h-5 w-5" delay={0.0} />
-        <Sparkle className="pointer-events-none absolute left-[14%] top-[16%] h-4 w-4" delay={0.35} />
-        <Sparkle className="pointer-events-none absolute left-[58%] top-[60%] h-5 w-5 hidden sm:block" delay={0.2} />
-        <Sparkle className="pointer-events-none absolute left-[62%] top-[66%] h-4 w-4 hidden sm:block" delay={0.55} />
+        <img 
+          src="/landingpage/big-star.svg" 
+          alt="" 
+          className="pointer-events-none absolute left-[260px] top-[0px] opacity-90 hidden sm:block" 
+          style={{ width: '60px', height: '55px' }}
+          aria-hidden="true"
+        /> 
+        <img 
+          src="/landingpage/big-star.svg" 
+          alt="" 
+          className="pointer-events-none absolute left-[520px] top-[440px] opacity-90 hidden sm:block" 
+          style={{ width: '60px', height: '55px' }}
+          aria-hidden="true"
+        /> 
 
         {/* Content */}
         <motion.div
@@ -100,19 +109,19 @@ export default function AboutHeroSection() {
 
             <motion.p
               variants={item}
-              className="mt-5 max-w-[600px] text-black/75 font-medium text-[12px] sm:text-[13px] lg:text-[14px] leading-6 sm:leading-7"
+              className="mt-4 sm:mt-5 max-w-[600px] text-black/75 font-medium text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] leading-5 sm:leading-6 md:leading-7"
             >
-              Bij Luumilo geloven we dat sommige van de belangrijkste vaardigheden in het leven – zoals emotionele veerkracht, dankbaarheid en zelfzorg – het beste al vroeg aangeleerd kunnen worden, door middel van echte ervaringen en speelse interactie.
+              Bij Luumilo geloven we dat sommige van de belangrijkste<br className="hidden sm:inline"/> vaardigheden in het leven – zoals emotionele veerkracht,<br className="hidden sm:inline" /> dankbaarheid en zelfzorg – het beste al vroeg aangeleerd kunnen<br className="hidden sm:inline"/> worden, door middel van echte ervaringen en speelse interactie.
             </motion.p>
 
             <motion.p
               variants={item}
-              className="mt-4 sm:mt-5 max-w-[600px] text-black/75 font-medium text-[12px] sm:text-[13px] lg:text-[14px] leading-6 sm:leading-7"
+              className="mt-3 sm:mt-4 md:mt-5 max-w-[600px] text-black/75 font-medium text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] leading-5 sm:leading-6 md:leading-7"
             >
-              Daarom hebben we een platform gecreëerd dat gezinnen helpt deze essentiële waarden te introduceren bij kinderen van 3 tot 6 jaar door middel van leuke, schermloze dagelijkse activiteiten.
+              Daarom hebben we een platform gecreëerd dat gezinnen helpt deze<br className="hidden sm:inline"/> essentiële waarden te introduceren bij kinderen van 3 tot 6 jaar door<br className="hidden sm:inline"/> middel van leuke, schermloze dagelijkse activiteiten.
             </motion.p>
 
-            <motion.div variants={item} className="mt-7">
+            <motion.div variants={item} className="mt-8 flex justify-center sm:justify-start sm:mt-[60px] sm:ml-[60px]">
               <motion.div
                 whileHover={reduce ? undefined : { y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
@@ -120,7 +129,7 @@ export default function AboutHeroSection() {
               >
                 <Link
                   to="/preregistreer"
-                  className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+                  className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-8 py-2.5 text-[10px] sm:px-10 sm:py-3 sm:text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                 >
                   PREREGISTREER HIER
                 </Link>
@@ -131,7 +140,7 @@ export default function AboutHeroSection() {
 
         {/* Doodle arrow (right side) */}
         <motion.div
-          className="pointer-events-none absolute right-[6%] top-[60%] hidden sm:block"
+          className="pointer-events-none absolute right-[230px] top-[400px] hidden sm:block"
           initial={false}
           animate={reduce ? undefined : { y: [0, -6, 0] }}
           transition={reduce ? { duration: 0 } : { duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
