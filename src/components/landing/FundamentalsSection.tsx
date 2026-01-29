@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { Link } from "react-router-dom";
 
@@ -126,7 +126,7 @@ function BulbIcon() {
 }
 
 /* arrow icon from figma */
-function ArrowIcon({ className }: { className?: string }) {
+function ArrowIcon({ className, direction = "right" }: { className?: string; direction?: "left" | "right" }) {
   return (
     <svg
       width="14"
@@ -135,6 +135,7 @@ function ArrowIcon({ className }: { className?: string }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={direction === "left" ? { transform: "scaleX(-1)" } : {}}
       aria-hidden="true"
     >
       <path
@@ -150,21 +151,32 @@ function ArrowIcon({ className }: { className?: string }) {
 /* speech pill with small tail (matches screenshot) */
 function LabelBubble({
   text,
+  description,
   border,
   tail,
   className,
+  width,
+  height,
 }: {
   text: string;
+  description?: string;
   border: string;
   tail: "left" | "right" | "none";
   className: string;
+  width?: string;
+  height?: string;
 }) {
   const tailCommon =
-    "after:content-[''] after:absolute after:bottom-[-8px] after:border-[8px] after:border-b-0 after:border-x-transparent";
+    "after:content-[''] after:absolute after:bottom-[-6px] after:border-[6px] after:border-b-0 after:border-x-transparent";
   const tailLeft = `${tailCommon} after:left-2.5 after:border-t-white`;
   const tailRight = `${tailCommon} after:right-6 after:border-t-white`;
 
   const uniqueId = `bubble-${Math.random().toString(36).substr(2, 9)}`;
+  
+  // Extract background color class from className
+  const bgClassMatch = className.match(/bg-\[[^\]]+\]/);
+  const bgClass = bgClassMatch ? bgClassMatch[0] : '';
+  const positionClasses = className.replace(/bg-\[[^\]]+\]/g, '').trim();
   
   return (
     <>
@@ -173,27 +185,50 @@ function LabelBubble({
           border-top-color: ${border} !important;
         }
       `}</style>
-      <div
-        id={uniqueId}
-        className={[
-          "absolute rounded-lg bg-white px-4 pt-2 pb-3 text-[10px] font-extrabold leading-none tracking-normal text-center text-black shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center",
-          tail === "left" ? tailLeft : "",
-          tail === "right" ? tailRight : "",
-          className,
-        ].join(" ")}
-        style={{ 
-          border: `2px solid ${border}`,
-          fontFamily: 'Poppins, sans-serif',
-        }}
-      >
-        {text.toUpperCase()}
+      <div className={["absolute group", positionClasses].join(" ")}>
+        {/* Heading that moves above container on hover */}
+        {description && (
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10">
+            {text.toUpperCase()}
+          </div>
+        )}
+        
+        {/* Fixed size bubble container */}
+        <div
+          id={uniqueId}
+          className={[
+            "relative rounded-[9px] px-3 pt-1.5 pb-2 text-[10px] font-extrabold leading-tight tracking-normal text-center text-black shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-300",
+            bgClass,
+            tail === "left" ? tailLeft : "",
+            tail === "right" ? tailRight : "",
+          ].join(" ")}
+          style={{ 
+            border: `1px solid ${border}`,
+            fontFamily: 'Poppins, sans-serif',
+            ...(width && { width }),
+            ...(height && { height }),
+            ...(description && { minWidth: width || 'auto', minHeight: height || 'auto' }),
+          }}
+        >
+          {/* Heading inside container (hidden on hover if description exists) */}
+          <div className={description ? "group-hover:opacity-0 transition-opacity duration-300 whitespace-nowrap" : ""}>
+            {text.toUpperCase()}
+          </div>
+          
+          {/* Description inside container (shown on hover) */}
+          {description && (
+            <div className="absolute inset-0 flex items-center justify-center px-3 pt-1.5 pb-2 text-[9px] font-medium leading-[1.3] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black text-center pointer-events-none">
+              {description}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
 }
 
 
-/* tabs: neutral like screenshot (no colored borders) */
+/* tabs: white with green hover */
 function TabButton({
   label,
   active,
@@ -208,8 +243,8 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={[
-        "rounded-lg px-8 py-3 text-[10px] font-black tracking-wide uppercase whitespace-nowrap shadow-sm",
-        active ? "bg-white text-black" : "bg-white/70 text-black/70 hover:bg-white/90",
+        "rounded-lg px-8 py-3 text-[10px] font-black tracking-wide uppercase whitespace-nowrap shadow-sm transition-colors",
+        active ? "bg-white text-black hover:bg-[rgba(134,255,186,1)]" : "bg-white text-black hover:bg-[rgba(134,255,186,1)] hover:text-black",
       ].join(" ")}
     >
       {label}
@@ -227,7 +262,7 @@ export default function FundamentalsSection() {
         border: "#EF4444",
         icon: <HeartIcon />,
         title: "EMOTIONELE GEZONDHEID",
-        description: "Herken wat je voelt en leer dat ook zeggen",
+        description: "Gevoelens herkennen, benoemen en ermee leren omgaan.",
       },
       {
         id: "veerkracht",
@@ -235,7 +270,7 @@ export default function FundamentalsSection() {
         border: "#2563EB",
         icon: <ShieldIcon />,
         title: "VEERKRACHT",
-        description: "Omgaan met tegenslag en weer opstaan",
+        description: "Omgaan met tegenslag, doorzetten en opnieuw proberen.",
       },
       {
         id: "dankbaarheid",
@@ -243,7 +278,7 @@ export default function FundamentalsSection() {
         border: "#F59E0B",
         icon: <SmileIcon />,
         title: "DANKBAARHEID",
-        description: "Zie het goede en geniet van kleine momenten",
+        description: "Stilstaan bij wat er al is en dat bewust ervaren.",
       },
       {
         id: "zelfzorg",
@@ -251,7 +286,7 @@ export default function FundamentalsSection() {
         border: "#22C55E",
         icon: <LeafIcon />,
         title: "ZELFZORG",
-        description: "Zorg goed voor jezelf – lichaam en hoofd",
+        description: "Luisteren naar het lichaam en ruimte maken voor rust en herstel.",
       },
       {
         id: "geldwijsheid",
@@ -259,7 +294,7 @@ export default function FundamentalsSection() {
         border: "#7C3AED",
         icon: <CoinIcon />,
         title: "GELDWIJSHEID",
-        description: "Slimme keuzes maken en begrijpen wat geld is",
+        description: "Bewust omgaan met geld, spullen en waarde.",
       },
       {
         id: "ondernemerschap",
@@ -267,7 +302,7 @@ export default function FundamentalsSection() {
         border: "#F97316",
         icon: <BriefcaseIcon />,
         title: "ONDERNEMERSCHAP",
-        description: "Ideeën bedenken, proberen en doorzetten",
+        description: "Initiatief nemen, proberen en zelf oplossingen bedenken.",
       },
       {
         id: "anders_denken",
@@ -275,7 +310,7 @@ export default function FundamentalsSection() {
         border: "#38BDF8",
         icon: <BulbIcon />,
         title: "ANDERS DENKEN",
-        description: "Creatief denken en nieuwe oplossingen vinden",
+        description: "Vrij kijken, creatief denken en eigen ideeën volgen.",
       },
     ],
     []
@@ -284,11 +319,43 @@ export default function FundamentalsSection() {
   const [active, setActive] = useState<TopicId>("emotionele_gezondheid");
   const activeTopic = topics.find((t) => t.id === active) ?? topics[0];
   const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const scrollTabs = () => {
+  const checkScrollPosition = () => {
+    if (tabsContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
+
+  useEffect(() => {
+    const container = tabsContainerRef.current;
+    if (container) {
+      checkScrollPosition();
+      container.addEventListener('scroll', checkScrollPosition);
+      window.addEventListener('resize', checkScrollPosition);
+      return () => {
+        container.removeEventListener('scroll', checkScrollPosition);
+        window.removeEventListener('resize', checkScrollPosition);
+      };
+    }
+  }, []);
+
+  const scrollTabsRight = () => {
     if (tabsContainerRef.current) {
       tabsContainerRef.current.scrollBy({
         left: 200,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollTabsLeft = () => {
+    if (tabsContainerRef.current) {
+      tabsContainerRef.current.scrollBy({
+        left: -200,
         behavior: 'smooth'
       });
     }
@@ -306,7 +373,7 @@ export default function FundamentalsSection() {
           aria-hidden="true"
         /> 
         {/*  Diagram artboard (fixed layout, scales down for small screens) */}
-        <div className="relative mx-auto h-[176px] w-full sm:h-[273px] md:h-[420px]">
+        <div className="relative mx-auto h-[176px] w-full sm:h-[273px] md:h-[420px] mt-4">
           <div className="absolute left-1/2 top-0 -translate-x-1/2 origin-top scale-[0.55] sm:scale-[0.65] md:scale-100">
             <div className="relative h-[420px] w-[760px]">
               {/* Cloud SVG */}
@@ -330,17 +397,68 @@ export default function FundamentalsSection() {
               {/* Label bubbles (speech style) */}
               <LabelBubble
                 text="Emotionele gezondheid"
+                description="Gevoelens herkennen, benoemen en ermee leren omgaan."
                 border="#BF0808"
                 tail="left"
-                className="left-[455px] top-[16px] -translate-x-1/2 bg-[#FFECEC]"
+                width="170px"
+                height="37px"
+                className="left-[450px] top-[12px] -translate-x-1/2 bg-[#FFECEC]"
               />
-              <LabelBubble text="Veerkracht" border="#2C5CE5" tail="left" className="left-[480px] top-[93px] bg-[#E6F0FF]" />
-              <LabelBubble text="Dankbaarheid" border="#C9881C" tail="left" className="left-[530px] top-[185px] bg-[#FDFFC9]" />
-              <LabelBubble text="Zelfzorg" border="#27A367" tail="left" className="left-[483px] top-[300px] bg-[#D9FFDA]" />
+              <LabelBubble 
+                text="Veerkracht" 
+                description="Omgaan met tegenslag, doorzetten en opnieuw proberen."
+                border="#2C5CE5" 
+                tail="left"
+                width="160px"
+                height="35px"
+                className="left-[480px] top-[93px] bg-[#E6F0FF]" 
+              />
+              <LabelBubble 
+                text="Dankbaarheid" 
+                description="Stilstaan bij wat er al is en dat bewust ervaren."
+                border="#C9881C" 
+                tail="left"
+                width="150px"
+                height="35px"
+                className="left-[530px] top-[185px] bg-[#FDFFC9]" 
+              />
+              <LabelBubble 
+                text="Zelfzorg" 
+                description="Luisteren naar het lichaam en ruimte maken voor rust en herstel."
+                border="#27A367" 
+                tail="left"
+                width="165px"
+                height="35px"
+                className="left-[483px] top-[310px] bg-[#D9FFDA]" 
+              />
 
-              <LabelBubble text="Anders denken" border="#1B94BB" tail="left" className="left-[142px] top-[108px] bg-[#CFF9FF]" />
-              <LabelBubble text="Ondernemerschap" border="#DA5522" tail="left" className="left-[80px] top-[220px] bg-[#FFEED7]" />
-              <LabelBubble text="Geldwijsheid" border="#7927DD" tail="left" className="left-[140px] top-[320px] bg-[#F0E9FF]" />
+              <LabelBubble 
+                text="Anders denken" 
+                description="Vrij kijken, creatief denken en eigen ideeën volgen."
+                border="#1B94BB" 
+                tail="left"
+                width="144px"
+                height="35px"
+                className="left-[120px] top-[108px] bg-[#CFF9FF]" 
+              />
+              <LabelBubble 
+                text="Ondernemerschap" 
+                description="Initiatief nemen, proberen en zelf oplossingen bedenken."
+                border="#DA5522" 
+                tail="left"
+                width="144px"
+                height="41px"
+                className="left-[83px] top-[220px] bg-[#FFEED7]" 
+              />
+              <LabelBubble 
+                text="Geldwijsheid" 
+                description="Bewust omgaan met geld, spullen en waarde."
+                border="#7927DD" 
+                tail="left"
+                width="145px"
+                height="35px"
+                className="left-[130px] top-[310px] bg-[#F0E9FF]" 
+              />
 
               {/* CTA */}
               <div className="absolute left-1/2 top-[400px] -translate-x-1/2">
@@ -371,19 +489,34 @@ export default function FundamentalsSection() {
         {/*  Tabs + content block (like screenshot) */}
         <div className="mx-auto mt-[110px] max-w-[600px] md:mt-[100px]">
           <div className="relative">
-            {/* Arrow button above tabs */}
-            <button
-              type="button"
-              onClick={scrollTabs}
-              className="absolute right-0 top-[17px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
-              aria-label="Scroll tabs"
-            >
-              <ArrowIcon className="h-[15px] w-[15px]" />
-            </button>
+            {/* Left arrow button */}
+            {canScrollLeft && (
+              <button
+                type="button"
+                onClick={scrollTabsLeft}
+                className="absolute left-0 top-[17px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                aria-label="Scroll tabs left"
+              >
+                <ArrowIcon direction="left" className="h-[15px] w-[15px]" />
+              </button>
+            )}
+
+            {/* Right arrow button */}
+            {canScrollRight && (
+              <button
+                type="button"
+                onClick={scrollTabsRight}
+                className="absolute right-0 top-[17px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                aria-label="Scroll tabs right"
+              >
+                <ArrowIcon direction="right" className="h-[15px] w-[15px]" />
+              </button>
+            )}
 
             <div 
               ref={tabsContainerRef}
               className="flex gap-1 overflow-x-auto rounded-t-2xl py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              onScroll={checkScrollPosition}
             >
               <TabButton label="Emotionele gezondheid" active={active === "emotionele_gezondheid"} onClick={() => setActive("emotionele_gezondheid")} />
               <TabButton label="Veerkracht" active={active === "veerkracht"} onClick={() => setActive("veerkracht")} />
@@ -401,7 +534,7 @@ export default function FundamentalsSection() {
                 </div>
                 <div>
                   <p className="text-xs font-black tracking-wide text-black">{activeTopic.title}</p>
-                  <p className="mt-1 text-[11px] font-medium leading-5 text-black/55">
+                  <p className="mt-1 text-[11px] font-medium leading-5 text-black">
                     {activeTopic.description}
                   </p>
                 </div>

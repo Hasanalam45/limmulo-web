@@ -181,7 +181,7 @@ export default function LandingBackground({
               <path d="M1440 39.2345C1242.6 15.3407 992.475 0 720 0C447.525 0 196.875 15.3407 0 39.2345V41H1440V39.2345Z" fill="#FFFCFA"/>
             </svg>
 
-            <div className="relative z-10 px-6 pt-6 pb-28 sm:px-10 sm:pt-12 sm:pb-32">
+            <div className="relative z-10 px-4 pt-6 pb-28 sm:px-10 sm:pt-12 sm:pb-32">
               {fundamentals}
             </div>
           </section>

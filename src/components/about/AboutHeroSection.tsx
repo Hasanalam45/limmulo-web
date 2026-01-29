@@ -99,7 +99,7 @@ export default function AboutHeroSection() {
           initial="hidden"
           animate="show"
         >
-          <div className="mx-auto max-w-[680px] text-left">
+          <div className="mx-auto max-w-[680px] text-left lg:mr-[130px]">
             <motion.h1
               variants={item}
               className="font-black tracking-tight text-black leading-[0.95] text-[40px] xs:text-[46px] sm:text-[58px] lg:text-[64px]"

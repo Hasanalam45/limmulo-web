@@ -11,7 +11,7 @@ import {
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import LuumiloLogo from "../brand/LuumiloLogo";
 
-const linkBase = "text-lg font-bold text-slate-900/90 transition";
+const linkBase = "text-sm font-extrabold text-slate-900 transition";
 
 function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
   return (
@@ -75,10 +75,10 @@ export default function AboutNavbar() {
     ? { duration: 0 }
     : { type: "spring", stiffness: 520, damping: 42 };
 
-  // ✅ Stronger background so it doesn't look "washed" on gradients
+  // ✅ White background at top, stronger when scrolled
   const shellClass = scrolled
     ? "bg-white/92 shadow-[0_18px_40px_rgba(0,0,0,0.14)] ring-1 ring-black/10"
-    : "bg-white/80 shadow-[0_14px_30px_rgba(0,0,0,0.10)] ring-1 ring-black/5";
+    : "bg-white shadow-[0_14px_30px_rgba(0,0,0,0.10)] ring-1 ring-black/5";
 
   const header = (
     <motion.header
@@ -91,55 +91,59 @@ export default function AboutNavbar() {
       transition={transition}
       style={{ pointerEvents: "auto" }}
     >
+      {/* Full-width background container */}
       <div
         className={[
-          "flex w-full max-w-full items-center justify-between rounded-none px-6 py-3 backdrop-blur-md",
+          "flex w-full items-center justify-center rounded-none backdrop-blur-md",
           shellClass,
         ].join(" ")}
       >
-        <Link to="/" className="flex items-center gap-2 md:ml-8">
-          <LuumiloLogo size={42} className="h-14 w-auto" />
-        </Link>
+        {/* Inner content container with max-width to match simple navbar */}
+        <div className="flex w-full max-w-full md:max-w-[999px] items-center justify-between px-4 py-2.5">
+          <Link to="/" className="flex items-center gap-2 md:ml-6">
+            <LuumiloLogo size={42} className="h-12 w-auto" />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
-          <NavItem to="/">Home</NavItem>
-          <NavItem to="/over-ons">Over ons</NavItem>
-          <NavItem to="/over-de-app">Over de app</NavItem>
-          <NavItem to="/word-testgezin">Word testgezin</NavItem>
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-6 md:flex">
+            <NavItem to="/">Home</NavItem>
+            <NavItem to="/over-ons">Over ons</NavItem>
+            <NavItem to="/over-de-app">Over de app</NavItem>
+            <NavItem to="/word-testgezin">Word testgezin</NavItem>
+          </nav>
 
-        {/* Desktop Preregister Button */}
-        <Link
-          to="/preregistreer"
-          className="hidden rounded-lg bg-[rgba(134,255,186,1)] px-4 py-2 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] md:block md:mr-8"
-        >
-          Preregistreer hier!
-        </Link>
+          {/* Desktop Preregister Button */}
+          <Link
+            to="/preregistreer"
+            className="hidden rounded-lg bg-[rgba(134,255,186,1)] px-3 py-1.5 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] md:block md:mr-6"
+          >
+            Preregistreer hier!
+          </Link>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex flex-col gap-1.5 p-2 md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          <motion.span
-            className="h-0.5 w-6 rounded-full bg-slate-900"
-            animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="h-0.5 w-6 rounded-full bg-slate-900"
-            animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="h-0.5 w-6 rounded-full bg-slate-900"
-            animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-          />
-        </button>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex flex-col gap-1.5 p-2 md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <motion.span
+              className="h-0.5 w-6 rounded-full bg-slate-900"
+              animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="h-0.5 w-6 rounded-full bg-slate-900"
+              animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="h-0.5 w-6 rounded-full bg-slate-900"
+              animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+          </button>
+        </div>
       </div>
     </motion.header>
   );

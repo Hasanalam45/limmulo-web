@@ -11,7 +11,7 @@ import {
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import LuumiloLogo from "../brand/LuumiloLogo";
 
-const linkBase = "text-lg font-bold text-slate-900/90 transition";
+const linkBase = "text-sm font-extrabold text-slate-900 transition";
 
 function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
   return (
@@ -82,7 +82,7 @@ export default function Navbar() {
 
   const header = (
     <motion.header
-      className="fixed inset-x-0 top-0 z-[2147483647] isolate flex justify-center px-4 pt-5"
+      className="fixed inset-x-0 top-0 z-[2147483647] isolate flex justify-center px-4"
       initial={false}
       animate={{
         y: hidden ? -120 : 0,
@@ -93,16 +93,16 @@ export default function Navbar() {
     >
       <div
         className={[
-          "flex w-full max-w-full md:max-w-[999px] items-center justify-between rounded-xl px-5 py-3 backdrop-blur-md",
+          "flex w-full max-w-full md:max-w-[999px] items-center justify-between rounded-xl px-4 py-2.5 backdrop-blur-md",
           shellClass,
         ].join(" ")}
       >
-        <Link to="/" className="flex items-center gap-2 md:ml-8">
-          <LuumiloLogo size={42} className="h-14 w-auto" />
+        <Link to="/" className="flex items-center gap-2 md:ml-6">
+          <LuumiloLogo size={42} className="h-12 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           <NavItem to="/">Home</NavItem>
           <NavItem to="/over-ons">Over ons</NavItem>
           <NavItem to="/over-de-app">Over de app</NavItem>
@@ -112,7 +112,7 @@ export default function Navbar() {
         {/* Desktop Preregister Button */}
         <Link
           to="/preregistreer"
-          className="hidden rounded-lg bg-[rgba(134,255,186,1)] px-4 py-2 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] md:block md:mr-8"
+          className="hidden rounded-lg bg-[rgba(134,255,186,1)] px-3 py-1.5 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] md:block md:mr-6"
         >
           Preregistreer hier!
         </Link>
