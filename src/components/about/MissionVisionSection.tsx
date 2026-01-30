@@ -21,7 +21,7 @@ function BlobIcon({
       <img
         src={src}
         alt=""
-        className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 drop-shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
+        className="h-16 w-16 sm:h-20 sm:w-20 lg:h-28 lg:w-28 drop-shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
         aria-hidden="true"
       />
     </span>
@@ -52,12 +52,32 @@ function Card({
       <div className="relative flex flex-1 flex-col">
         <div className="flex items-center">
           {icon}
-          <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-black tracking-tight text-black mt-3">
+          <h3 
+            className="text-black mt-3"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(32px, 8vw, 40px)',
+              lineHeight: '36px',
+              letterSpacing: '-2px',
+              verticalAlign: 'middle'
+            }}
+          >
             {title}
           </h3>
         </div>
 
-        <div className="mt-5 space-y-4 text-[11px] sm:text-[12px] lg:text-[13px] font-medium leading-6 sm:leading-6 lg:leading-7 text-black/60">
+        <div 
+          className="mt-5 space-y-4 text-black"
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(14px, 4vw, 16px)',
+            lineHeight: '28.8px',
+            letterSpacing: '0%',
+            verticalAlign: 'middle'
+          }}
+        >
           {children}
         </div>
       </div>
@@ -108,7 +128,7 @@ export default function MissionVisionSection() {
       <div className="relative z-10 mx-auto w-full max-w-[1040px] px-2 sm:px-6">
         {/* ✅ cards centered + responsive spacing */}
         <motion.div
-          className="mx-auto grid w-full max-w-[760px] gap-8 sm:gap-10 md:grid-cols-2 md:items-stretch"
+          className="mx-auto grid w-full px-4 max-w-[760px] md:max-w-[900px] gap-8 sm:gap-10 md:grid-cols-2 md:items-stretch"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}

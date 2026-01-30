@@ -8,7 +8,7 @@ function RedBlobIcon() {
       <img
         src="/landingpage/aboutPage/red-blob.svg"
         alt=""
-        className="h-14 w-14 sm:h-16 sm:w-16 drop-shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
+        className="h-14 w-14 sm:h-24 sm:w-24 drop-shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
         aria-hidden="true"
       />
     </div>
@@ -59,10 +59,15 @@ export default function FamilySection() {
             <motion.div variants={item} className="flex items-center gap-4 sm:gap-5">
               <RedBlobIcon />
               <h2
-                className="
-                  font-black leading-[0.95] tracking-tight text-black
-                  text-[40px] xs:text-[44px] sm:text-[54px] md:text-[58px]
-                "
+                className="text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(40px, 10vw, 60px)',
+                  lineHeight: '54px',
+                  letterSpacing: '-3px',
+                  verticalAlign: 'middle'
+                }}
               >
                 Waarom het ertoe doet
               </h2>
@@ -70,11 +75,15 @@ export default function FamilySection() {
 
             <motion.p
               variants={item}
-              className="
-                mt-6 max-w-[460px] text-black/65 font-medium
-                text-[11px] sm:text-[12px] lg:text-[13px]
-                leading-6 sm:leading-7
-              "
+              className="mt-6 max-w-[460px] text-black"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 400,
+                fontSize: 'clamp(14px, 4vw, 16px)',
+                lineHeight: '28.8px',
+                letterSpacing: '0%',
+                verticalAlign: 'middle'
+              }}
             >
               Wist je dat 90% van de hersenontwikkeling plaatsvindt vóór het 7e levensjaar? Juist in deze vormende jaren legt Luumilo de basis voor gezonde gewoonten en emotionele veerkracht. Zo groeien kinderen op tot zelfverzekerde, empathische en sterke mensen, met kwaliteiten waar ze hun hele leven op kunnen bouwen.
             </motion.p>

@@ -117,13 +117,35 @@ export default function CenteredCopyCtaSection({
                   whileHover={reduce ? undefined : { y: -4 }}
                   className="text-center transform-gpu"
                 >
-                  <div className="text-[34px] font-black tracking-tight text-black sm:text-[36px] lg:text-[44px]">
+                  <div 
+                    className="text-black"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 700,
+                      fontSize: 'clamp(40px, 10vw, 62px)',
+                      lineHeight: '86.8px',
+                      letterSpacing: '0%',
+                      textAlign: 'center',
+                      verticalAlign: 'middle'
+                    }}
+                  >
                     {s.value}
                   </div>
 
                   <div className="mx-auto mt-2 h-[5px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
-                  <p className="mx-auto mt-4 whitespace-pre-line text-[11px] leading-4 text-black/70 sm:text-[11px] sm:leading-5 lg:text-[12px]">
+                  <p 
+                    className="mx-auto mt-4 whitespace-pre-line text-black"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 400,
+                      fontSize: 'clamp(14px, 4vw, 16px)',
+                      lineHeight: '28.8px',
+                      letterSpacing: '0%',
+                      textAlign: 'center',
+                      verticalAlign: 'middle'
+                    }}
+                  >
                     {s.label}
                   </p>
                 </motion.div>
@@ -134,14 +156,23 @@ export default function CenteredCopyCtaSection({
 
         {/* White area text + CTA (must also be BASE, not pure white) */}
         <motion.div
-          className="mx-auto mt-10 max-w-[760px] bg-[#FFFCFA] px-5 text-center sm:mt-12"
+          className="mx-auto mt-10 max-w-[760px] bg-[#FFFCFA] px-5 text-center sm:mt-20"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
           <motion.p
             variants={item}
-            className="whitespace-pre-line font-black tracking-tight text-black text-[16px] sm:text-[18px] lg:text-[22px] xl:text-[24px] leading-[1.25]"
+            className="whitespace-pre-line text-black md:text-[32px]"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(20px, 6vw, 32px)',
+              lineHeight: '28.8px',
+              letterSpacing: '-1.6px',
+              textAlign: 'center',
+              verticalAlign: 'middle'
+            }}
           >
             {finalHeadline}
           </motion.p>
@@ -154,7 +185,16 @@ export default function CenteredCopyCtaSection({
             >
               <Link
                 to={ctaHref}
-                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12"
+                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-4 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(14px, 4.5vw, 18px)',
+                  lineHeight: '100%',
+                  letterSpacing: '0.5px',
+                  textAlign: 'center',
+                  verticalAlign: 'middle'
+                }}
               >
                 {finalCtaLabel}
               </Link>

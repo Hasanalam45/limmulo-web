@@ -66,14 +66,24 @@ export default function HeroSection() {
           animate="show"
         >
           {/* Top area */}
-          <div className="grid gap-7 md:gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-start">
+          <div className="grid gap-7 md:gap-4 md:grid-cols-[2.5fr_1fr] md:items-start">
             <motion.div variants={item} className="relative lg:pl-[20%]">
               {/* Stars above heading */}
               <div className="relative mb-2 sm:mb-3 z-30">
                 <Sparkle className="pointer-events-none absolute left-[15%] top-0" delay={0.0} />
               </div>
               
-              <h1 className="text-[40px] sm:text-[54px] lg:text-[70px] font-black leading-[0.95] tracking-tight text-black mt-[140px]">
+              <h1 
+                className="text-black mt-[110px]"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '86px',
+                  lineHeight: '77.4px',
+                  letterSpacing: '-4.3px',
+                  verticalAlign: 'middle'
+                }}
+              >
                 Geef je<br />
                 kind een<br />
                 sterke start.
@@ -84,49 +94,104 @@ export default function HeroSection() {
                 <img 
                   src="/landingpage/small-star.svg" 
                   alt="" 
-                  className="absolute left-[420px] top-0 h-4 w-4 sm:h-14 sm:w-14 opacity-90"
+                  className="absolute left-[500px] top-0 h-4 w-4 sm:h-14 sm:w-14 opacity-90"
                   aria-hidden="true"
                 />
               </div>
-
-              <p className="mt-4 sm:mt-5 max-w-[540px] text-[13px] sm:text-sm font-medium leading-6 text-black/75 ">
-                Voor kinderen van 3-6 jaar: 10 minuten per dag samen lachen, leren en groeien. Speelse missies die jullie band versterken, schermvrij.
-              </p>
               
               {/* Small stars after paragraph */}
               <div className="relative mt-2 sm:mt-3 bottom-[60px]">
                 <img 
                   src="/landingpage/small-star.svg" 
                   alt="" 
-                  className="absolute left-[600px] top-0 h-4 w-4 sm:h-14 sm:w-14 opacity-90"
+                  className="absolute left-[620px] top-[100px] h-4 w-4 sm:h-14 sm:w-14 opacity-90"
                   aria-hidden="true"
                 />
               </div>
             </motion.div>
 
-            <div className="md:pt-2 lg:pt-4">
-              <div className="space-y-6 sm:space-y-7 md:pl-2">
-                <motion.div variants={item} className="flex items-start gap-3">
+            <div className="md:pt-2 lg:pt-2 md:-ml-8 lg:-ml-12">
+              <div className="space-y-6 sm:space-y-1">
+                <motion.div variants={item} className="flex items-start gap-3 md:-ml-16 lg:-ml-20 xl:-ml-22">
                     <img src="/landingpage/orange-blob.svg" alt="" aria-hidden="true" />
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-black mt-2">Voor ouders</p>
-                    <p className="mt-1 max-w-[120px] text-[12px] sm:text-xs leading-5 text-black/70">
+                    <p 
+                      className="text-black mt-1"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 700,
+                        fontSize: '20px',
+                        lineHeight: '28px',
+                        letterSpacing: '-1px',
+                        verticalAlign: 'middle'
+                      }}
+                    >
+                      Voor ouders
+                    </p>
+                    <p 
+                      className="mt-1 max-w-[150px] text-black"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 400,
+                        fontSize: '16px',
+                        lineHeight: '28.8px',
+                        letterSpacing: '0%',
+                        verticalAlign: 'middle'
+                      }}
+                    >
                       die voelen dat innerlijke kracht belangrijker is dan hoge cijfers.
                     </p>
                   </div>
                 </motion.div>
 
-                <motion.div variants={item} className="flex items-start gap-3 lg:pl-[15%]">
+                <motion.div variants={item} className="flex items-start gap-3 lg:pl-0">
                   <img src="/landingpage/pink-blob.svg" alt="" aria-hidden="true" />
                   <div>
-                    <p className="text-[13px] sm:text-sm font-extrabold text-black mt-4">Voor kinderen</p>
-                    <p className="mt-1 max-w-[120px] text-[12px] sm:text-xs leading-5 text-black/70">
+                    <p 
+                      className="text-black mt-4"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 700,
+                        fontSize: '20px',
+                        lineHeight: '28px',
+                        letterSpacing: '-1px',
+                        verticalAlign: 'middle'
+                      }}
+                    >
+                      Voor kinderen
+                    </p>
+                    <p 
+                      className="mt-1 max-w-[180px] text-black"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 400,
+                        fontSize: '16px',
+                        lineHeight: '28.8px',
+                        letterSpacing: '0%',
+                        verticalAlign: 'middle'
+                      }}
+                    >
                       die zelfstandig, sterk en nieuwsgierig de wereld in stappen.
                     </p>
                   </div>
                 </motion.div>
               </div>
             </div>
+            
+            {/* Paragraph spanning both columns on PC */}
+            <p 
+              className="mt-4 sm:-mt-2 max-w-[700px] md:ml-[150px] md:col-span-2 md:max-w-none text-black"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 400,
+                fontSize: '17px',
+                lineHeight: '25.2px',
+                letterSpacing: '0%',
+                verticalAlign: 'middle'
+              }}
+            >
+              Voor kinderen van 3-6 jaar: 10 minuten per dag samen lachen, leren <br /> en groeien. Speelse missies die jullie band versterken, schermvrij.
+            </p>
           </div>
 
           {/* Cards */}
@@ -163,15 +228,35 @@ export default function HeroSection() {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-              className="mx-auto w-full max-w-[320px] sm:max-w-[380px] md:max-w-[400px] lg:max-w-[360px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu "
+              className="mx-auto w-full max-w-[320px] sm:max-w-[390px] md:max-w-[400px] lg:max-w-[408px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu "
             >
-              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-black leading-[0.95] tracking-tight text-black">
+              <h2 
+                className="text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(32px, 8vw, 58px)',
+                  lineHeight: 'clamp(28.8px, 7.2vw, 52.2px)',
+                  letterSpacing: '-2.5px',
+                  verticalAlign: 'middle'
+                }}
+              >
                 Doe mee <br /> als testgezin
               </h2>
 
               <div className="mt-8 h-[7px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
-              <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-black marker:text-black">
+              <ul 
+                className="mt-5 sm:mt-6 list-disc space-y-1 pl-8 text-black marker:text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 400,
+                  fontSize: 'clamp(14px, 4vw, 16px)',
+                  lineHeight: '28.8px',
+                  letterSpacing: '0%',
+                  verticalAlign: 'middle'
+                }}
+              >
                 <li>Levenslang gratis toegang</li>
                 <li>Exclusieve toegang tot nieuwe features</li>
                 <li>Direct contact met ontwikkelaars</li>
@@ -180,12 +265,33 @@ export default function HeroSection() {
               <div className="mt-6 sm:mt-7 flex flex-col items-center">
                 <Link
                   to="/word-testgezin"
-                  className="w-full sm:w-[255px] inline-flex items-center justify-center rounded-lg px-3 py-3 text-[10px] sm:text-[11px] font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition bg-[rgba(134,255,186,1)] hover:bg-[rgba(90,200,150,1)]"
+                  className="w-full sm:w-[255px] inline-flex items-center justify-center rounded-lg px-3 py-3 text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition bg-[rgba(134,255,186,1)] hover:bg-[rgba(90,200,150,1)]"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    textAlign: 'center',
+                    verticalAlign: 'middle'
+                  }}
                 >
                   MELD JE AAN
                 </Link>
 
-                <p className="mt-3 text-[10px] font-medium text-black/50 text-center">
+                <p 
+                  className="mt-3 text-center"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 300,
+                    fontSize: '10px',
+                    lineHeight: '14px',
+                    letterSpacing: '0%',
+                    textAlign: 'center',
+                    verticalAlign: 'middle',
+                    color: 'rgba(90, 90, 90, 1)'
+                  }}
+                >
                   Vragenlijst met voor/achternaam, leeftijd kind, ervaring
                 </p>
               </div>
@@ -195,15 +301,35 @@ export default function HeroSection() {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-              className="mx-auto lg:mx-0 w-full max-w-[320px] sm:max-w-[380px] md:max-w-[400px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu mt-8"
+              className="mx-auto lg:mx-0 w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu mt-8"
             >
-              <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-black leading-[0.95] tracking-tight text-black">
+              <h2 
+                className="text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(32px, 8vw, 58px)',
+                  lineHeight: 'clamp(28.8px, 7.2vw, 52.2px)',
+                  letterSpacing: '-2.5px',
+                  verticalAlign: 'middle'
+                }}
+              >
                 Preregistreer voor de app
               </h2>
 
               <div className="mt-8 h-[7px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
-              <ul className="mt-5 sm:mt-6 list-disc space-y-2 pl-5 text-[13px] sm:text-sm text-black marker:text-black">
+              <ul 
+                className="mt-5 sm:mt-6 list-disc space-y-1 pl-8 text-black marker:text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 400,
+                  fontSize: 'clamp(14px, 4vw, 16px)',
+                  lineHeight: '28.8px',
+                  letterSpacing: '0%',
+                  verticalAlign: 'middle'
+                }}
+              >
                 <li>Eerste maand 50% korting</li>
                 <li>Ontvang nu onze best en meest beoordeelde oefening gratis</li>
                 <li>Hoor als eerste wanneer we officieel lanceren</li>
@@ -215,13 +341,34 @@ export default function HeroSection() {
                   placeholder="Vul je e-mailadres in"
                   className="h-11 w-full rounded-xl border border-black/40 bg-white px-4 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-black/60"
                 />
-                <p className="mt-2 text-center text-[10px] font-medium text-black/50">
+                <p 
+                  className="mt-2 text-center"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 300,
+                    fontSize: '10px',
+                    lineHeight: '14px',
+                    letterSpacing: '0%',
+                    textAlign: 'center',
+                    verticalAlign: 'middle',
+                    color: 'rgba(90, 90, 90, 1)'
+                  }}
+                >
                   Alleen je e-mailadres, meer niet
                 </p>
 
                 <Link
                   to="/preregistreer"
-                  className="mt-6 inline-flex w-full sm:w-[255px] items-center justify-center rounded-lg px-3 py-3 text-[10px] sm:text-[11px] font-black tracking-wide text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition bg-[rgba(134,255,186,1)] hover:bg-[rgba(90,200,150,1)] mb-10"
+                  className="mt-6 inline-flex w-full sm:w-[255px] items-center justify-center rounded-lg px-3 py-3 text-black shadow-[0_14px_22px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition bg-[rgba(134,255,186,1)] hover:bg-[rgba(90,200,150,1)] mb-10"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    textAlign: 'center',
+                    verticalAlign: 'middle'
+                  }}
                 >
                   HOUD ME OP DE HOOGTE
                 </Link>

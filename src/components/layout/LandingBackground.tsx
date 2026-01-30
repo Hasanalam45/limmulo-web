@@ -145,7 +145,18 @@ export default function LandingBackground({
           {/* TESTIMONIAL SECTION (white background) */}
           <section className="relative bg-[#FFFCFA] -mt-px">
             <div className="relative z-10 px-4 py-12 text-center sm:px-6 sm:py-16">
-              <p className="mx-auto max-w-[560px] text-[12px] font-medium text-black/50">
+              <p 
+                className="mx-auto max-w-[560px] text-black/50"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 300,
+                  fontSize: 'clamp(16px, 4.5vw, 18px)',
+                  lineHeight: '26px',
+                  letterSpacing: '0%',
+                  textAlign: 'center',
+                  verticalAlign: 'middle'
+                }}
+              >
                 "Mijn kind heeft faalangst, maar de 'zelfliefde' <br /> oefening deed hem enorm goed."
               </p>
               <div className="mt-5 flex items-center justify-center gap-2" aria-label="carousel indicators">

@@ -41,7 +41,16 @@ export default function LifeSkillsSection({
           {/* First paragraph */}
           <motion.p
             variants={item}
-            className="text-[14px] sm:text-[15px] lg:text-[16px] leading-7 text-black font-medium mb-[80px]"
+            className="text-black mb-[80px]"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 400,
+              fontSize: 'clamp(18px, 5.5vw, 22px)',
+              lineHeight: '39.6px',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              verticalAlign: 'middle'
+            }}
           >
             De belangrijkste vaardigheden in<br />het leven - zoals{" "} v
             <strong className="font-bold">eerkracht,< br/> dankbaarheid en zelfzorg</strong> - kunnen <br/> het beste al{" "}
@@ -53,7 +62,16 @@ export default function LifeSkillsSection({
           {/* Second paragraph */}
           <motion.p
             variants={item}
-            className="mt-6 text-[14px] sm:text-[15px] lg:text-[16px] leading-7 text-black font-medium"
+            className="mt-6 text-black"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 400,
+              fontSize: 'clamp(18px, 5.5vw, 22px)',
+              lineHeight: '39.6px',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              verticalAlign: 'middle'
+            }}
           >
             Daarom helpt Luumilo gezinnen<br/> <strong className="font-bold">essentiële waarden</strong> te introduceren<br/> bij kinderen van{" "}
             <strong className="font-bold">3 tot 6 jaar.</strong>
@@ -68,7 +86,16 @@ export default function LifeSkillsSection({
             >
               <Link
                 to={ctaHref}
-                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-[11px] sm:text-[12px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12"
+                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(16px, 4.5vw, 18px)',
+                  lineHeight: '100%',
+                  letterSpacing: '0%',
+                  textAlign: 'center',
+                  verticalAlign: 'middle'
+                }}
               >
                 {ctaLabel}
               </Link>

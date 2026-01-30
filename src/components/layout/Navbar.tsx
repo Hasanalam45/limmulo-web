@@ -11,30 +11,26 @@ import {
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import LuumiloLogo from "../brand/LuumiloLogo";
 
-const linkBase = "text-sm font-extrabold text-slate-900 transition";
+const linkBase = "text-slate-900 transition";
 
 function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <NavLink to={to} className={linkBase}>
       {({ isActive }) => (
         <motion.span
-          className="relative inline-flex items-center"
+          className="relative inline-flex items-center py-1.5"
           initial={false}
-          animate={isActive ? "hover" : "rest"}
-          whileHover="hover"
+          whileHover={isActive ? undefined : { backgroundColor: 'rgba(134, 255, 186, 1)' }}
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 700,
+            fontSize: '20px',
+            lineHeight: '100%',
+            letterSpacing: '-1px',
+            verticalAlign: 'middle'
+          }}
         >
           <span className="relative z-10">{children}</span>
-
-          {/* animated underline */}
-          <motion.span
-            className="absolute left-0 -bottom-[6px] h-[2px] w-full rounded-full bg-slate-900"
-            style={{ originX: 0 }}
-            variants={{
-              rest: { scaleX: 0 },
-              hover: { scaleX: 1 },
-            }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-          />
         </motion.span>
       )}
     </NavLink>
@@ -77,8 +73,8 @@ export default function Navbar() {
 
   // ✅ Stronger background so it doesn't look "washed" on gradients
   const shellClass = scrolled
-    ? "bg-white/92 shadow-[0_18px_40px_rgba(0,0,0,0.14)] ring-1 ring-black/10"
-    : "bg-white/80 shadow-[0_14px_30px_rgba(0,0,0,0.10)] ring-1 ring-black/5";
+    ? "ring-1 ring-black/10"
+    : "ring-1 ring-black/5";
 
   const header = (
     <motion.header
@@ -93,16 +89,17 @@ export default function Navbar() {
     >
       <div
         className={[
-          "flex w-full max-w-full md:max-w-[999px] items-center justify-between rounded-xl px-4 py-2.5 backdrop-blur-md",
+          "flex w-full max-w-full md:max-w-[990px] items-center justify-between rounded-xl px-4 py-1.5",
           shellClass,
         ].join(" ")}
+        style={{ backgroundColor: 'rgba(255, 252, 250, 1)' }}
       >
-        <Link to="/" className="flex items-center gap-2 md:ml-6">
-          <LuumiloLogo size={42} className="h-12 w-auto" />
+        <Link to="/" className="flex items-center gap-0 md:ml-0">
+          <LuumiloLogo size={50} className="h-18 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           <NavItem to="/">Home</NavItem>
           <NavItem to="/over-ons">Over ons</NavItem>
           <NavItem to="/over-de-app">Over de app</NavItem>
@@ -112,9 +109,35 @@ export default function Navbar() {
         {/* Desktop Preregister Button */}
         <Link
           to="/preregistreer"
-          className="hidden rounded-lg bg-[rgba(134,255,186,1)] px-3 py-1.5 text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] md:block md:mr-6"
+          className="group hidden relative transition md:block md:mr-8"
+          style={{ width: '196px', height: '45px' }}
         >
-          Preregistreer hier!
+          <svg 
+            width="196" 
+            height="45" 
+            viewBox="0 0 196 45" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute inset-0 transition-colors"
+          >
+            <path 
+              d="M179.528 45H16.4716C7.46554 45 0 40.6338 0 35.2113V9.78873C0 4.43662 7.34704 0 16.4716 0H179.528C188.534 0 196 4.3662 196 9.78873V35.2113C196 40.6338 188.534 45 179.528 45Z" 
+              fill="#86FFBA"
+              className="transition-colors group-hover:fill-[#5AC896]"
+            />
+          </svg>
+          <span
+            className="absolute inset-0 flex items-center justify-center text-slate-900"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: '20px',
+              lineHeight: '100%',
+              letterSpacing: '-1px',
+            }}
+          >
+            Preregistreer hier!
+          </span>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -186,7 +209,8 @@ export default function Navbar() {
         transition={{ duration: 0.2 }}
       >
         <motion.div
-          className="mx-4 rounded-xl bg-white/95 shadow-[0_18px_40px_rgba(0,0,0,0.14)] ring-1 ring-black/10 backdrop-blur-md"
+          className="mx-4 rounded-xl ring-1 ring-black/10 backdrop-blur-md"
+          style={{ backgroundColor: 'rgba(255, 252, 250, 1)' }}
           initial={false}
           animate={{
             y: mobileMenuOpen ? 0 : -20,
@@ -194,7 +218,7 @@ export default function Navbar() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <nav className="flex flex-col py-2">
+          <nav className="flex flex-col py-2 mr-2">
             <MobileNavItem to="/">Home</MobileNavItem>
             <MobileNavItem to="/over-ons">Over ons</MobileNavItem>
             <MobileNavItem to="/over-de-app">Over de app</MobileNavItem>
@@ -203,9 +227,36 @@ export default function Navbar() {
               <Link
                 to="/preregistreer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full rounded-lg bg-[rgba(134,255,186,1)] px-4 py-2.5 text-center text-xs font-extrabold text-slate-900 shadow-[0_10px_18px_rgba(16,185,129,0.25)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                className="group relative block w-full transition"
+                style={{ height: '45px' }}
               >
-                Preregistreer hier!
+                <svg 
+                  width="100%" 
+                  height="45" 
+                  viewBox="0 0 196 45" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                  className="absolute inset-0 w-full h-full transition-colors"
+                >
+                  <path 
+                    d="M179.528 45H16.4716C7.46554 45 0 40.6338 0 35.2113V9.78873C0 4.43662 7.34704 0 16.4716 0H179.528C188.534 0 196 4.3662 196 9.78873V35.2113C196 40.6338 188.534 45 179.528 45Z" 
+                    fill="#86FFBA"
+                    className="transition-colors group-hover:fill-[#5AC896]"
+                  />
+                </svg>
+                <span
+                  className="absolute inset-0 flex items-center justify-center text-slate-900"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '20px',
+                    lineHeight: '100%',
+                    letterSpacing: '-1px',
+                  }}
+                >
+                  Preregistreer hier!
+                </span>
               </Link>
             </div>
           </nav>

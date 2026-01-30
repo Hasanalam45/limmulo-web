@@ -48,7 +48,7 @@ export default function HowItWorksSection({ phones }: Props) {
   };
 
   return (
-    <section className="relative overflow-hidden pb-0">
+    <section className="relative overflow-hidden pb-10">
       {/* ✅ Wave removed — replaced by a subtle premium glow */}
       <motion.div
         className="pointer-events-none absolute left-1/2 top-6 z-0 h-[320px] w-[min(92vw,860px)] -translate-x-1/2 rounded-[999px] blur-[40px]"
@@ -106,15 +106,22 @@ export default function HowItWorksSection({ phones }: Props) {
 
         {/* Text row (stagger like Hero) */}
         <motion.div
-          className="mt-8 sm:mt-10 grid gap-0 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start px-0 lg:px-12"
+          className="mt-8 sm:mt-16 grid gap-0 sm:gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start px-0 lg:px-12"
           variants={container}
           initial="hidden"
           animate="show"
         >
           <motion.h2
             variants={item}
-            className="
-              font-black leading-[0.95] tracking-tight text-black text-[34px] xs:text-[40px] sm:text-[46px] md:text-[52px] mb-10"
+            className="text-black mb-10"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(40px, 10vw, 62px)',
+              lineHeight: '55.8px',
+              letterSpacing: '-3.1px',
+              verticalAlign: 'middle'
+            }}
           >
             Hoe het <br />werkt
           </motion.h2>
@@ -128,15 +135,35 @@ export default function HowItWorksSection({ phones }: Props) {
                 <img 
                   src="/landingpage/learning.svg" 
                   alt="" 
-                  className="h-16 w-16 sm:h-20 sm:w-20"
+                  className="h-16 w-16 sm:h-24 sm:w-24"
                   aria-hidden="true"
                 />
 
-              <div>
-                <p className="font-extrabold text-black text-[14px] sm:text-[15px] md:text-[16px] leading-[1.15]">
+              <div style={{ minWidth: 0, overflow: 'visible' }}>
+                <p 
+                  className="text-black"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: 'clamp(16px, 5vw, 20px)',
+                    lineHeight: '28px',
+                    letterSpacing: '-1px',
+                    verticalAlign: 'middle'
+                  }}
+                >
                   7 leergebieden
                 </p>
-                <p className="mt-1 text-black/60 text-[12px] sm:text-[13px] md:text-[14px] leading-5">
+                <p 
+                  className="mt-1 text-black md:whitespace-nowrap"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 400,
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    lineHeight: '28.8px',
+                    letterSpacing: '0%',
+                    verticalAlign: 'middle'
+                  }}
+                >
                   van emotionele gezondheid tot ondernemerschap
                 </p>
               </div>
@@ -150,14 +177,34 @@ export default function HowItWorksSection({ phones }: Props) {
                 <img 
                   src="/landingpage/time.svg" 
                   alt="" 
-                  className="h-16 w-16 sm:h-20 sm:w-20"
+                  className="h-16 w-16 sm:h-24 sm:w-24"
                   aria-hidden="true"
                 />
               <div>
-                <p className="font-extrabold text-black text-[14px] sm:text-[15px] md:text-[16px] leading-[1.15]">
+                <p 
+                  className="text-black"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: 'clamp(16px, 5vw, 20px)',
+                    lineHeight: '28px',
+                    letterSpacing: '-1px',
+                    verticalAlign: 'middle'
+                  }}
+                >
                   5 – 15 minuten per dag
                 </p>
-                <p className="mt-1 text-black/60 text-[12px] sm:text-[13px] md:text-[14px] leading-5">
+                <p 
+                  className="mt-1 text-black"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 400,
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    lineHeight: '28.8px',
+                    letterSpacing: '0%',
+                    verticalAlign: 'middle'
+                  }}
+                >
                   past altijd in jullie dagritme
                 </p>
               </div>
@@ -172,14 +219,34 @@ export default function HowItWorksSection({ phones }: Props) {
                   src="/landingpage/screen.svg" 
                   alt="" 
 
-                  className="h-16 w-16 sm:h-20 sm:w-20"
+                  className="h-16 w-16 sm:h-24 sm:w-24"
                   aria-hidden="true"
                 />
               <div>
-                <p className="font-extrabold text-black text-[14px] sm:text-[15px] md:text-[16px] leading-[1.15]">
+                <p 
+                  className="text-black"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: 'clamp(16px, 5vw, 20px)',
+                    lineHeight: '28px',
+                    letterSpacing: '-1px',
+                    verticalAlign: 'middle'
+                  }}
+                >
                   geen scherm
                 </p>
-                <p className="mt-1 text-black/60 text-[12px] sm:text-[13px] md:text-[14px] leading-5">
+                <p 
+                  className="mt-1 text-black"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 400,
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    lineHeight: '28.8px',
+                    letterSpacing: '0%',
+                    verticalAlign: 'middle'
+                  }}
+                >
                   samen spelen, samen groeien
                 </p>
               </div>

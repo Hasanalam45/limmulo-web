@@ -57,7 +57,7 @@ function StepCard({
             <img 
               src="/landingpage/number-one.svg" 
               alt="1" 
-              className="h-[45px] w-[50px]"
+              className="h-[60px] w-[50px]"
             />
           </div>
         ) : item.number === 2 ? (
@@ -65,7 +65,7 @@ function StepCard({
             <img 
               src="/landingpage/number-two.svg" 
               alt="2" 
-              className="h-[45px] w-[50px]"
+              className="h-[60px] w-[50px]"
             />
           </div>
         ) : (
@@ -73,12 +73,23 @@ function StepCard({
             <img 
               src="/landingpage/number-three.svg" 
               alt="3" 
-              className="h-[45px] w-[50px]"
+              className="h-[60px] w-[50px]"
             />
           </div>
         )}
 
-        <div className="mt-3 text-[12px] font-extrabold leading-[1.15] text-black">
+        <div 
+          className="mt-3 text-black"
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 700,
+            fontSize: 'clamp(18px, 5vw, 20px)',
+            lineHeight: '28px',
+            letterSpacing: '-1px',
+            textAlign: 'center',
+            verticalAlign: 'middle'
+          }}
+        >
           {item.title.split("\n").map((line, idx) => (
             <React.Fragment key={idx}>
               {line}
@@ -87,7 +98,18 @@ function StepCard({
           ))}
         </div>
 
-        <p className="mx-auto mt-4 max-w-[210px] text-[11px] leading-5 text-black">
+        <p 
+          className="mx-auto mt-4 max-w-[210px] text-black"
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(14px, 4vw, 16px)',
+            lineHeight: '28.8px',
+            letterSpacing: '0%',
+            textAlign: 'center',
+            verticalAlign: 'middle'
+          }}
+        >
           {item.description}
         </p>
       </div>
@@ -166,7 +188,7 @@ export default function StepsCtaSection({
       <div ref={ref} className="relative z-10 mx-auto max-w-[999px] px-4 sm:px-6">
         {/* Cards row */}
         <motion.div
-          className="mx-auto grid max-w-[620px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-4"
+          className="mx-auto grid max-w-[900px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-6"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
@@ -186,7 +208,16 @@ export default function StepsCtaSection({
           <motion.div whileHover={reduce ? undefined : { y: -2 }} whileTap={reduce ? undefined : { scale: 0.98 }}>
             <Link
               to={ctaHref}
-              className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-12 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+              className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-16 py-4 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 700,
+                fontSize: 'clamp(16px, 4.5vw, 18px)',
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                verticalAlign: 'middle'
+              }}
             >
               {finalCtaLabel}
             </Link>
@@ -195,7 +226,7 @@ export default function StepsCtaSection({
           <motion.img
             src="/landingpage/big-star.svg"
             alt=""
-            className="pointer-events-none absolute left-[600px] -top-[16px] -translate-y-1/2 translate-x-[160px] sm:translate-x-[180px]"
+            className="pointer-events-none absolute left-[640px] -top-[16px] -translate-y-1/2 translate-x-[160px] sm:translate-x-[180px]"
             aria-hidden="true"
             initial={false}
             animate={

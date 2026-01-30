@@ -91,7 +91,7 @@ export default function AboutFinalCtaSection() {
               >
                 {/* sparkles */}
                 <motion.span
-                  className="pointer-events-none absolute right-4 top-4 h-[40px] w-[40px] sm:right-8 sm:top-8 sm:h-[50px] sm:w-[50px]"
+                  className="pointer-events-none absolute right-4 top-4 h-[40px] w-[40px] sm:right-6 sm:top-20 sm:h-[50px] sm:w-[50px]"
                   aria-hidden="true"
                   initial={false}
                   animate={
@@ -120,33 +120,45 @@ export default function AboutFinalCtaSection() {
 
                 <motion.h3
                   variants={item}
-                  className="text-left text-black font-black tracking-tight text-[18px] sm:text-[18px] md:text-[20px] lg:text-[30px] ml-4 sm:ml-10"
+                  className="text-left text-black ml-4 sm:ml-10"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: 'clamp(20px, 6vw, 32px)',
+                    lineHeight: '44.8px',
+                    letterSpacing: '0%',
+                    verticalAlign: 'middle'
+                  }}
                 >
                   Ga mee op reis!
                 </motion.h3>
 
                 <motion.p
                   variants={item}
-                  className="
-                    text-left mt-3 max-w-[420px]
-                    text-black/80 font-medium
-                    text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px]
-                    leading-5 sm:leading-6 md:leading-6 lg:leading-7
-                    ml-4 sm:ml-10
-                  "
+                  className="text-left mt-1 max-w-[420px] text-black ml-4 sm:ml-10"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 400,
+                    fontSize: 'clamp(12px, 3.5vw, 16px)',
+                    lineHeight: '28.8px',
+                    letterSpacing: '0%',
+                    verticalAlign: 'middle'
+                  }}
                 >
                   Wij nodigen je uit om Luumilo te ontdekken, de activiteiten uit te proberen, de voortgang van je kind te volgen en te genieten van de leerzame en grappige momentjes die je onderweg tegenkomt.
                 </motion.p>
 
                 <motion.p
                   variants={item}
-                  className="
-                    text-left mt-4 sm:mt-5 max-w-[420px]
-                    text-black/85 font-extrabold
-                    text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px]
-                    leading-5 sm:leading-6 md:leading-6 lg:leading-7
-                    ml-4 sm:ml-10
-                  "
+                  className="text-left mt-4 sm:mt-5 max-w-[420px] text-black ml-4 sm:ml-10"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 400,
+                    fontSize: 'clamp(12px, 3.5vw, 16px)',
+                    lineHeight: '28.8px',
+                    letterSpacing: '0%',
+                    verticalAlign: 'middle'
+                  }}
                   dangerouslySetInnerHTML={{ __html: "Laten we samen een betere toekomst bouwen,<br /> één dag, één missie tegelijk." }}
                 />
 
@@ -158,7 +170,16 @@ export default function AboutFinalCtaSection() {
                   >
                     <Link
                       to="/preregistreer"
-                      className="inline-flex items-center justify-center w-full rounded-xl bg-[rgba(134,255,186,1)] px-8 py-2.5 text-[10px] sm:px-10 sm:py-3 sm:text-[11px] md:px-12 font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                      className="inline-flex items-center justify-center w-full rounded-xl bg-[rgba(134,255,186,1)] px-8 py-2.5 sm:px-10 sm:py-4 md:px-12 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 700,
+                        fontSize: 'clamp(14px, 4.5vw, 18px)',
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        textAlign: 'center',
+                        verticalAlign: 'middle'
+                      }}
                     >
                       PREREGISTREER HIER
                     </Link>
@@ -167,12 +188,12 @@ export default function AboutFinalCtaSection() {
 
                 {/* doodle arrow inside blob (animated) */}
                 <motion.div
-                  className="pointer-events-none absolute -right-4 sm:-right-2 md:right-4 lg:right-20 top-[180px] sm:top-[200px] md:top-[220px] lg:top-[200px]"
+                  className="pointer-events-none absolute -right-4 sm:-right-2 md:right-4 lg:right-2 top-[180px] sm:top-[200px] md:top-[220px] lg:top-[230px]"
                   initial={false}
                   animate={reduce ? undefined : { y: [0, -6, 0] }}
                   transition={reduce ? { duration: 0 } : { duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <DoodleArrow className="h-16 w-16 sm:h-[72px] sm:w-[72px] md:h-20 md:w-20 opacity-95" />
+                  <DoodleArrow className="h-16 w-16 sm:h-[72px] sm:w-[72px] md:h-24 md:w-24 opacity-95" />
                 </motion.div>
               </div>
             </div>

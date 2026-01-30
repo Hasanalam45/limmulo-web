@@ -188,7 +188,12 @@ function LabelBubble({
       <div className={["absolute group", positionClasses].join(" ")}>
         {/* Heading that moves above container on hover */}
         {description && (
-          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10">
+          <div 
+            className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10"
+            style={{
+              fontFamily: 'Poppins, sans-serif'
+            }}
+          >
             {text.toUpperCase()}
           </div>
         )}
@@ -197,7 +202,7 @@ function LabelBubble({
         <div
           id={uniqueId}
           className={[
-            "relative rounded-[9px] px-3 pt-1.5 pb-2 text-[10px] font-extrabold leading-tight tracking-normal text-center text-black shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-300",
+            "relative rounded-[9px] px-3 pt-1.5 pb-2 text-center text-black shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-300",
             bgClass,
             tail === "left" ? tailLeft : "",
             tail === "right" ? tailRight : "",
@@ -211,13 +216,23 @@ function LabelBubble({
           }}
         >
           {/* Heading inside container (hidden on hover if description exists) */}
-          <div className={description ? "group-hover:opacity-0 transition-opacity duration-300 whitespace-nowrap" : ""}>
+          <div 
+            className={description ? "group-hover:opacity-0 transition-opacity duration-300 whitespace-nowrap text-[10px] font-extrabold leading-tight tracking-normal" : "text-[10px] font-extrabold leading-tight tracking-normal"}
+            style={{
+              fontFamily: 'Poppins, sans-serif'
+            }}
+          >
             {text.toUpperCase()}
           </div>
           
           {/* Description inside container (shown on hover) */}
           {description && (
-            <div className="absolute inset-0 flex items-center justify-center px-3 pt-1.5 pb-2 text-[9px] font-medium leading-[1.3] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black text-center pointer-events-none">
+            <div 
+              className="absolute inset-0 flex items-center justify-center px-3 pt-1.5 pb-2 text-[9px] font-medium leading-[1.3] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black text-center pointer-events-none"
+              style={{
+                fontFamily: 'Poppins, sans-serif'
+              }}
+            >
               {description}
             </div>
           )}
@@ -246,6 +261,9 @@ function TabButton({
         "rounded-lg px-8 py-3 text-[10px] font-black tracking-wide uppercase whitespace-nowrap shadow-sm transition-colors",
         active ? "bg-white text-black hover:bg-[rgba(134,255,186,1)]" : "bg-white text-black hover:bg-[rgba(134,255,186,1)] hover:text-black",
       ].join(" ")}
+      style={{
+        fontFamily: 'Poppins, sans-serif'
+      }}
     >
       {label}
     </button>
@@ -261,7 +279,7 @@ export default function FundamentalsSection() {
         label: "Emotionele gezondheid",
         border: "#EF4444",
         icon: <HeartIcon />,
-        title: "EMOTIONELE GEZONDHEID",
+        title: "EMOTIONELE GEZODHEID",
         description: "Gevoelens herkennen, benoemen en ermee leren omgaan.",
       },
       {
@@ -385,7 +403,12 @@ export default function FundamentalsSection() {
                 />
                 {/* Center text overlay */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                  <p className="text-[11px] font-semibold leading-5 text-black/85" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <p 
+                    className="text-[11px] font-bold leading-5 text-black/85"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif'
+                    }}
+                  >
                     7 fundamenten voor<br />
                     een sterke start in<br />
                     de wereld<br />
@@ -400,16 +423,16 @@ export default function FundamentalsSection() {
                 description="Gevoelens herkennen, benoemen en ermee leren omgaan."
                 border="#BF0808"
                 tail="left"
-                width="170px"
+                width="179px"
                 height="37px"
-                className="left-[450px] top-[12px] -translate-x-1/2 bg-[#FFECEC]"
+                className="left-[455px] top-[12px] -translate-x-1/2 bg-[#FFECEC]"
               />
               <LabelBubble 
                 text="Veerkracht" 
                 description="Omgaan met tegenslag, doorzetten en opnieuw proberen."
                 border="#2C5CE5" 
                 tail="left"
-                width="160px"
+                width="180px"
                 height="35px"
                 className="left-[480px] top-[93px] bg-[#E6F0FF]" 
               />
@@ -427,7 +450,7 @@ export default function FundamentalsSection() {
                 description="Luisteren naar het lichaam en ruimte maken voor rust en herstel."
                 border="#27A367" 
                 tail="left"
-                width="165px"
+                width="180px"
                 height="35px"
                 className="left-[483px] top-[310px] bg-[#D9FFDA]" 
               />
@@ -465,6 +488,9 @@ export default function FundamentalsSection() {
                 <Link
                   to="/preregistreer"
                   className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
                 >
                   PREREGISTREER HIER
                 </Link>
@@ -533,8 +559,20 @@ export default function FundamentalsSection() {
                   {activeTopic.icon}
                 </div>
                 <div>
-                  <p className="text-xs font-black tracking-wide text-black">{activeTopic.title}</p>
-                  <p className="mt-1 text-[11px] font-medium leading-5 text-black">
+                  <p 
+                    className="text-xs font-black tracking-wide text-black"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif'
+                    }}
+                  >
+                    {activeTopic.title}
+                  </p>
+                  <p 
+                    className="mt-1 text-[11px] font-medium leading-5 text-black"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif'
+                    }}
+                  >
                     {activeTopic.description}
                   </p>
                 </div>
@@ -545,14 +583,25 @@ export default function FundamentalsSection() {
 
         {/* ✅ Bottom headline (like screenshot) */}
         <div className="relative mt-16 flex items-center justify-center pb-6">
-          <h3 className="text-center text-[44px] font-black leading-[0.95] tracking-tight text-black">
+          <h3 
+            className="text-center text-black"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(40px, 10vw, 62px)',
+              lineHeight: '55.8px',
+              letterSpacing: '-3.1px',
+              textAlign: 'center',
+              verticalAlign: 'middle'
+            }}
+          >
             Geen lesstof.<br />Levensstof.
           </h3>
 
         <img 
           src="/landingpage/big-star.svg" 
           alt="" 
-          className="pointer-events-none absolute right-[260px] -top-[10px] opacity-90" 
+          className="pointer-events-none absolute right-[210px] -top-[10px] opacity-90" 
           style={{ width: '60px', height: '55px' }}
           aria-hidden="true"
         /> 

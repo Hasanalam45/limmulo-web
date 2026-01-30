@@ -70,10 +70,30 @@ function ItemRow({ item }: { item: Item }) {
       </div>
 
       <div className="pt-0.5">
-        <p className="text-[12px] sm:text-[12.5px] font-black tracking-tight text-black uppercase">
+        <p 
+          className="text-black"
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 700,
+            fontSize: 'clamp(18px, 5vw, 20px)',
+            lineHeight: '28px',
+            letterSpacing: '-1px',
+            verticalAlign: 'middle'
+          }}
+        >
           {item.title}
         </p>
-        <p className="mt-1 text-[11px] sm:text-[12px] leading-5 text-black">
+        <p 
+          className="mt-1 text-black"
+          style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(14px, 4vw, 16px)',
+            lineHeight: '28.8px',
+            letterSpacing: '0%',
+            verticalAlign: 'middle'
+          }}
+        >
           {item.desc}
         </p>
       </div>
@@ -158,7 +178,7 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="relative bg-[#FFFCFA] py-14 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-[1040px] px-4 sm:px-6">
+      <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
         <div className="grid items-center gap-10 lg:gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           {/* LEFT */}
           <motion.div
@@ -169,12 +189,17 @@ export default function WhatWeDoSection() {
             viewport={{ amount: 0.35, once: true }}
           >
             <motion.div variants={itemV} className="flex items-center gap-4 sm:gap-5">
-              <img src="/landingpage/aboutPage/dark-purple-blob.svg" alt="" className="h-14 w-14 sm:h-16 sm:w-16" />
+              <img src="/landingpage/aboutPage/dark-purple-blob.svg" alt="" className="h-14 w-14 sm:h-24 sm:w-24" />
               <h2
-                className="
-                  font-black leading-[0.95] tracking-tight text-black
-                  text-[40px] xs:text-[44px] sm:text-[54px] md:text-[58px]
-                "
+                className="text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  fontSize: 'clamp(40px, 10vw, 60px)',
+                  lineHeight: '54px',
+                  letterSpacing: '-3px',
+                  verticalAlign: 'middle'
+                }}
               >
                 Wat wij <br/> doen
               </h2>
@@ -182,11 +207,15 @@ export default function WhatWeDoSection() {
 
             <motion.p
               variants={itemV}
-              className="
-                mt-6 max-w-[460px] text-black/65 font-medium
-                text-[11px] sm:text-[12px] lg:text-[16px]
-                leading-6 sm:leading-7
-              "
+              className="mt-6 max-w-[460px] text-black"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 400,
+                fontSize: 'clamp(14px, 4vw, 16px)',
+                lineHeight: '28.8px',
+                letterSpacing: '0%',
+                verticalAlign: 'middle'
+              }}
             >
               Elke week biedt Luumilo een samengestelde set van <br/ > vijf praktische activiteiten aan, in de Speelweek,<br/> gericht op leren door te spelen. Elke activiteit is <br /> ontworpen om de band tussen ouder en kind te <br /> versterken en thema's te verkennen zoals:
             </motion.p>

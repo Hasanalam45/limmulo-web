@@ -37,52 +37,82 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 items-start">
           {/* Contact section */}
           <motion.div variants={item}>
-            <Link to="/" className="inline-flex w-fit origin-left scale-[0.95]">
+            <Link to="/" className="inline-flex w-fit origin-left scale-[1.8]">
               <LuumiloLogo />
             </Link>
 
-            <div className="mt-6 space-y-1 text-[12px] sm:text-[11px] font-medium leading-5 text-black/60">
-              <p className="font-extrabold text-black/75">Contact</p>
+            <div className="mt-6 space-y-1 text-[12px] sm:text-[11px] font-medium leading-5 text-black">
+              <p 
+                className="font-extrabold text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
+                Contact
+              </p>
 
-              <a className="block hover:text-black/80" href="tel:+31627583306">
+              <a 
+                className="block hover:text-black/80 text-black" 
+                href="tel:+31627583306"
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
                 +31 6 27 58 33 06
               </a>
-              <a className="block hover:text-black/80" href="mailto:join@luumilo.nl">
+              <a 
+                className="block hover:text-black/80 text-black" 
+                href="mailto:join@luumilo.nl"
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
                 join@luumilo.nl
               </a>
               <a
-                className="block hover:text-black/80"
+                className="block hover:text-black/80 text-black"
                 href="https://www.luumilo.nl"
                 target="_blank"
                 rel="noreferrer"
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                }}
               >
                 www.luumilo.nl
               </a>
             </div>
 
-            <div className="mt-4 flex items-center gap-2">
+            <div className="mt-2 flex items-center gap-2">
               <motion.a
-                href="https://www.linkedin.com/"
+                href="https://www.instagram.com/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="LinkedIn"
-                className="grid h-9 w-9 sm:h-8 sm:w-8 place-items-center rounded-full bg-black/10 text-[12px] sm:text-[11px] font-black text-black/70 transition hover:bg-black/15"
+                aria-label="Instagram"
+                className="transition"
                 whileHover={reduce ? undefined : { y: -2, scale: 1.04 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
               >
-                in
+                <img 
+                  src="/assets/footer/instagram.png" 
+                  alt="Instagram" 
+                  className="h-5 w-5 sm:h-4 sm:w-4"
+                />
               </motion.a>
 
               <motion.a
-                href="https://www.facebook.com/"
+                href="https://www.tiktok.com/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Facebook"
-                className="grid h-9 w-9 sm:h-8 sm:w-8 place-items-center rounded-full bg-black/10 text-[12px] sm:text-[11px] font-black text-black/70 transition hover:bg-black/15"
+                aria-label="TikTok"
+                className="transition"
                 whileHover={reduce ? undefined : { y: -2, scale: 1.04 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
               >
-                f
+                <img 
+                  src="/assets/footer/tiktok.png" 
+                  alt="TikTok" 
+                  className="h-5 w-5 sm:h-4 sm:w-4"
+                />
               </motion.a>
             </div>
           </motion.div>
@@ -90,40 +120,84 @@ export default function Footer() {
           {/* Bedrijf + Ondersteuning grouped together */}
           <motion.div variants={item} className="flex gap-4 lg:gap-10 mt-8 sm:mt-[67px]">
             {/* Company */}
-            <div className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black/60 ml-0 sm:ml-[40px]">
-              <p className="font-extrabold text-black/75">Bedrijf</p>
+            <div className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black ml-0 sm:ml-[40px]">
+              <p 
+                className="font-extrabold text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
+                Bedrijf
+              </p>
 
               <motion.div whileHover={linkHover}>
-                <Link className="block transition hover:text-black/80" to="/over-ons">
+                <Link 
+                  className="block transition hover:text-black/80 text-black" 
+                  to="/over-ons"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   Over ons
                 </Link>
               </motion.div>
 
               <motion.div whileHover={linkHover}>
-                <Link className="block transition hover:text-black/80" to="/vacatures">
+                <Link 
+                  className="block transition hover:text-black/80 text-black" 
+                  to="/vacatures"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   Vacatures
                 </Link>
               </motion.div>
 
               <motion.div whileHover={linkHover}>
-                <Link className="block transition hover:text-black/80" to="/pers">
+                <Link 
+                  className="block transition hover:text-black/80 text-black" 
+                  to="/pers"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   Pers
                 </Link>
               </motion.div>
             </div>
 
             {/* Support */}
-            <div className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black/60 ml-0 sm:ml-[30px]">
-              <p className="font-extrabold text-black/75">Ondersteuning</p>
+            <div className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black ml-0 sm:ml-[30px]">
+              <p 
+                className="font-extrabold text-black"
+                style={{
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
+                Ondersteuning
+              </p>
 
               <motion.div whileHover={linkHover}>
-                <Link className="block transition hover:text-black/80" to="/veelgestelde-vragen">
+                <Link 
+                  className="block transition hover:text-black/80 text-black" 
+                  to="/veelgestelde-vragen"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   Veelgestelde vragen
                 </Link>
               </motion.div>
 
               <motion.div whileHover={linkHover}>
-                <Link className="block transition hover:text-black/80" to="/privacybeleid">
+                <Link 
+                  className="block transition hover:text-black/80 text-black" 
+                  to="/privacybeleid"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   Privacybeleid
                 </Link>
               </motion.div>
@@ -133,9 +207,20 @@ export default function Footer() {
           {/* Quote */}
           <motion.div
             variants={item}
-            className="text-left sm:text-left lg:text-right lg:ml-auto mt-8 sm:mt-[130px]"
+            className="text-left sm:text-left lg:ml-auto mt-8 sm:mt-[130px] mr-10"
           >
-            <p className="text-[12px] sm:text-[11px] font-medium italic leading-5 text-black">
+            <p 
+              className="text-black"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 400,
+                fontStyle: 'italic',
+                fontSize: '11px',
+                lineHeight: '19.8px',
+                letterSpacing: '0%',
+                verticalAlign: 'middle'
+              }}
+            >
               "Het platform dat kinderen vandaag<br />voorbereidt op de wereld van morgen."
             </p>
 
@@ -150,15 +235,39 @@ export default function Footer() {
         <motion.div
           variants={item}
           className="
-            mt-12 sm:mt-14
+            mt-12 sm:mt-20
             flex flex-col gap-2
             text-[11px] sm:text-[10px]
-            font-medium text-black/35
+            font-medium text-black
             sm:flex-row sm:items-center sm:justify-between
           "
         >
-          <p>Alle rechten voorbehouden. © 2026 door Luumilo</p>
-          <p>Met liefde gemaakt voor kinderen over de hele wereld.</p>
+          <p 
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 400,
+              fontSize: '11px',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              verticalAlign: 'middle',
+              color: 'rgba(191, 189, 188, 1)'
+            }}
+          >
+            Alle rechten voorbehouden. © 2026 door Luumilo
+          </p>
+          <p 
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 400,
+              fontSize: '11px',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              verticalAlign: 'middle',
+              color: 'rgba(191, 189, 188, 1)'
+            }}
+          >
+            Met liefde gemaakt voor kinderen over de hele wereld.
+          </p>
         </motion.div>
       </motion.div>
     </footer>
