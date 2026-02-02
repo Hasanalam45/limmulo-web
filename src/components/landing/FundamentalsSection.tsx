@@ -173,10 +173,18 @@ function LabelBubble({
 
   const uniqueId = `bubble-${Math.random().toString(36).substr(2, 9)}`;
   
-  // Extract background color class from className
+  // Extract background color class and responsive width/height from className
   const bgClassMatch = className.match(/bg-\[[^\]]+\]/);
   const bgClass = bgClassMatch ? bgClassMatch[0] : '';
-  const positionClasses = className.replace(/bg-\[[^\]]+\]/g, '').trim();
+  const lgWidthMatch = className.match(/lg:w-\[(\d+)px\]/);
+  const lgHeightMatch = className.match(/lg:h-\[(\d+)px\]/);
+  const lgWidth = lgWidthMatch ? lgWidthMatch[1] + 'px' : null;
+  const lgHeight = lgHeightMatch ? lgHeightMatch[1] + 'px' : null;
+  const positionClasses = className.replace(/bg-\[[^\]]+\]/g, '').replace(/lg:w-\[[^\]]+\]/g, '').replace(/lg:h-\[[^\]]+\]/g, '').trim();
+  
+  // Also update minWidth and minHeight for lg screens if description exists
+  const lgMinWidth = lgWidth;
+  const lgMinHeight = lgHeight;
   
   return (
     <>
@@ -184,12 +192,22 @@ function LabelBubble({
         #${uniqueId}::after {
           border-top-color: ${border} !important;
         }
+        ${lgWidth || lgHeight ? `
+        @media (min-width: 1024px) {
+          #${uniqueId} {
+            ${lgWidth ? `width: ${lgWidth} !important;` : ''}
+            ${lgHeight ? `height: ${lgHeight} !important;` : ''}
+            ${description && lgMinWidth ? `min-width: ${lgMinWidth} !important;` : ''}
+            ${description && lgMinHeight ? `min-height: ${lgMinHeight} !important;` : ''}
+          }
+        }
+        ` : ''}
       `}</style>
       <div className={["absolute group", positionClasses].join(" ")}>
         {/* Heading that moves above container on hover */}
         {description && (
           <div 
-            className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10"
+            className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] lg:text-[12px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10"
             style={{
               fontFamily: 'Poppins, sans-serif'
             }}
@@ -202,7 +220,7 @@ function LabelBubble({
         <div
           id={uniqueId}
           className={[
-            "relative rounded-[9px] px-3 pt-1.5 pb-2 text-center text-black shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-300",
+            "relative rounded-[6px] lg:rounded-[9px] px-3 lg:px-3.5 pt-1.5 lg:pt-2 pb-2 lg:pb-2.5 text-center text-black shadow-[0_14px_28px_rgba(0,0,0,0.12)] flex items-center justify-center transition-all duration-300",
             bgClass,
             tail === "left" ? tailLeft : "",
             tail === "right" ? tailRight : "",
@@ -217,7 +235,7 @@ function LabelBubble({
         >
           {/* Heading inside container (hidden on hover if description exists) */}
           <div 
-            className={description ? "group-hover:opacity-0 transition-opacity duration-300 whitespace-nowrap text-[10px] font-extrabold leading-tight tracking-normal" : "text-[10px] font-extrabold leading-tight tracking-normal"}
+            className={description ? "group-hover:opacity-0 transition-opacity duration-300 whitespace-nowrap text-[10px] lg:text-[10.5px] font-extrabold leading-tight tracking-normal" : "text-[10px] lg:text-[12px] font-extrabold leading-tight tracking-normal"}
             style={{
               fontFamily: 'Poppins, sans-serif'
             }}
@@ -228,7 +246,7 @@ function LabelBubble({
           {/* Description inside container (shown on hover) */}
           {description && (
             <div 
-              className="absolute inset-0 flex items-center justify-center px-3 pt-1.5 pb-2 text-[9px] font-medium leading-[1.3] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black text-center pointer-events-none"
+              className="absolute inset-0 flex items-center justify-center px-3 lg:px-3.5 pt-1.5 lg:pt-2 pb-2 lg:pb-2.5 text-[9px] lg:text-[8px] font-medium leading-[1.3] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black text-center pointer-events-none"
               style={{
                 fontFamily: 'Poppins, sans-serif'
               }}
@@ -258,11 +276,17 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={[
-        "rounded-lg px-8 py-3 text-[10px] font-black tracking-wide uppercase whitespace-nowrap shadow-sm transition-colors",
+        "rounded-[15px] px-8 lg:px-16 py-3 lg:py-5 text-[10px] lg:text-[16px] uppercase whitespace-nowrap shadow-sm transition-colors",
         active ? "bg-white text-black hover:bg-[rgba(134,255,186,1)]" : "bg-white text-black hover:bg-[rgba(134,255,186,1)] hover:text-black",
       ].join(" ")}
       style={{
-        fontFamily: 'Poppins, sans-serif'
+        fontFamily: 'Poppins, sans-serif',
+        fontWeight: 700,
+        fontStyle: 'normal',
+        lineHeight: '100%',
+        letterSpacing: '0%',
+        textTransform: 'uppercase',
+        verticalAlign: 'middle'
       }}
     >
       {label}
@@ -391,8 +415,8 @@ export default function FundamentalsSection() {
           aria-hidden="true"
         /> 
         {/*  Diagram artboard (fixed layout, scales down for small screens) */}
-        <div className="relative mx-auto h-[176px] w-full sm:h-[273px] md:h-[420px] mt-4">
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 origin-top scale-[0.55] sm:scale-[0.65] md:scale-100">
+        <div className="relative mx-auto h-[176px] w-full sm:h-[273px] md:h-[420px] lg:h-[756px] mt-4 lg:mt-8">
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 origin-top scale-[0.55] sm:scale-[0.65] md:scale-100 lg:scale-[1.7]">
             <div className="relative h-[420px] w-[760px]">
               {/* Cloud SVG */}
               <div className="absolute left-1/2 -translate-x-1/2">
@@ -404,9 +428,15 @@ export default function FundamentalsSection() {
                 {/* Center text overlay */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                   <p 
-                    className="text-[11px] font-bold leading-5 text-black/85"
+                    className="text-[11px] lg:text-[12px] text-black"
                     style={{
-                      fontFamily: 'Poppins, sans-serif'
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      lineHeight: '20px',
+                      letterSpacing: '0%',
+                      textAlign: 'center',
+                      verticalAlign: 'middle'
                     }}
                   >
                     7 fundamenten voor<br />
@@ -425,7 +455,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="179px"
                 height="37px"
-                className="left-[455px] top-[12px] -translate-x-1/2 bg-[#FFECEC]"
+                className="left-[455px] top-[12px] -translate-x-1/2 bg-[#FFECEC] lg:w-[165px] lg:h-[33px]"
               />
               <LabelBubble 
                 text="Veerkracht" 
@@ -434,7 +464,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="180px"
                 height="35px"
-                className="left-[480px] top-[93px] bg-[#E6F0FF]" 
+                className="left-[480px] top-[93px] bg-[#E6F0FF] lg:w-[165px] lg:h-[35px]" 
               />
               <LabelBubble 
                 text="Dankbaarheid" 
@@ -443,7 +473,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="150px"
                 height="35px"
-                className="left-[530px] top-[185px] bg-[#FDFFC9]" 
+                className="left-[530px] top-[185px] bg-[#FDFFC9] lg:w-[150px] lg:h-[33px]" 
               />
               <LabelBubble 
                 text="Zelfzorg" 
@@ -452,7 +482,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="180px"
                 height="35px"
-                className="left-[483px] top-[310px] bg-[#D9FFDA]" 
+                className="left-[483px] top-[310px] bg-[#D9FFDA] lg:w-[174px] lg:h-[33px]" 
               />
 
               <LabelBubble 
@@ -462,7 +492,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="144px"
                 height="35px"
-                className="left-[120px] top-[108px] bg-[#CFF9FF]" 
+                className="left-[120px] top-[108px] bg-[#CFF9FF] lg:w-[147px] lg:h-[35px]" 
               />
               <LabelBubble 
                 text="Ondernemerschap" 
@@ -471,7 +501,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="144px"
                 height="41px"
-                className="left-[83px] top-[220px] bg-[#FFEED7]" 
+                className="left-[83px] top-[220px] bg-[#FFEED7] lg:w-[147px] lg:h-[38px]" 
               />
               <LabelBubble 
                 text="Geldwijsheid" 
@@ -480,14 +510,14 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="145px"
                 height="35px"
-                className="left-[130px] top-[310px] bg-[#F0E9FF]" 
+                className="left-[128px] top-[314px] bg-[#F0E9FF] lg:w-[150px] lg:h-[33px]" 
               />
 
               {/* CTA */}
-              <div className="absolute left-1/2 top-[400px] -translate-x-1/2">
+              <div className="absolute left-1/2 top-[420px] -translate-x-1/2">
                 <Link
                   to="/preregistreer"
-                  className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                  className="inline-flex items-center justify-center rounded-[8px] bg-[rgba(134,255,186,1)] px-12 py-2 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                   style={{
                     fontFamily: 'Poppins, sans-serif'
                   }}
@@ -497,8 +527,8 @@ export default function FundamentalsSection() {
               </div>
 
               {/* doodle arrows */}
-              <DoodleArrowLeft className="pointer-events-none absolute left-[140px] top-[450px] h-16 w-20 opacity-90" />
-              <DoodleArrowRight className="pointer-events-none absolute right-[200px] top-[360px] h-16 w-20 opacity-90" />
+              <DoodleArrowLeft className="pointer-events-none absolute left-[140px] top-[455px] h-16 w-20 lg:h-20 lg:w-20 opacity-90" />
+              <DoodleArrowRight className="pointer-events-none absolute right-[200px] top-[380px] h-16 w-20 lg:h-18 lg:w-20 opacity-90" />
 
               {/* sparkles near CTA (right) */}
               <img 
@@ -513,17 +543,17 @@ export default function FundamentalsSection() {
         </div>
 
         {/*  Tabs + content block (like screenshot) */}
-        <div className="mx-auto mt-[110px] max-w-[600px] md:mt-[100px]">
+        <div className="mx-auto mt-[110px] max-w-[600px] lg:max-w-[1000px] md:mt-[100px] lg:mt-[180px]">
           <div className="relative">
             {/* Left arrow button */}
             {canScrollLeft && (
               <button
                 type="button"
                 onClick={scrollTabsLeft}
-                className="absolute left-0 top-[17px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                className="absolute left-0 top-[17px] lg:top-[28px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
                 aria-label="Scroll tabs left"
               >
-                <ArrowIcon direction="left" className="h-[15px] w-[15px]" />
+                <ArrowIcon direction="left" className="h-[15px] w-[15px] lg:h-[22px] lg:w-[22px]" />
               </button>
             )}
 
@@ -532,10 +562,10 @@ export default function FundamentalsSection() {
               <button
                 type="button"
                 onClick={scrollTabsRight}
-                className="absolute right-0 top-[17px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                className="absolute right-0 top-[17px] lg:top-[28px] z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
                 aria-label="Scroll tabs right"
               >
-                <ArrowIcon direction="right" className="h-[15px] w-[15px]" />
+                <ArrowIcon direction="right" className="h-[15px] w-[15px] lg:h-[22px] lg:w-[22px]" />
               </button>
             )}
 
@@ -553,24 +583,33 @@ export default function FundamentalsSection() {
               <TabButton label="Anders denken" active={active === "anders_denken"} onClick={() => setActive("anders_denken")} />
             </div>
 
-            <div className="rounded-xl bg-white px-6 py-5">
-              <div className="flex items-start gap-4">
-                <div className="grid h-10 w-10 place-items-center">
+            <div className="rounded-[15px] bg-white px-6 lg:px-10 py-5 lg:py-10">
+              <div className="flex items-center gap-4 lg:gap-8">
+                <div className="grid h-10 w-10 lg:h-20 lg:w-20 place-items-center flex-shrink-0">
                   {activeTopic.icon}
                 </div>
                 <div>
                   <p 
-                    className="text-xs font-black tracking-wide text-black"
+                    className="text-xs lg:text-[20px] text-black"
                     style={{
-                      fontFamily: 'Poppins, sans-serif'
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 700,
+                      fontStyle: 'normal',
+                      lineHeight: '28px',
+                      letterSpacing: '-1px',
                     }}
                   >
                     {activeTopic.title}
                   </p>
                   <p 
-                    className="mt-1 text-[11px] font-medium leading-5 text-black"
+                    className="mt-1 lg:mt-1 text-[11px] lg:text-[16px] text-black"
                     style={{
-                      fontFamily: 'Poppins, sans-serif'
+                      fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      lineHeight: '28.8px',
+                      letterSpacing: '0%',
+                      verticalAlign: 'middle'
                     }}
                   >
                     {activeTopic.description}
