@@ -207,7 +207,7 @@ function LabelBubble({
         {/* Heading that moves above container on hover */}
         {description && (
           <div 
-            className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] lg:text-[12px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10"
+            className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] lg:text-[10.5px] font-extrabold text-black opacity-0 group-hover:opacity-100 group-hover:-translate-y-[calc(100%+32px)] transition-all duration-700 ease-out pointer-events-none z-10"
             style={{
               fontFamily: 'Poppins, sans-serif'
             }}
