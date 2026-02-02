@@ -41,7 +41,7 @@ export default function LifeSkillsSection({
           {/* First paragraph */}
           <motion.p
             variants={item}
-            className="text-black mb-[80px]"
+            className="text-black"
             style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 400,
@@ -59,10 +59,15 @@ export default function LifeSkillsSection({
             <strong className="font-bold">bijzondere schermvrije<br/></strong> momentjes.
           </motion.p>
 
+          {/* Blue line separator */}
+          <div className="flex justify-center my-8">
+            <div className="h-[6px] w-[120px]" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
+          </div>
+
           {/* Second paragraph */}
           <motion.p
             variants={item}
-            className="mt-6 text-black"
+            className="text-black"
             style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 400,

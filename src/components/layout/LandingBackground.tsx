@@ -21,12 +21,12 @@ const stepsBackground = [
 ].join(",");
 
 const fundamentalsBackground = [
-  "radial-gradient(76.03% 68.17% at 48.9% 49.52%, rgba(255, 252, 250, 0.15) 0%, rgba(255, 252, 250, 0.08) 50%, rgba(255, 252, 250, 0) 100%)",
-  "radial-gradient(112.63% 100.99% at 51.12% 89.99%, #93C3FF 0%, rgba(147, 195, 255, 0.75) 42%, rgba(147, 195, 255, 0) 70%)",
-  "radial-gradient(111.84% 100.28% at 43.79% 13.31%, rgba(214, 222, 72, 0.7) 0%, rgba(214, 222, 72, 0.35) 25%, rgba(214, 222, 72, 0) 50%)",
-  "radial-gradient(142.14% 127.44% at 4.74% 94.58%, rgba(109, 255, 194, 0.6) 0%, rgba(109, 255, 194, 0.3) 29.9%, rgba(109, 255, 194, 0) 65%)",
-  "radial-gradient(136.59% 122.47% at 93.14% 89.58%, #A6A1FF 0%, rgba(166, 161, 255, 0.75) 34.1%, rgba(166, 161, 255, 0) 55%)",
-  "radial-gradient(86.17% 77.27% at 62.26% 53.42%, rgba(250, 170, 99, 0.95) 0%, rgba(250, 170, 99, 0.5) 28%, rgba(250, 170, 99, 0) 56%)",
+  "radial-gradient(circle at 62.26388931274413% 53.416665395100914%, rgba(250, 170, 99, 0.88) 0%, rgba(250, 170, 99, 0.44) 28%, rgba(250, 170, 99, 0) 56%)",
+  "radial-gradient(circle at 93.13889185587566% 89.58333333333334%, #A6A1FF 0%, rgba(166, 161, 255, 0.5) 34.1%, rgba(166, 161, 255, 0) 55%)",
+  "radial-gradient(circle at 4.736111164093018% 94.58333333333333%, rgba(109, 255, 194, 0.42) 0%, rgba(109, 255, 194, 0.21) 29.900000000000002%, rgba(109, 255, 194, 0) 65%)",
+  "radial-gradient(circle at 43.79166603088379% 13.30555518468221%, rgba(214, 222, 72, 0.51) 0%, rgba(214, 222, 72, 0.255) 25%, rgba(214, 222, 72, 0) 50%)",
+  "radial-gradient(circle at 51.121419270833336% 89.98697916666667%, #93C3FF 0%, rgba(147, 195, 255, 0.5) 42%, rgba(147, 195, 255, 0) 70%)",
+  "radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFCFA 0%, rgba(255, 252, 250, 0.5) 100%, rgba(255, 252, 250, 0) 100%)",
 ].join(",");
 
 const whiteBackground = "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
@@ -179,6 +179,19 @@ export default function LandingBackground({
             className="relative overflow-x-visible overflow-y-hidden"
             style={{ background: fundamentalsBackground }}
           >
+            {/* TOP curve */}
+            <svg
+              className="pointer-events-none absolute inset-x-0 -top-[80px] sm:-top-[90px] h-[120px] w-full sm:h-[140px]"
+              viewBox="0 0 1440 120"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M0 120C197.4 105 447.525 92 720 92C992.475 92 1243.125 105 1440 120V0H0V120Z"
+                fill="#FFFCFA"
+              />
+            </svg>
+
             {/* BOTTOM curve */}
             <svg
               className="pointer-events-none absolute inset-x-0 bottom-0 h-[40px] w-full"
