@@ -75,15 +75,26 @@ export default function LandingBackground({
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
+              shapeRendering="geometricPrecision"
+              style={{ marginBottom: '-1px' }}
             >
-              <path
-                d="M1938 121.775C1578 121.775 1578 0.274902 1218 0.274902C858 0.274902 858 121.775 498 121.775V131H1938V121.775Z"
-                fill="#FFFCFA"
-              />
-              <path
-                d="M498 121.756C138 121.756 138 0 -222 0C-582 0 -582 121.756 -942 121.756V131H498V121.756Z"
-                fill="#FFFCFA"
-              />
+              <g clipPath="url(#heroTopCurveClip)">
+                <path
+                  d="M1938 121.775C1578 121.775 1578 0.274902 1218 0.274902C858 0.274902 858 121.775 498 121.775V131H1938V121.775Z"
+                  fill="#FFFCFA"
+                  shapeRendering="geometricPrecision"
+                />
+                <path
+                  d="M498 121.775C138 121.775 138 0 -222 0C-582 0 -582 121.775 -942 121.775V131H498V121.775Z"
+                  fill="#FFFCFA"
+                  shapeRendering="geometricPrecision"
+                />
+              </g>
+              <defs>
+                <clipPath id="heroTopCurveClip">
+                  <rect width="1440" height="131" fill="white"/>
+                </clipPath>
+              </defs>
             </svg>
           </section>
 
