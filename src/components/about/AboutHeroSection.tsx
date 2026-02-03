@@ -145,7 +145,7 @@ export default function AboutHeroSection() {
               Daarom hebben we een platform gecreëerd dat gezinnen helpt deze<br className="hidden sm:inline"/> essentiële waarden te introduceren bij kinderen van 3 tot 6 jaar door<br className="hidden sm:inline"/> middel van leuke, schermloze dagelijkse activiteiten.
             </motion.p>
 
-            <motion.div variants={item} className="mt-8 flex justify-center sm:justify-start sm:mt-[70px] sm:ml-[20px]">
+            <motion.div variants={item} className="mt-8 flex justify-center sm:justify-start sm:mt-[60px] sm:ml-[30px]">
               <motion.div
                 whileHover={reduce ? undefined : { y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
