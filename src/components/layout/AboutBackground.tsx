@@ -13,11 +13,7 @@ import React from "react";
  * 7 Footer
  */
 
-const aboutHeroBackground = [
-  "radial-gradient(1200px 650px at 12% 12%, rgba(185,167,255,0.70) 0%, rgba(185,167,255,0) 60%)",
-  "radial-gradient(1100px 650px at 92% 20%, rgba(255,154,117,0.55) 0%, rgba(255,154,117,0) 60%)",
-  "linear-gradient(135deg, #B9A7FF 0%, #D78AD4 48%, #F29A7E 100%)",
-].join(",");
+const aboutHeroBackground = "radial-gradient(circle at 66.08333587646484% 16.99999968210856%, rgba(182, 89, 203, 0.53) 0%, 17.5%, rgba(182, 89, 203, 0) 35%), radial-gradient(circle at 31.25% 37.166665395100914%, rgba(255, 64, 64, 0.4) 0%, 28.5%, rgba(255, 64, 64, 0) 57%), radial-gradient(circle at 80.2916653951009% 40.375000635782875%, rgba(255, 117, 81, 0.86) 0%, 33.44%, rgba(255, 117, 81, 0) 55%), radial-gradient(circle at 65.16666412353516% 2.791666587193807%, #B659CB 0%, 38.5%, rgba(182, 89, 203, 0) 77%), radial-gradient(circle at 78.91666412353516% 18.374999364217125%, #5792D5 0%, 30.5%, rgba(87, 146, 213, 0) 61%), radial-gradient(circle at 23.68749936421712% 49.083334604899086%, rgba(69, 93, 255, 0.74) 0%, 34.1%, rgba(69, 93, 255, 0) 55%), radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFCFA 0%, 100%, rgba(255, 252, 250, 0) 100%)";
 
 const creamBackground = "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
 
@@ -44,15 +40,26 @@ export default function AboutBackground({ children }: { children: React.ReactNod
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
+              shapeRendering="geometricPrecision"
+              style={{ marginBottom: '-1px' }}
             >
-              <path
-                d="M1938 121.775C1578 121.775 1578 0.274902 1218 0.274902C858 0.274902 858 121.775 498 121.775V131H1938V121.775Z"
-                fill="#FFFCFA"
-              />
-              <path
-                d="M498 121.756C138 121.756 138 0 -222 0C-582 0 -582 121.756 -942 121.756V131H498V121.756Z"
-                fill="#FFFCFA"
-              />
+              <g clipPath="url(#aboutHeroTopCurveClip)">
+                <path
+                  d="M1938 121.775C1578 121.775 1578 0.274902 1218 0.274902C858 0.274902 858 121.775 498 121.775V131H1938V121.775Z"
+                  fill="#FFFCFA"
+                  shapeRendering="geometricPrecision"
+                />
+                <path
+                  d="M498 121.775C138 121.775 138 0 -222 0C-582 0 -582 121.775 -942 121.775V131H498V121.775Z"
+                  fill="#FFFCFA"
+                  shapeRendering="geometricPrecision"
+                />
+              </g>
+              <defs>
+                <clipPath id="aboutHeroTopCurveClip">
+                  <rect width="1440" height="131" fill="white"/>
+                </clipPath>
+              </defs>
             </svg>
           </section>
 

@@ -80,15 +80,15 @@ export default function AboutHeroSection() {
         <img 
           src="/landingpage/big-star.svg" 
           alt="" 
-          className="pointer-events-none absolute left-[260px] top-[0px] opacity-90 hidden sm:block" 
-          style={{ width: '60px', height: '55px' }}
+          className="pointer-events-none absolute left-[280px] top-[20px] opacity-90 hidden sm:block" 
+          style={{ width: '70px', height: '70px' }}
           aria-hidden="true"
         /> 
         <img 
           src="/landingpage/big-star.svg" 
           alt="" 
-          className="pointer-events-none absolute left-[640px] top-[530px] opacity-90 hidden sm:block" 
-          style={{ width: '60px', height: '55px' }}
+          className="pointer-events-none absolute left-[660px] top-[500px] opacity-90 hidden sm:block" 
+          style={{ width: '65px', height: '60px' }}
           aria-hidden="true"
         /> 
 
@@ -145,7 +145,7 @@ export default function AboutHeroSection() {
               Daarom hebben we een platform gecreëerd dat gezinnen helpt deze<br className="hidden sm:inline"/> essentiële waarden te introduceren bij kinderen van 3 tot 6 jaar door<br className="hidden sm:inline"/> middel van leuke, schermloze dagelijkse activiteiten.
             </motion.p>
 
-            <motion.div variants={item} className="mt-8 flex justify-center sm:justify-start sm:mt-[90px] sm:ml-[5px]">
+            <motion.div variants={item} className="mt-8 flex justify-center sm:justify-start sm:mt-[70px] sm:ml-[20px]">
               <motion.div
                 whileHover={reduce ? undefined : { y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
@@ -173,12 +173,12 @@ export default function AboutHeroSection() {
 
         {/* Doodle arrow (right side) */}
         <motion.div
-          className="pointer-events-none absolute right-[140px] top-[470px] hidden sm:block"
+          className="pointer-events-none absolute right-[125px] top-[445px] hidden sm:block"
           initial={false}
           animate={reduce ? undefined : { y: [0, -6, 0] }}
           transition={reduce ? { duration: 0 } : { duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <DoodleArrow className="h-16 w-52 opacity-95" />
+          <DoodleArrow className="h-16 w-44 opacity-95" />
         </motion.div>
 
         <div className="h-20 sm:h-24 lg:h-28" />

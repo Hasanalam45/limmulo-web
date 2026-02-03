@@ -127,19 +127,19 @@ export default function AppInfoPage() {
                 title="5–15 minuten per dag"
                 desc="Past in elk dagritme. Eén missie per dag is genoeg voor echte vooruitgang."
                 Icon={FiClock}
-                accent="rgba(251, 191, 85, 0.55)"
+                accent="rgba(255, 200, 90, 1)"
               />
               <InfoCard
                 title="Sterke basis: hoofd, hart, handen"
                 desc="Activiteiten bouwen aan emotionele, sociale én praktische vaardigheden."
                 Icon={FiShield}
-                accent="rgba(170, 214, 255, 0.55)"
+                accent="rgba(180, 220, 255, 1)"
               />
               <InfoCard
                 title="Schermvrij & samen"
                 desc="Geen scrollen. Wel verbinding, lachen en leren — samen als gezin."
                 Icon={FiSmile}
-                accent="rgba(178, 240, 205, 0.55)"
+                accent="rgba(134,255,186,1)"
               />
             </motion.div>
 
@@ -159,7 +159,7 @@ export default function AppInfoPage() {
               <div className="mt-6 space-y-3">
                 <Link
                   to="/preregistreer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-200 px-4 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-emerald-300"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[rgba(134,255,186,1)] px-4 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                 >
                   <FiArrowRight className="h-4 w-4" />
                   PREREGISTREER HIER

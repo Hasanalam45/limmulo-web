@@ -34,7 +34,7 @@ function StepDot({ active, done }: { active: boolean; done: boolean }) {
     <div
       className={[
         "grid h-8 w-8 place-items-center rounded-full ring-1 ring-black/10",
-        done ? "bg-emerald-200" : active ? "bg-white" : "bg-white/60",
+        done ? "bg-[rgba(134,255,186,1)]" : active ? "bg-white" : "bg-white/60",
       ].join(" ")}
       aria-hidden="true"
     >
@@ -192,7 +192,7 @@ export default function TestFamilyPage() {
                       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center">
                         <Link
                           to="/preregistreer"
-                          className="inline-flex items-center justify-center rounded-xl bg-emerald-200 px-6 py-3 text-[11px] font-black tracking-wide text-black ring-1 ring-black/10 transition hover:bg-emerald-300"
+                          className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-6 py-3 text-[11px] font-black tracking-wide text-black ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                         >
                           GA NAAR PREREGISTRATIE
                         </Link>
@@ -251,7 +251,7 @@ export default function TestFamilyPage() {
                               whileHover={reduce ? undefined : { y: -2 }}
                               whileTap={reduce ? undefined : { scale: 0.98 }}
                               onClick={() => setStep(2)}
-                              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-200 px-6 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 hover:bg-emerald-300"
+                              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[rgba(134,255,186,1)] px-6 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 hover:bg-[rgba(90,200,150,1)]"
                             >
                               VOLGENDE
                               <FiArrowRight className="h-4 w-4" />
@@ -305,7 +305,7 @@ export default function TestFamilyPage() {
                               whileHover={reduce ? undefined : { y: -2 }}
                               whileTap={reduce ? undefined : { scale: 0.98 }}
                               onClick={() => setStep(3)}
-                              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-200 px-6 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 hover:bg-emerald-300"
+                              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[rgba(134,255,186,1)] px-6 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 hover:bg-[rgba(90,200,150,1)]"
                             >
                               VOLGENDE
                               <FiArrowRight className="h-4 w-4" />
@@ -338,7 +338,7 @@ export default function TestFamilyPage() {
                               type="submit"
                               whileHover={reduce ? undefined : { y: -2 }}
                               whileTap={reduce ? undefined : { scale: 0.98 }}
-                              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-200 px-6 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 hover:bg-emerald-300"
+                              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[rgba(134,255,186,1)] px-6 py-3 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 hover:bg-[rgba(90,200,150,1)]"
                             >
                               <FiSend className="h-4 w-4" />
                               VERSTUUR AANMELDING
@@ -391,7 +391,7 @@ export default function TestFamilyPage() {
                 </p>
                 <Link
                   to="/preregistreer"
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-emerald-200 px-4 py-3 text-[11px] font-black tracking-wide text-black ring-1 ring-black/10 transition hover:bg-emerald-300"
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-4 py-3 text-[11px] font-black tracking-wide text-black ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                 >
                   GA NAAR PREREGISTRATIE
                 </Link>
