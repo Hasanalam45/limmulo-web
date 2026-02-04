@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 // import { useTranslation } from "react-i18next"; // Commented out - using Dutch as default
 import { motion, useReducedMotion, type Variants } from "framer-motion";
@@ -37,6 +38,35 @@ export default function AboutHeroSection() {
   // const { t } = useTranslation(); // Commented out - using Dutch as default
   const reduce = useReducedMotion();
 
+  // DEBUG: Refs for tracking visibility
+  const topStarsRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
+  const bottomStarsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("--- DEBUGGING MOBILE ELEMENTS ---");
+      [
+        { name: "Top Stars", ref: topStarsRef },
+        { name: "Arrow", ref: arrowRef },
+        { name: "Bottom Stars", ref: bottomStarsRef }
+      ].forEach(({ name, ref }) => {
+        if (ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+          console.log(`${name}:`, {
+            visible: rect.width > 0 && rect.height > 0,
+            x: rect.x,
+            y: rect.y,
+            z: window.getComputedStyle(ref.current).zIndex
+          });
+        } else {
+          console.log(`${name}: Ref is null`);
+        }
+      });
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const container: Variants = {
     hidden: { opacity: 1 },
     show: {
@@ -51,11 +81,41 @@ export default function AboutHeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden w-screen left-1/2 -ml-[50vw] sm:left-0 sm:ml-0 sm:w-full">
+      {/* ✅ ORANGE BLOB: Mobile */}
+      <motion.div
+        className="
+          sm:hidden
+          pointer-events-none absolute
+          left-[130px] -translate-x-1/2
+          top-0
+          w-[190%]
+          max-w-none
+          z-0
+          rotate-180
+        "
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="7 33.5 186 133"
+          className="w-full h-auto"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M191.916 84.136 c 10.758 34.373 -61.017 84.352 -107.951 82.303 C 60.976 165.435 7 143.252 7 107.221 c 0 -36.133 71.967 -85.314 92.958 -71.262 c 45.248 30.29 80.963 13.048 91.958 48.177 Z"
+            fill="#FF8A5D"
+          />
+        </svg>
+      </motion.div>
+
       <div className="relative mx-auto max-w-[1040px]">
         {/* ✅ ORANGE BLOB: centered */}
+
+        {/* ✅ ORANGE BLOB: Desktop (Original) */}
         <motion.div
           className="
+            hidden sm:block
             pointer-events-none absolute
             left-[10%] -translate-x-1/2
             top-4
@@ -94,21 +154,34 @@ export default function AboutHeroSection() {
 
         {/* Content */}
         <motion.div
-          className="relative z-10 px-4 pt-10 sm:px-6 sm:pt-12 lg:pt-24"
+          className="relative z-10 px-10 pt-10 sm:px-6 sm:pt-12 lg:pt-24"
           variants={container}
           initial="hidden"
           animate="show"
         >
-          <div className="mx-auto max-w-[680px] text-left lg:mr-[110px]">
+          {/* ✅ Mobile-only decorations */}
+          <div ref={topStarsRef} className="absolute top-[40px] left-10 w-32 h-20 sm:hidden pointer-events-none z-50">
+             <img src="/landingpage/big-star.svg" alt="" className="w-12 h-12 absolute top-0 left-0" />
+          </div>
+          
+          <div className="absolute bottom-16 left-2 sm:hidden pointer-events-none rotate-[20deg]">
+            <DoodleArrow className="w-16 opacity-90" />
+          </div>
+
+          <div ref={bottomStarsRef} className="absolute bottom-10 right-14 w-20 h-20 sm:hidden pointer-events-none z-50 rotate-[90deg]">
+             <img src="/landingpage/big-star.svg" alt="" className="w-12 h-8 absolute top-0 right-0" />
+          </div>
+
+          <div className="mx-auto max-w-[680px] text-center sm:text-left lg:mr-[110px]">
             <motion.h1
               variants={item}
               className="text-black"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 700,
-                fontSize: 'clamp(40px, 10vw, 82px)',
-                lineHeight: '73.8px',
-                letterSpacing: '-4.1px',
+                fontSize: 'clamp(30px, 9vw, 82px)',
+                lineHeight: '1.2',
+                letterSpacing: 'clamp(-1px, -0.05em, -4.1px)',
                 verticalAlign: 'middle'
               }}
             >
@@ -117,12 +190,12 @@ export default function AboutHeroSection() {
 
             <motion.p
               variants={item}
-              className="mt-4 sm:mt-5 max-w-[600px] text-black"
+              className="mt-4 sm:mt-5 max-w-[600px] text-black mx-auto sm:mx-0"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 400,
-                fontSize: 'clamp(14px, 4vw, 16px)',
-                lineHeight: '28.8px',
+                fontSize: 'clamp(12px, 3.5vw, 16px)',
+                lineHeight: '1.8',
                 letterSpacing: '0%',
                 verticalAlign: 'middle'
               }}
@@ -132,12 +205,12 @@ export default function AboutHeroSection() {
 
             <motion.p
               variants={item}
-              className="mt-3 sm:mt-4 md:mt-5 max-w-[600px] text-black"
+              className="mt-8 sm:mt-4 md:mt-5 max-w-[600px] text-black mx-auto sm:mx-0"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 400,
-                fontSize: 'clamp(14px, 4vw, 16px)',
-                lineHeight: '28.8px',
+                fontSize: 'clamp(12px, 3.5vw, 16px)',
+                lineHeight: '1.8',
                 letterSpacing: '0%',
                 verticalAlign: 'middle'
               }}
@@ -153,7 +226,7 @@ export default function AboutHeroSection() {
               >
                 <Link
                   to="/preregistreer"
-                  className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-8 py-2.5 sm:px-20 sm:py-4 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                  className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-8 py-4 sm:px-20 sm:py-4 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 700,
@@ -181,7 +254,7 @@ export default function AboutHeroSection() {
           <DoodleArrow className="h-16 w-44 opacity-95" />
         </motion.div>
 
-        <div className="h-20 sm:h-24 lg:h-28" />
+        <div className="h-10 sm:h-24 lg:h-28" />
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ export default function AboutFinalCtaSection() {
   };
 
   return (
-    <section ref={ref} className="relative bg-[#FFFCFA] py-16 sm:py-20 lg:py-24">
+    <section ref={ref} className="relative bg-transparent sm:bg-[#FFFCFA] py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1040px] px-4 sm:px-6">
         <motion.div
           className="flex justify-center"
@@ -55,7 +55,7 @@ export default function AboutFinalCtaSection() {
         >
           <motion.div variants={item} className="relative w-full max-w-[560px]">
             {/* Blob wrapper */}
-            <div className="relative">
+            <div className="relative min-h-[650px] sm:min-h-0">
               {/* ✅ Organic orange blob (animated) */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center"
@@ -74,7 +74,7 @@ export default function AboutFinalCtaSection() {
                 <img
                   src="/landingpage/aboutPage/orange-blob-preregister.svg"
                   alt=""
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-contain scale-[3] sm:scale-100"
                   aria-hidden="true"
                 />
               </motion.div>
@@ -104,9 +104,9 @@ export default function AboutFinalCtaSection() {
                   <img src="/landingpage/big-star.svg" alt="" className="h-full w-full" />
                 </motion.span>
 
-                {/* rocket left (animated) */}
+                {/* rocket centered top (animated) - mobile only */}
                 <motion.div
-                  className="pointer-events-none absolute -left-8 sm:-left-4 md:-left-[20px] top-8 sm:top-12 md:top-[70px]"
+                  className="pointer-events-none absolute left-[60px] -translate-x-1/2 -top-[100px] sm:-left-4 md:-left-[20px] sm:top-12 md:top-[70px] sm:translate-x-0"
                   initial={false}
                   animate={
                     reduce
@@ -115,17 +115,17 @@ export default function AboutFinalCtaSection() {
                   }
                   transition={reduce ? { duration: 0 } : { duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Rocket className="h-[90px] w-[70px] sm:h-[120px] sm:w-[70px] md:h-[180px] md:w-[80px] lg:h-[230px] lg:w-[100px]" />
+                  <Rocket className="h-[250px] w-[200px] sm:h-[120px] sm:w-[70px] md:h-[180px] md:w-[80px] lg:h-[230px] lg:w-[100px]" />
                 </motion.div>
 
                 <motion.h3
                   variants={item}
-                  className="text-left text-black ml-4 sm:ml-10"
+                  className="text-center text-black mt-[130px] sm:text-left sm:ml-10 sm:mt-0"
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 700,
-                    fontSize: 'clamp(20px, 6vw, 32px)',
-                    lineHeight: '44.8px',
+                    fontSize: 'clamp(18px, 5vw, 32px)',
+                    lineHeight: 'clamp(24px, 7vw, 44.8px)',
                     letterSpacing: '0%',
                     verticalAlign: 'middle'
                   }}
@@ -135,12 +135,12 @@ export default function AboutFinalCtaSection() {
 
                 <motion.p
                   variants={item}
-                  className="text-left mt-1 max-w-[420px] text-black ml-4 sm:ml-10"
+                  className="text-center mt-4 max-w-full mx-auto sm:text-left sm:mt-1 sm:max-w-[420px] sm:ml-10"
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 400,
                     fontSize: 'clamp(12px, 3.5vw, 16px)',
-                    lineHeight: '28.8px',
+                    lineHeight: 'clamp(24px, 5vw, 28.8px)',
                     letterSpacing: '0%',
                     verticalAlign: 'middle'
                   }}
@@ -150,12 +150,12 @@ export default function AboutFinalCtaSection() {
 
                 <motion.p
                   variants={item}
-                  className="text-left mt-4 sm:mt-5 max-w-[420px] text-black ml-4 sm:ml-10"
+                  className="text-center mt-4 max-w-full mx-auto sm:text-left sm:mt-5 sm:max-w-[420px] sm:ml-10"
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 400,
                     fontSize: 'clamp(12px, 3.5vw, 16px)',
-                    lineHeight: '28.8px',
+                    lineHeight: 'clamp(24px, 5vw, 28.8px)',
                     letterSpacing: '0%',
                     verticalAlign: 'middle'
                   }}
@@ -188,7 +188,7 @@ export default function AboutFinalCtaSection() {
 
                 {/* doodle arrow inside blob (animated) */}
                 <motion.div
-                  className="pointer-events-none absolute -right-4 sm:-right-2 md:right-4 lg:right-2 top-[180px] sm:top-[200px] md:top-[220px] lg:top-[230px]"
+                  className="pointer-events-none absolute -right-2 sm:-right-2 md:right-4 lg:right-2 top-[410px] sm:top-[200px] md:top-[220px] lg:top-[230px]"
                   initial={false}
                   animate={reduce ? undefined : { y: [0, -6, 0] }}
                   transition={reduce ? { duration: 0 } : { duration: 3.6, repeat: Infinity, ease: "easeInOut" }}

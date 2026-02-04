@@ -21,7 +21,7 @@ function BlobIcon({
       <img
         src={src}
         alt=""
-        className="h-16 w-16 sm:h-20 sm:w-20 lg:h-28 lg:w-28 drop-shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
+        className="h-32 w-32 sm:h-20 sm:w-20 lg:h-28 lg:w-28 drop-shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
         aria-hidden="true"
       />
     </span>
@@ -107,11 +107,11 @@ export default function MissionVisionSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-[#FFFCFA] pt-16 pb-32 sm:pt-20 sm:pb-40 lg:pt-24 lg:pb-48"
+      className="relative w-full overflow-hidden bg-[#FFFCFA] pt-16 pb-[400px] sm:pt-20 sm:pb-40 lg:pt-24 lg:pb-48"
     >
-      {/* ✅ Background gradient */}
+      {/* ✅ Background gradient - extended on mobile */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 bottom-[-300px] sm:bottom-0"
         style={{
           background: [
             "radial-gradient(800px 600px at 0% 0%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 50%)",
@@ -179,9 +179,9 @@ export default function MissionVisionSection() {
         </motion.div>
       </div>
 
-      {/* ✅ Bottom curve */}
+      {/* ✅ Bottom curve - positioned lower on mobile to allow gradient extension */}
       <svg
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[88px] w-full"
+        className="pointer-events-none absolute inset-x-0 bottom-[-300px] sm:bottom-0 h-[88px] w-full"
         viewBox="0 0 1440 88"
         preserveAspectRatio="none"
         fill="none"

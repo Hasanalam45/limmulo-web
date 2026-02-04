@@ -51,8 +51,30 @@ export default function CenteredCopyCtaSection({
         {/* Curved gradient strip */}
         <div className="relative overflow-hidden bg-[#FFFCFA]">
           {/* Animated Gradient background */}
+          {/* Animated Gradient background - Mobile */}
           <motion.div
-            className="absolute inset-0 transform-gpu"
+            className="absolute inset-0 transform-gpu sm:hidden"
+            style={{
+              background: 
+                "radial-gradient(circle at 65.625% 30%, #FFB653 0%, 25%, rgba(255, 182, 83, 0) 50%), radial-gradient(circle at 16.041666666666668% 64.16666666666667%, rgba(255, 102, 147, 0.74) 0%, 47.038%, rgba(255, 102, 147, 0) 58%), radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFCFA 0%, 100%, rgba(255, 252, 250, 0) 100%)"
+            }}
+            aria-hidden="true"
+            initial={false}
+            animate={
+              reduce
+                ? undefined
+                : {
+                    scale: [1, 1.03, 1],
+                    x: [0, -18, 0],
+                    y: [0, 10, 0],
+                  }
+            }
+            transition={reduce ? { duration: 0 } : { duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Animated Gradient background - Desktop */}
+          <motion.div
+            className="absolute inset-0 transform-gpu hidden sm:block"
             style={{
               background: [
                 "radial-gradient(53.36% 175.42% at 48.9% 49.52%, rgba(255, 252, 250, 0.15) 0%, rgba(255, 252, 250, 0.08) 50%, rgba(255, 252, 250, 0) 100%)",
@@ -109,45 +131,75 @@ export default function CenteredCopyCtaSection({
             initial="hidden"
             animate={inView ? "show" : "hidden"}
           >
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8 lg:gap-10">
+            <div className="flex flex-col-reverse gap-28 sm:grid sm:grid-cols-3 sm:gap-8 lg:gap-10 lg:mt-0 mt-10">
+              {/* Mobile Only Button */}
+              <div className="sm:hidden w-full flex justify-center">
+                 <Link
+                  to={ctaHref}
+                  className="inline-flex w-[85%] max-w-[320px] items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-6 py-4 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '18px',
+                    lineHeight: '100%',
+                    letterSpacing: '0.5px',
+                    textAlign: 'center',
+                    verticalAlign: 'middle'
+                  }}
+                >
+                  PREREGISTREER HIER
+                </Link>
+              </div>
+
               {finalStats.map((s, idx) => (
                 <motion.div
                   key={idx}
                   variants={item}
                   whileHover={reduce ? undefined : { y: -4 }}
-                  className="text-center transform-gpu"
+                  className="relative grid grid-cols-[45%_55%] items-center gap-4 sm:block sm:text-center transform-gpu"
                 >
                   <div 
-                    className="text-black"
+                    className="text-black text-center sm:text-center"
                     style={{
                       fontFamily: 'Poppins, sans-serif',
                       fontWeight: 700,
-                      fontSize: 'clamp(40px, 10vw, 62px)',
-                      lineHeight: '86.8px',
+                      fontSize: 'clamp(26px, 8vw, 62px)',
+                      lineHeight: '1.1',
                       letterSpacing: '0%',
-                      textAlign: 'center',
                       verticalAlign: 'middle'
                     }}
                   >
                     {s.value}
                   </div>
 
-                  <div className="mx-auto mt-2 h-[5px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
+                  <div className="hidden sm:block mx-auto mt-2 h-[5px] w-20" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
 
-                  <p 
-                    className="mx-auto mt-4 whitespace-pre-line text-black"
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      fontWeight: 400,
-                      fontSize: 'clamp(14px, 4vw, 16px)',
-                      lineHeight: '28.8px',
-                      letterSpacing: '0%',
-                      textAlign: 'center',
-                      verticalAlign: 'middle'
-                    }}
-                  >
-                    {s.label}
-                  </p>
+                  <div className="relative w-fit sm:w-full">
+                    <p 
+                      className="whitespace-pre-line text-black text-left sm:mx-auto sm:mt-4 sm:text-center"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontWeight: 400,
+                        fontSize: 'clamp(9px, 3vw, 16px)',
+                        lineHeight: '1.4',
+                        letterSpacing: '0%',
+                        verticalAlign: 'middle'
+                      }}
+                    >
+                      {s.label}
+                    </p>
+                    
+                    {/* Mobile Sparkles for the first item (10 min) */}
+                    {idx === 0 && (
+                      <div className="absolute left-[90px] top-[40px] -translate-y-1/2 ml-2 sm:hidden pointer-events-none">
+                         <img 
+                           src="/landingpage/big-star.svg" 
+                           alt="" 
+                           className="w-[50px] h-[50px] max-w-none opacity-90"
+                         />
+                      </div>
+                    )}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -156,7 +208,7 @@ export default function CenteredCopyCtaSection({
 
         {/* White area text + CTA (must also be BASE, not pure white) */}
         <motion.div
-          className="mx-auto mt-10 max-w-[760px] bg-[#FFFCFA] px-5 text-center sm:mt-20"
+          className="hidden sm:block mx-auto mt-10 max-w-[760px] bg-[#FFFCFA] px-5 text-center sm:mt-20"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}

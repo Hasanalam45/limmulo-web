@@ -75,7 +75,8 @@ export default function AboutBackground({ children }: { children: React.ReactNod
             <div className="relative z-10">
               {missionVision}
             </div>
-            <div className="relative z-10 px-6 pb-20 pt-14 sm:px-10 sm:pb-24 sm:pt-16">
+            {/* Rocket section - overlaps with extended gradient on mobile */}
+            <div className="relative z-20 -mt-[350px] sm:mt-0 px-6 pb-20 pt-14 sm:px-10 sm:pb-24 sm:pt-16">
               <div className="space-y-10 sm:space-y-14">
                 {whyItMatters}
               </div>

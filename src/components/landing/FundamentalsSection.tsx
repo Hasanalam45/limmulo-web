@@ -276,7 +276,7 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={[
-        "rounded-[15px] px-8 lg:px-16 py-3 lg:py-5 text-[10px] lg:text-[16px] uppercase whitespace-nowrap shadow-sm transition-colors",
+        "rounded-[15px] px-8 lg:px-16 py-3 lg:py-5 text-[14px] lg:text-[16px] uppercase whitespace-nowrap shadow-sm transition-colors",
         active ? "bg-white text-black hover:bg-[rgba(134,255,186,1)]" : "bg-white text-black hover:bg-[rgba(134,255,186,1)] hover:text-black",
       ].join(" ")}
       style={{
@@ -404,7 +404,7 @@ export default function FundamentalsSection() {
   };
 
   return (
-    <section className="relative overflow-x-hidden">
+    <section className="relative overflow-x-hidden pb-20 lg:pb-0">
       <div className="mx-auto max-w-[999px] px-4 sm:px-6">
         {/*  top sparkles (like screenshot) */}
         <img 
@@ -414,9 +414,26 @@ export default function FundamentalsSection() {
           style={{ width: '60px', height: '55px' }}
           aria-hidden="true"
         /> 
+        
+        {/* ✅ Mobile Headline (Top) */}
+        <div className="relative mt-20 mb-4 flex items-center justify-center lg:hidden">
+          <h3 
+            className="text-center text-black"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(40px, 10vw, 48px)',
+              lineHeight: '1.1',
+              letterSpacing: '-1px',
+              textAlign: 'center',
+            }}
+          >
+            Geen lesstof.<br />Levensstof.
+          </h3>
+        </div>
         {/*  Diagram artboard (fixed layout, scales down for small screens) */}
-        <div className="relative mx-auto h-[176px] w-full sm:h-[273px] md:h-[420px] lg:h-[756px] mt-4 lg:mt-8">
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 origin-top scale-[0.55] sm:scale-[0.65] md:scale-100 lg:scale-[1.7]">
+        <div className="relative mx-auto h-[400px] w-full sm:h-[400px] md:h-[420px] lg:h-[756px] mt-4 lg:mt-8">
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 origin-top scale-[1.0] sm:scale-[0.9] md:scale-100 lg:scale-[1.7]">
             <div className="relative h-[420px] w-[760px]">
               {/* Cloud SVG */}
               <div className="absolute left-1/2 -translate-x-1/2">
@@ -428,12 +445,12 @@ export default function FundamentalsSection() {
                 {/* Center text overlay */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                   <p 
-                    className="text-[11px] lg:text-[12px] text-black"
+                    className="text-[14px] lg:text-[12px] text-black"
                     style={{
                       fontFamily: 'Poppins, sans-serif',
                       fontWeight: 400,
                       fontStyle: 'normal',
-                      lineHeight: '20px',
+                      lineHeight: '22px',
                       letterSpacing: '0%',
                       textAlign: 'center',
                       verticalAlign: 'middle'
@@ -455,7 +472,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="179px"
                 height="37px"
-                className="left-[455px] top-[12px] -translate-x-1/2 bg-[#FFECEC] lg:w-[165px] lg:h-[33px]"
+                className="hidden lg:flex left-[455px] top-[12px] -translate-x-1/2 bg-[#FFECEC] lg:w-[165px] lg:h-[33px]"
               />
               <LabelBubble 
                 text="Veerkracht" 
@@ -464,7 +481,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="180px"
                 height="35px"
-                className="left-[480px] top-[93px] bg-[#E6F0FF] lg:w-[165px] lg:h-[35px]" 
+                className="hidden lg:flex left-[480px] top-[93px] bg-[#E6F0FF] lg:w-[165px] lg:h-[35px]" 
               />
               <LabelBubble 
                 text="Dankbaarheid" 
@@ -473,7 +490,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="150px"
                 height="35px"
-                className="left-[530px] top-[185px] bg-[#FDFFC9] lg:w-[150px] lg:h-[33px]" 
+                className="hidden lg:flex left-[530px] top-[185px] bg-[#FDFFC9] lg:w-[150px] lg:h-[33px]" 
               />
               <LabelBubble 
                 text="Zelfzorg" 
@@ -482,7 +499,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="180px"
                 height="35px"
-                className="left-[483px] top-[310px] bg-[#D9FFDA] lg:w-[174px] lg:h-[33px]" 
+                className="hidden lg:flex left-[483px] top-[310px] bg-[#D9FFDA] lg:w-[174px] lg:h-[33px]" 
               />
 
               <LabelBubble 
@@ -492,7 +509,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="144px"
                 height="35px"
-                className="left-[120px] top-[108px] bg-[#CFF9FF] lg:w-[147px] lg:h-[35px]" 
+                className="hidden lg:flex left-[120px] top-[108px] bg-[#CFF9FF] lg:w-[147px] lg:h-[35px]" 
               />
               <LabelBubble 
                 text="Ondernemerschap" 
@@ -501,7 +518,7 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="144px"
                 height="41px"
-                className="left-[83px] top-[220px] bg-[#FFEED7] lg:w-[147px] lg:h-[38px]" 
+                className="hidden lg:flex left-[83px] top-[220px] bg-[#FFEED7] lg:w-[147px] lg:h-[38px]" 
               />
               <LabelBubble 
                 text="Geldwijsheid" 
@@ -510,14 +527,13 @@ export default function FundamentalsSection() {
                 tail="left"
                 width="145px"
                 height="35px"
-                className="left-[128px] top-[314px] bg-[#F0E9FF] lg:w-[150px] lg:h-[33px]" 
+                className="hidden lg:flex left-[128px] top-[314px] bg-[#F0E9FF] lg:w-[150px] lg:h-[33px]" 
               />
 
-              {/* CTA */}
-              <div className="absolute left-1/2 top-[420px] -translate-x-1/2">
+              <div className="absolute left-1/2 top-[390px] lg:top-[420px] -translate-x-1/2">
                 <Link
                   to="/preregistreer"
-                  className="inline-flex items-center justify-center rounded-[8px] bg-[rgba(134,255,186,1)] px-12 py-2 text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
+                  className="inline-flex items-center justify-center rounded-[8px] bg-[rgba(134,255,186,1)] px-6 lg:px-12 py-3 text-[14px] lg:text-[11px] font-black tracking-wide text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)]"
                   style={{
                     fontFamily: 'Poppins, sans-serif'
                   }}
@@ -527,14 +543,14 @@ export default function FundamentalsSection() {
               </div>
 
               {/* doodle arrows */}
-              <DoodleArrowLeft className="pointer-events-none absolute left-[140px] top-[455px] h-16 w-20 lg:h-20 lg:w-20 opacity-90" />
-              <DoodleArrowRight className="pointer-events-none absolute right-[200px] top-[380px] h-16 w-20 lg:h-18 lg:w-20 opacity-90" />
+              <DoodleArrowLeft className="pointer-events-none absolute left-[230px] top-[350px] lg:left-[140px] lg:top-[455px] h-12 w-14 lg:h-20 lg:w-20 opacity-90" />
+              <DoodleArrowRight className="pointer-events-none absolute right-[230px] top-[410px] lg:top-[380px] h-12 w-14 lg:h-16 lg:w-20 rotate-12 lg:rotate-0 opacity-90" />
 
               {/* sparkles near CTA (right) */}
               <img 
                 src="/landingpage/big-star.svg" 
                 alt="" 
-                className="pointer-events-none absolute right-[180px] top-[430px] opacity-90" 
+                className="pointer-events-none absolute right-[220px] top-[360px] lg:right-[180px] lg:top-[430px] opacity-90" 
                 style={{ width: '60px', height: '55px' }}
                 aria-hidden="true"
               />
@@ -590,24 +606,24 @@ export default function FundamentalsSection() {
                 </div>
                 <div>
                   <p 
-                    className="text-xs lg:text-[20px] text-black"
+                    className="text-[16px] lg:text-[20px] text-black"
                     style={{
                       fontFamily: 'Poppins, sans-serif',
                       fontWeight: 700,
                       fontStyle: 'normal',
-                      lineHeight: '28px',
+                      lineHeight: '24px',
                       letterSpacing: '-1px',
                     }}
                   >
                     {activeTopic.title}
                   </p>
                   <p 
-                    className="mt-1 lg:mt-1 text-[11px] lg:text-[16px] text-black"
+                    className="mt-1 lg:mt-1 text-[14px] lg:text-[16px] text-black"
                     style={{
                       fontFamily: 'Poppins, sans-serif',
                       fontWeight: 400,
                       fontStyle: 'normal',
-                      lineHeight: '28.8px',
+                      lineHeight: '22px',
                       letterSpacing: '0%',
                       verticalAlign: 'middle'
                     }}
@@ -620,8 +636,8 @@ export default function FundamentalsSection() {
           </div>
         </div>
 
-        {/* ✅ Bottom headline (like screenshot) */}
-        <div className="relative mt-16 flex items-center justify-center pb-6">
+        {/* ✅ Bottom headline (Desktop) */}
+        <div className="relative mt-16 hidden lg:flex items-center justify-center pb-6">
           <h3 
             className="text-center text-black"
             style={{
@@ -644,6 +660,17 @@ export default function FundamentalsSection() {
           style={{ width: '60px', height: '55px' }}
           aria-hidden="true"
         /> 
+        </div>
+
+        {/* ✅ Mobile Star at the end - Centered */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center lg:hidden">
+          <img 
+            src="/landingpage/big-star.svg" 
+            alt="" 
+            className="pointer-events-none opacity-90" 
+            style={{ width: '60px', height: '55px' }}
+            aria-hidden="true"
+          /> 
         </div>
       </div>
     </section>

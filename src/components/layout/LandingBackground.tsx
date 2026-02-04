@@ -1,6 +1,6 @@
 import React from "react";
 
-const heroBackground = [
+const heroBackgroundDesktop = [
   "radial-gradient(76.37% 67.92% at 48.9% 49.52%, rgba(255, 252, 250, 0.2) 0%, rgba(255, 252, 250, 0.1) 50%, rgba(255, 252, 250, 0) 100%)",
   "radial-gradient(83.09% 73.9% at 42.48% 46.67%, rgba(196, 140, 209, 0.65) 0%, rgba(196, 140, 209, 0.5) 43.67%, rgba(196, 140, 209, 0) 71%)",
   "radial-gradient(99.52% 88.52% at 76.46% 43.33%, #FAAA63 0%, rgba(250, 170, 99, 0.85) 26.5%, rgba(250, 170, 99, 0) 53%)",
@@ -8,10 +8,18 @@ const heroBackground = [
   "radial-gradient(137.51% 122.3% at 20.83% 100%, rgba(246, 86, 55, 0.75) 0%, rgba(246, 86, 55, 0.5) 33.44%, rgba(246, 86, 55, 0) 55%)",
 ].join(",");
 
+const heroBackgroundMobile = `
+  radial-gradient(circle at 20.833333333333336% 100%, rgba(246, 86, 55, 0.6) 0%, 33.44%, rgba(246, 86, 55, 0) 55%),
+  radial-gradient(circle at 63.125% 75.41666666666667%, #FBC3D4 0%, 17.5%, rgba(251, 195, 212, 0) 35%),
+  radial-gradient(circle at 76.45833333333333% 43.333333333333336%, #FAAA63 0%, 26.5%, rgba(250, 170, 99, 0) 53%),
+  radial-gradient(circle at 42.47916539510091% 46.666666666666664%, #C48CD1 0%, 43.66499999999999%, rgba(196, 140, 209, 0) 71%),
+  radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFCFA 0%, 100%, rgba(255, 252, 250, 0) 100%)
+`.replace(/\n/g, '').trim();
+
 const howItWorksBackground =
   "linear-gradient(180deg, #FFFCFA 0%, #FFFCFA 100%)";
 
-const stepsBackground = [
+const stepsBackgroundDesktop = [
   "radial-gradient(60.44% 94.5% at 48.9% 49.52%, rgba(255, 252, 250, 0.1) 0%, rgba(255, 252, 250, 0.05) 50%, rgba(255, 252, 250, 0) 100%)",
   "radial-gradient(97.37% 152.24% at 15.42% 75.42%, rgba(207, 163, 247, 0.85) 0%, rgba(207, 163, 247, 0.6) 17.35%, rgba(207, 163, 247, 0) 36%)",
   "radial-gradient(80.76% 126.28% at 67.92% 68.33%, rgba(239, 112, 43, 1) 0%, rgba(239, 112, 43, 0.75) 22.5%, rgba(239, 112, 43, 0) 45%)",
@@ -19,6 +27,15 @@ const stepsBackground = [
   "radial-gradient(63.1% 98.66% at 47.08% 46.25%, rgba(186, 218, 85, 0.85) 0%, rgba(186, 218, 85, 0.6) 21%, rgba(186, 218, 85, 0) 42%)",
   "radial-gradient(85.98% 134.43% at 21.67% 44.58%, rgba(61, 155, 233, 0.7) 0%, rgba(61, 155, 233, 0.5) 20.9%, rgba(61, 155, 233, 0) 44%)",
 ].join(",");
+
+const stepsBackgroundMobile = `
+  radial-gradient(circle at 21.666666666666668% 44.583333333333336%, rgba(61, 155, 233, 0.4) 0%, 20.9%, rgba(61, 155, 233, 0) 44%),
+  radial-gradient(circle at 47.083333333333336% 46.25%, rgba(186, 218, 85, 0.67) 0%, 21%, rgba(186, 218, 85, 0) 42%),
+  radial-gradient(circle at 40.208333333333336% 79.16666666666666%, #EB4677 0%, 22.248%, rgba(235, 70, 119, 0) 54%),
+  radial-gradient(circle at 67.91666666666667% 68.33333333333333%, rgba(239, 112, 43, 0.99) 0%, 22.5%, rgba(239, 112, 43, 0) 45%),
+  radial-gradient(circle at 15.416666666666668% 75.41666666666667%, rgba(207, 163, 247, 0.75) 0%, 17.352%, rgba(207, 163, 247, 0) 36%),
+  radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFCFA 0%, 100%, rgba(255, 252, 250, 0) 100%)
+`.replace(/\n/g, '').trim();
 
 const fundamentalsBackground = [
   "radial-gradient(circle at 62.26388931274413% 53.416665395100914%, rgba(250, 170, 99, 0.88) 0%, rgba(250, 170, 99, 0.44) 28%, rgba(250, 170, 99, 0) 56%)",
@@ -58,18 +75,36 @@ export default function LandingBackground({
 
   return (
     <main className="min-h-screen bg-white">
+      <style>{`
+        .custom-hero-bg {
+          background: ${heroBackgroundMobile};
+        }
+        @media (min-width: 640px) {
+          .custom-hero-bg {
+            background: ${heroBackgroundDesktop};
+          }
+        }
+        .custom-steps-bg {
+          background: ${stepsBackgroundMobile};
+        }
+        @media (min-width: 640px) {
+          .custom-steps-bg {
+            background: ${stepsBackgroundDesktop};
+          }
+        }
+      `}</style>
       <div className="mx-auto">
         <div className="relative overflow-visible rounded-[28px] shadow-[0_28px_70px_rgba(0,0,0,0.14)]">
           {/* HERO */}
-          <section className="relative min-h-[800px] sm:min-h-[900px] overflow-visible" style={{ background: heroBackground }}>
-            <div className="relative z-10 px-6 pb-20 pt-6 sm:px-10 sm:pt-7 sm:pb-40">
+          <section className="relative min-h-[800px] sm:min-h-[900px] overflow-visible custom-hero-bg">
+            <div className="relative z-10 px-6 pb-0 pt-6 sm:px-10 sm:pt-7 sm:pb-40">
               {navbar}
               {hero}
             </div>
             
-            {/* SVG Separator - positioned at the end to cover gradient */}
+            {/* SVG Separator - Desktop */}
             <svg
-              className="pointer-events-none absolute bottom-0 left-0 h-[131px] w-full"
+              className="hidden sm:block pointer-events-none absolute bottom-0 left-0 h-[131px] w-full"
               viewBox="0 0 1440 131"
               preserveAspectRatio="none"
               fill="none"
@@ -96,6 +131,23 @@ export default function LandingBackground({
                 </clipPath>
               </defs>
             </svg>
+
+            {/* SVG Separator - Mobile */}
+            <svg
+              className="block sm:hidden pointer-events-none absolute bottom-0 left-0 h-[60px] w-full"
+              viewBox="0 0 1440 131"
+              preserveAspectRatio="none"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              shapeRendering="geometricPrecision"
+              style={{ marginBottom: '-1px' }}
+            >
+              <path
+                d="M0 20 C 300 20 450 125 720 125 S 1140 20 1440 20 V 131 H 0 Z"
+                fill="#FFFCFA"
+              />
+            </svg>
           </section>
 
           {/* HOW IT WORKS */}
@@ -104,19 +156,18 @@ export default function LandingBackground({
             style={{ background: howItWorksBackground }}
           >
             {/* spacing like screenshot: lots of white before the wave */}
-            <div className="relative z-10 px-6 pt-6 pb-8 sm:px-10 sm:pt-8 sm:pb-10">
+            <div className="relative z-10 px-6 pt-6 pb-0 sm:px-10 sm:pt-8 sm:pb-10">
               {howItWorks}
             </div>
           </section>
 
           {/* STEPS (gradient area like screenshot) */}
           <section
-            className="relative overflow-hidden"
-            style={{ background: stepsBackground }}
+            className="relative overflow-hidden custom-steps-bg"
           >
             {/* TOP curve */}
             <svg
-              className="pointer-events-none absolute inset-x-0 top-0 h-[101px] w-full"
+              className="hidden sm:block pointer-events-none absolute inset-x-0 top-0 h-[101px] w-full"
               viewBox="0 0 1440 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -148,20 +199,20 @@ export default function LandingBackground({
             </svg>
 
             {/* Reduced padding */}
-            <div className="relative z-10 px-4 pt-8 pb-20 sm:px-6 sm:pt-10 sm:pb-32">
+            <div className="relative z-10 px-0 pt-0 pb-20 sm:px-6 sm:pt-10 sm:pb-32">
               {steps}
             </div>
           </section>
 
           {/* TESTIMONIAL SECTION (white background) */}
-          <section className="relative bg-[#FFFCFA] -mt-px">
+          <section className="relative overflow-visible bg-[#FFFCFA] -mt-px">
             <div className="relative z-10 px-4 py-12 text-center sm:px-6 sm:py-16">
               <p 
                 className="mx-auto max-w-[560px] text-black/50"
                 style={{
                   fontFamily: 'Poppins, sans-serif',
                   fontWeight: 300,
-                  fontSize: 'clamp(16px, 4.5vw, 18px)',
+                  fontSize: 'clamp(11px, 3.5vw, 18px)',
                   lineHeight: '26px',
                   letterSpacing: '0%',
                   textAlign: 'center',
@@ -170,17 +221,15 @@ export default function LandingBackground({
               >
                 "Mijn kind heeft faalangst, maar de 'zelfliefde' <br /> oefening deed hem enorm goed."
               </p>
-              <div className="mt-5 flex items-center justify-center gap-2" aria-label="carousel indicators">
-                <span className="h-1 w-1 rounded-full border border-black/40 bg-transparent" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
-                <span className="h-1 w-1 rounded-full bg-black/50" />
+              <div className="mt-16 flex items-center justify-center gap-3 md:mt-5 md:gap-2" aria-label="carousel indicators">
+                <span className="h-2 w-2 rounded-full border-2 border-gray-500 bg-transparent md:h-1 md:w-1 md:border md:border-black/40" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
+                <span className="h-2 w-2 rounded-full bg-gray-500 md:h-1 md:w-1 md:bg-black/50" />
               </div>
             </div>
           </section>
@@ -216,7 +265,7 @@ export default function LandingBackground({
               <path d="M1440 39.2345C1242.6 15.3407 992.475 0 720 0C447.525 0 196.875 15.3407 0 39.2345V41H1440V39.2345Z" fill="#FFFCFA"/>
             </svg>
 
-            <div className="relative z-10 px-4 pt-6 pb-28 sm:px-10 sm:pt-12 sm:pb-32">
+            <div className="relative z-10 px-0 pt-6 pb-28 sm:px-10 sm:pt-12 sm:pb-32">
               {fundamentals}
             </div>
           </section>

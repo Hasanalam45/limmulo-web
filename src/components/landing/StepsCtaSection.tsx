@@ -49,7 +49,7 @@ function StepCard({
     <motion.div
       variants={variants}
       whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-      className="rounded-[18px] mt-[120px] bg-white px-4 py-8 shadow-[0_18px_40px_rgba(0,0,0,0.10)] ring-1 ring-black/5 transform-gpu"
+      className="rounded-[40px] md:rounded-[18px] mt-4 md:mt-[120px] bg-white px-6 pb-4 pt-8 sm:px-6 sm:py-8 shadow-[0_18px_40px_rgba(0,0,0,0.10)] ring-1 ring-black/5 transform-gpu"
     >
       <div className="text-center">
         {item.number === 1 ? (
@@ -57,7 +57,7 @@ function StepCard({
             <img 
               src="/landingpage/number-one.svg" 
               alt="1" 
-              className="h-[60px] w-[50px]"
+              className="h-[30px] w-auto sm:h-[60px] sm:w-[50px]"
             />
           </div>
         ) : item.number === 2 ? (
@@ -65,7 +65,7 @@ function StepCard({
             <img 
               src="/landingpage/number-two.svg" 
               alt="2" 
-              className="h-[60px] w-[50px]"
+              className="h-[30px] w-auto sm:h-[60px] sm:w-[50px]"
             />
           </div>
         ) : (
@@ -73,7 +73,7 @@ function StepCard({
             <img 
               src="/landingpage/number-three.svg" 
               alt="3" 
-              className="h-[60px] w-[50px]"
+              className="h-[30px] w-auto sm:h-[60px] sm:w-[50px]"
             />
           </div>
         )}
@@ -99,11 +99,11 @@ function StepCard({
         </div>
 
         <p 
-          className="mx-auto mt-4 max-w-[210px] text-black"
+          className="mx-auto mt-4 max-w-none sm:max-w-[210px] text-black"
           style={{
             fontFamily: 'Poppins, sans-serif',
             fontWeight: 400,
-            fontSize: 'clamp(14px, 4vw, 16px)',
+            fontSize: 'clamp(12px, 3.5vw, 16px)',
             lineHeight: '28.8px',
             letterSpacing: '0%',
             textAlign: 'center',
@@ -185,10 +185,10 @@ export default function StepsCtaSection({
         aria-hidden="true"
       />
 
-      <div ref={ref} className="relative z-10 mx-auto max-w-[999px] px-4 sm:px-6">
+      <div ref={ref} className="relative z-10 mx-auto max-w-[999px] px-4 sm:px-6 flex flex-col">
         {/* Cards row */}
         <motion.div
-          className="mx-auto grid max-w-[900px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-6"
+          className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 order-2 md:order-1"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
@@ -198,9 +198,11 @@ export default function StepsCtaSection({
           ))}
         </motion.div>
 
+
+
         {/* Button + big star */}
         <motion.div
-          className="relative mt-10 flex justify-center"
+          className="relative mt-0 mb-72 md:mb-0 sm:mt-10 flex justify-center order-1 md:order-2"
           variants={fadeUp}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
@@ -226,7 +228,7 @@ export default function StepsCtaSection({
           <motion.img
             src="/landingpage/big-star.svg"
             alt=""
-            className="pointer-events-none absolute left-[640px] -top-[16px] -translate-y-1/2 translate-x-[160px] sm:translate-x-[180px]"
+            className="hidden sm:block pointer-events-none absolute left-[640px] -top-[16px] -translate-y-1/2 translate-x-[160px] sm:translate-x-[180px]"
             aria-hidden="true"
             initial={false}
             animate={
@@ -239,7 +241,16 @@ export default function StepsCtaSection({
           />
         </motion.div>
 
-        <div className="h-10 sm:h-14" />
+        {/* Mobile Sparkles (moved to bottom) */}
+        <div className="order-3 md:hidden pointer-events-none relative mx-auto mt-20 flex h-16 w-full max-w-[200px] items-center justify-center">
+          <img
+            src="/landingpage/small-star.svg"
+            className="h-[60px] w-[60px] opacity-90"
+            alt=""
+          />
+        </div>
+
+        {/* <div className="h-10 sm:h-14" /> */}
       </div>
     </section>
   );

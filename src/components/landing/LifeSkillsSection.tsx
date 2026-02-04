@@ -30,6 +30,26 @@ export default function LifeSkillsSection({
 
   return (
     <section ref={ref} className="relative bg-[#FFFCFA] pt-16 pb-16 sm:pt-20 sm:pb-20">
+      <style>{`
+        @media (max-width: 639px) {
+          .life-skills-text {
+            font-size: 16px;
+            line-height: 24px;
+          }
+          .life-skills-button {
+            font-size: 15px;
+          }
+        }
+        @media (min-width: 640px) {
+          .life-skills-text {
+            font-size: clamp(18px, 5.5vw, 22px);
+            line-height: 39.6px;
+          }
+          .life-skills-button {
+            font-size: clamp(16px, 4.5vw, 18px);
+          }
+        }
+      `}</style>
       <div className="mx-auto w-full">
         {/* Content area */}
         <motion.div
@@ -41,12 +61,10 @@ export default function LifeSkillsSection({
           {/* First paragraph */}
           <motion.p
             variants={item}
-            className="text-black"
+            className="text-black life-skills-text"
             style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 400,
-              fontSize: 'clamp(18px, 5.5vw, 22px)',
-              lineHeight: '39.6px',
               letterSpacing: '0%',
               textAlign: 'center',
               verticalAlign: 'middle'
@@ -59,20 +77,18 @@ export default function LifeSkillsSection({
             <strong className="font-bold">bijzondere schermvrije<br/></strong> momentjes.
           </motion.p>
 
-          {/* Blue line separator */}
-          <div className="flex justify-center my-8">
+          {/* Blue line separator - Hidden on mobile */}
+          <div className="hidden sm:flex justify-center my-8">
             <div className="h-[6px] w-[120px]" style={{ backgroundColor: 'rgba(87, 146, 213, 1)' }} />
           </div>
 
           {/* Second paragraph */}
           <motion.p
             variants={item}
-            className="text-black"
+            className="text-black life-skills-text mt-[60px] sm:mt-0"
             style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 400,
-              fontSize: 'clamp(18px, 5.5vw, 22px)',
-              lineHeight: '39.6px',
               letterSpacing: '0%',
               textAlign: 'center',
               verticalAlign: 'middle'
@@ -91,7 +107,7 @@ export default function LifeSkillsSection({
             >
               <Link
                 to={ctaHref}
-                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12"
+                className="inline-flex items-center justify-center rounded-xl bg-[rgba(134,255,186,1)] px-10 py-3 text-black shadow-[0_14px_24px_rgba(16,185,129,0.20)] ring-1 ring-black/10 transition hover:bg-[rgba(90,200,150,1)] sm:px-12 life-skills-button"
                 style={{
                   fontFamily: 'Poppins, sans-serif',
                   fontWeight: 700,

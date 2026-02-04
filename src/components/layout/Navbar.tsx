@@ -167,102 +167,101 @@ export default function Navbar() {
     </motion.header>
   );
 
-  // Mobile menu items component
-  const MobileNavItem = ({ to, children }: { to: string; children: React.ReactNode }) => {
-    return (
-      <NavLink
-        to={to}
-        onClick={() => setMobileMenuOpen(false)}
-        className={({ isActive }) =>
-          `block px-4 py-3 text-base font-semibold text-slate-900 transition ${
-            isActive ? "bg-slate-100" : "hover:bg-slate-50"
-          }`
-        }
-      >
-        {children}
-      </NavLink>
-    );
-  };
-
   const mobileMenu = (
-    <>
-      {/* Backdrop overlay */}
+    <motion.div
+      className="fixed inset-0 z-[2147483648] md:hidden"
+      initial="closed"
+      animate={mobileMenuOpen ? "open" : "closed"}
+      variants={{
+        closed: { opacity: 0, pointerEvents: "none" },
+        open: { opacity: 1, pointerEvents: "auto" },
+      }}
+    >
+      {/* Backdrop */}
       <motion.div
-        className="fixed inset-0 z-[2147483645] bg-black/20 backdrop-blur-sm md:hidden"
-        initial={false}
-        animate={{
-          opacity: mobileMenuOpen ? 1 : 0,
-          pointerEvents: mobileMenuOpen ? "auto" : "none",
-        }}
-        transition={{ duration: 0.2 }}
+        className="absolute inset-0 bg-black/20 backdrop-blur-sm"
         onClick={() => setMobileMenuOpen(false)}
+        variants={{ closed: { opacity: 0 }, open: { opacity: 1 } }}
       />
       
-      {/* Mobile menu dropdown */}
+      {/* Drawer */}
       <motion.div
-        className="fixed inset-x-0 top-[86px] z-[2147483646] md:hidden"
-        initial={false}
-        animate={{
-          opacity: mobileMenuOpen ? 1 : 0,
-          pointerEvents: mobileMenuOpen ? "auto" : "none",
+        className="absolute inset-y-0 right-0 w-[80%] max-w-[320px] h-screen bg-white shadow-xl flex flex-col items-center pt-10"
+        variants={{
+          closed: { x: "100%" },
+          open: { x: "0%" },
         }}
-        transition={{ duration: 0.2 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        <motion.div
-          className="mx-4 rounded-xl ring-1 ring-black/10 backdrop-blur-md"
-          style={{ backgroundColor: 'rgba(255, 252, 250, 1)' }}
-          initial={false}
-          animate={{
-            y: mobileMenuOpen ? 0 : -20,
-            opacity: mobileMenuOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.2 }}
-        >
-          <nav className="flex flex-col py-2 mr-2">
-            <MobileNavItem to="/">Home</MobileNavItem>
-            <MobileNavItem to="/over-ons">Over ons</MobileNavItem>
-            <MobileNavItem to="/over-de-app">Over de app</MobileNavItem>
-            <MobileNavItem to="/word-testgezin">Word testgezin</MobileNavItem>
-            <div className="border-t border-slate-200 px-4 py-3">
-              <Link
-                to="/preregistreer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="group relative block w-full transition"
-                style={{ height: '45px' }}
-              >
-                <svg 
-                  width="100%" 
-                  height="45" 
-                  viewBox="0 0 196 45" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="none"
-                  className="absolute inset-0 w-full h-full transition-colors"
-                >
-                  <path 
-                    d="M179.528 45H16.4716C7.46554 45 0 40.6338 0 35.2113V9.78873C0 4.43662 7.34704 0 16.4716 0H179.528C188.534 0 196 4.3662 196 9.78873V35.2113C196 40.6338 188.534 45 179.528 45Z" 
-                    fill="#86FFBA"
-                    className="transition-colors group-hover:fill-[#5AC896]"
-                  />
-                </svg>
-                <span
-                  className="absolute inset-0 flex items-center justify-center text-slate-900"
-                  style={{
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '20px',
-                    lineHeight: '100%',
-                    letterSpacing: '-1px',
-                  }}
-                >
-                  Preregistreer hier!
-                </span>
-              </Link>
-            </div>
+         {/* Close Button Top Right */}
+         <div className="absolute top-6 right-6">
+            <button
+             type="button"
+             onClick={() => setMobileMenuOpen(false)}
+             className="p-2"
+             aria-label="Close menu"
+            >
+             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M18 6L6 18" stroke="#C084FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+               <path d="M6 6L18 18" stroke="#C084FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+             </svg>
+            </button>
+         </div>
+
+          {/* Spacer where logo used to be (optional) or just start menu */}
+          <div className="mt-12 w-full"></div>
+
+          {/* Menu Items */}
+          <nav className="flex flex-col items-end w-full pr-10 space-y-6">
+             <NavLink 
+               to="/" 
+               onClick={() => setMobileMenuOpen(false)}
+               className={({ isActive }) => `text-[22px] font-medium ${isActive ? 'text-[#C084FC]' : 'text-black'}`} // Purple if active
+               style={{ fontFamily: 'Poppins, sans-serif' }}
+             >
+               Home
+             </NavLink>
+             <NavLink 
+               to="/over-ons" 
+               onClick={() => setMobileMenuOpen(false)} 
+               className="text-[22px] font-medium text-black"
+               style={{ fontFamily: 'Poppins, sans-serif' }}
+             >
+               Over ons
+             </NavLink>
+             <NavLink 
+               to="/over-de-app" 
+               onClick={() => setMobileMenuOpen(false)} 
+               className="text-[22px] font-medium text-black"
+               style={{ fontFamily: 'Poppins, sans-serif' }}
+             >
+               Over de app
+             </NavLink>
+             <NavLink 
+               to="/word-testgezin" 
+               onClick={() => setMobileMenuOpen(false)} 
+               className="text-[22px] font-medium text-black"
+               style={{ fontFamily: 'Poppins, sans-serif' }}
+             >
+               Word testgezin
+             </NavLink>
+             
+             <Link 
+               to="/preregistreer" 
+               onClick={() => setMobileMenuOpen(false)} 
+               className="text-[22px] font-medium text-black mt-4"
+               style={{ fontFamily: 'Poppins, sans-serif' }}
+             >
+               Preregistreer hier!
+             </Link>
           </nav>
-        </motion.div>
+
+          {/* Bottom Info (like Company & Socials in image) - Adding placeholders to match layout */}
+          <div className="mt-auto w-full pl-8 pb-10 text-xs text-gray-400">
+             {/* Matching the screenshot vibe if needed, but for now just the nav items */}
+          </div>
       </motion.div>
-    </>
+    </motion.div>
   );
 
   return (

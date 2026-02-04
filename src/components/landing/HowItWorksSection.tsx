@@ -72,7 +72,7 @@ export default function HowItWorksSection({ phones }: Props) {
 
       <div className="relative z-10 mx-auto max-w-[999px] px-4 sm:px-6">
         {/* Phones row (premium float + hover lift) */}
-        <div className="-mt-14 pt-20 sm:-mt-20 flex flex-wrap items-end justify-center gap-7 sm:gap-10">
+        <div className="-mt-14 pt-20 sm:-mt-20 hidden md:flex flex-wrap items-end justify-center gap-7 sm:gap-10">
           <motion.div
             initial={false}
             animate={reduce ? undefined : { y: [0, -10, 0], rotate: [0, -0.6, 0] }}
@@ -113,29 +113,29 @@ export default function HowItWorksSection({ phones }: Props) {
         >
           <motion.h2
             variants={item}
-            className="text-black mb-10"
+            className="text-black mb-10 text-center lg:text-left"
             style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 700,
-              fontSize: 'clamp(40px, 10vw, 62px)',
-              lineHeight: '55.8px',
-              letterSpacing: '-3.1px',
+              fontSize: 'clamp(32px, 8vw, 62px)',
+              lineHeight: '1.1',
+              letterSpacing: '-1.5px',
               verticalAlign: 'middle'
             }}
           >
-            Hoe het <br />werkt
+            Hoe het <br className="hidden lg:block" />werkt
           </motion.h2>
 
           <div className="space-y-6 sm:space-y-7">
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -2 }}
-              className="flex items-center gap-3 sm:gap-4 transform-gpu"
+              className="flex flex-col lg:flex-row items-center gap-3 sm:gap-4 transform-gpu text-center lg:text-left"
             >
                 <img 
                   src="/landingpage/learning.svg" 
                   alt="" 
-                  className="h-16 w-16 sm:h-24 sm:w-24"
+                  className="h-24 w-24 sm:h-24 sm:w-24"
                   aria-hidden="true"
                 />
 
@@ -145,7 +145,7 @@ export default function HowItWorksSection({ phones }: Props) {
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 700,
-                    fontSize: 'clamp(16px, 5vw, 20px)',
+                    fontSize: 'clamp(22px, 5vw, 24px)',
                     lineHeight: '28px',
                     letterSpacing: '-1px',
                     verticalAlign: 'middle'
@@ -158,7 +158,7 @@ export default function HowItWorksSection({ phones }: Props) {
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 400,
-                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    fontSize: 'clamp(16px, 4vw, 18px)',
                     lineHeight: '28.8px',
                     letterSpacing: '0%',
                     verticalAlign: 'middle'
@@ -172,12 +172,12 @@ export default function HowItWorksSection({ phones }: Props) {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -2 }}
-              className="flex items-center gap-3 sm:gap-4 transform-gpu"
+              className="flex flex-col lg:flex-row items-center gap-3 sm:gap-4 transform-gpu text-center lg:text-left"
             >
                 <img 
                   src="/landingpage/time.svg" 
                   alt="" 
-                  className="h-16 w-16 sm:h-24 sm:w-24"
+                  className="h-24 w-24 sm:h-24 sm:w-24"
                   aria-hidden="true"
                 />
               <div>
@@ -186,7 +186,7 @@ export default function HowItWorksSection({ phones }: Props) {
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 700,
-                    fontSize: 'clamp(16px, 5vw, 20px)',
+                    fontSize: 'clamp(22px, 5vw, 24px)',
                     lineHeight: '28px',
                     letterSpacing: '-1px',
                     verticalAlign: 'middle'
@@ -199,7 +199,7 @@ export default function HowItWorksSection({ phones }: Props) {
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 400,
-                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    fontSize: 'clamp(16px, 4vw, 18px)',
                     lineHeight: '28.8px',
                     letterSpacing: '0%',
                     verticalAlign: 'middle'
@@ -213,13 +213,13 @@ export default function HowItWorksSection({ phones }: Props) {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -2 }}
-              className="flex items-center gap-3 sm:gap-4 transform-gpu"
+              className="flex flex-col lg:flex-row items-center gap-3 sm:gap-4 transform-gpu text-center lg:text-left"
             >
                 <img 
                   src="/landingpage/screen.svg" 
                   alt="" 
 
-                  className="h-16 w-16 sm:h-24 sm:w-24"
+                  className="h-24 w-24 sm:h-24 sm:w-24"
                   aria-hidden="true"
                 />
               <div>
@@ -228,7 +228,7 @@ export default function HowItWorksSection({ phones }: Props) {
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 700,
-                    fontSize: 'clamp(16px, 5vw, 20px)',
+                    fontSize: 'clamp(22px, 5vw, 24px)',
                     lineHeight: '28px',
                     letterSpacing: '-1px',
                     verticalAlign: 'middle'
@@ -241,7 +241,7 @@ export default function HowItWorksSection({ phones }: Props) {
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 400,
-                    fontSize: 'clamp(14px, 4vw, 16px)',
+                    fontSize: 'clamp(16px, 4vw, 18px)',
                     lineHeight: '28.8px',
                     letterSpacing: '0%',
                     verticalAlign: 'middle'

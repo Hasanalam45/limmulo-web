@@ -8,7 +8,7 @@ function RedBlobIcon() {
       <img
         src="/landingpage/aboutPage/red-blob.svg"
         alt=""
-        className="h-14 w-14 sm:h-24 sm:w-24 drop-shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
+        className="h-20 w-20 sm:h-24 sm:w-24 drop-shadow-[0_18px_40px_rgba(0,0,0,0.14)]"
         aria-hidden="true"
       />
     </div>
@@ -44,7 +44,7 @@ export default function FamilySection() {
           animate={inView ? "show" : "hidden"}
         >
           {/* LEFT - Family Image */}
-          <motion.div variants={item} className="order-2 lg:order-1">
+          <motion.div variants={item} className="order-1 lg:order-1">
             <div className="relative overflow-hidden rounded-[18px] sm:rounded-[24px] shadow-[0_22px_60px_rgba(0,0,0,0.10)] ring-1 ring-black/5 max-w-[400px] mx-auto lg:mx-0">
               <img
                 src="/landingpage/aboutPage/Luumilo 26-11-250045_LR.jpg.png"
@@ -55,7 +55,7 @@ export default function FamilySection() {
           </motion.div>
 
           {/* RIGHT - Text Content */}
-          <motion.div variants={item} className="order-1 lg:order-2 pt-2 sm:pt-4">
+          <motion.div variants={item} className="order-2 lg:order-2 pt-2 sm:pt-4">
             <motion.div variants={item} className="flex items-center gap-4 sm:gap-5">
               <RedBlobIcon />
               <h2
@@ -75,7 +75,7 @@ export default function FamilySection() {
 
             <motion.p
               variants={item}
-              className="mt-6 max-w-[460px] text-black"
+              className="mt-6 max-w-[460px] text-black text-justify"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 400,

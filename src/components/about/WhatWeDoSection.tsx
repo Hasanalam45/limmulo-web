@@ -61,21 +61,21 @@ function DoodleArrow({ className }: { className?: string }) {
 
 function ItemRow({ item }: { item: Item }) {
   return (
-    <div className="flex items-start gap-4 py-4">
+    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 py-4">
       <div
-        className="grid h-11 w-11 place-items-center shrink-0"
+        className="grid h-20 w-20 sm:h-11 sm:w-11 place-items-center shrink-0"
         aria-hidden="true"
       >
         {item.icon}
       </div>
 
-      <div className="pt-0.5">
+      <div className="pt-0.5 text-center sm:text-left">
         <p 
-          className="text-black"
+          className="text-black uppercase"
           style={{
             fontFamily: 'Poppins, sans-serif',
             fontWeight: 700,
-            fontSize: 'clamp(18px, 5vw, 20px)',
+            fontSize: 'clamp(22px, 5vw, 20px)',
             lineHeight: '28px',
             letterSpacing: '-1px',
             verticalAlign: 'middle'
@@ -88,7 +88,7 @@ function ItemRow({ item }: { item: Item }) {
           style={{
             fontFamily: 'Poppins, sans-serif',
             fontWeight: 400,
-            fontSize: 'clamp(14px, 4vw, 16px)',
+            fontSize: 'clamp(12px, 3.3vw, 16px)',
             lineHeight: '28.8px',
             letterSpacing: '0%',
             verticalAlign: 'middle'
@@ -177,7 +177,7 @@ export default function WhatWeDoSection() {
   ];
 
   return (
-    <section className="relative bg-[#FFFCFA] py-14 sm:py-16 lg:py-20">
+    <section className="relative bg-[#FFFCFA] py-0 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
         <div className="grid items-center gap-10 lg:gap-14 lg:grid-cols-[0.95fr_1.05fr]">
           {/* LEFT */}
@@ -188,10 +188,10 @@ export default function WhatWeDoSection() {
             whileInView="show"
             viewport={{ amount: 0.35, once: true }}
           >
-            <motion.div variants={itemV} className="flex items-center gap-4 sm:gap-5">
-              <img src="/landingpage/aboutPage/dark-purple-blob.svg" alt="" className="h-14 w-14 sm:h-24 sm:w-24" />
+            <motion.div variants={itemV} className="flex flex-row-reverse sm:flex-row sm:justify-start items-center gap-4 sm:gap-5">
+              <img src="/landingpage/aboutPage/dark-purple-blob.svg" alt="" className="h-24 w-24 sm:h-24 sm:w-24" />
               <h2
-                className="text-black"
+                className="text-black text-right sm:text-left"
                 style={{
                   fontFamily: 'Poppins, sans-serif',
                   fontWeight: 700,
@@ -201,13 +201,13 @@ export default function WhatWeDoSection() {
                   verticalAlign: 'middle'
                 }}
               >
-                Wat wij <br/> doen
+                Wat wij <br className="hidden sm:block" /> doen
               </h2>
             </motion.div>
 
             <motion.p
               variants={itemV}
-              className="mt-6 max-w-[460px] text-black"
+              className="mt-6 max-w-[460px] text-black text-justify mx-auto sm:mx-0"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 400,
@@ -217,7 +217,7 @@ export default function WhatWeDoSection() {
                 verticalAlign: 'middle'
               }}
             >
-              Elke week biedt Luumilo een samengestelde set van <br/ > vijf praktische activiteiten aan, in de Speelweek,<br/> gericht op leren door te spelen. Elke activiteit is <br /> ontworpen om de band tussen ouder en kind te <br /> versterken en thema's te verkennen zoals:
+              Elke week biedt Luumilo een samengestelde set van <br className="hidden sm:inline" /> vijf praktische activiteiten aan, in de Speelweek,<br className="hidden sm:inline" /> gericht op leren door te spelen. Elke activiteit is <br className="hidden sm:inline" /> ontworpen om de band tussen ouder en kind te <br className="hidden sm:inline" /> versterken en thema's te verkennen zoals:
             </motion.p>
 
             <motion.div
@@ -227,13 +227,13 @@ export default function WhatWeDoSection() {
               animate={reduce ? undefined : { y: [0, -6, 0] }}
               transition={reduce ? { duration: 0 } : { duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
             >
-              <DoodleArrow className="pointer-events-none h-10 w-20 opacity-95" />
+              <DoodleArrow className="pointer-events-none h-10 w-28 sm:mr-0 sm:h-10 sm:w-20 opacity-95 rotate-[40deg] sm:rotate-0" />
             </motion.div>
           </motion.div>
 
           {/* RIGHT CARD */}
           <motion.div
-            className="relative"
+            className="relative mt-10 sm:mt-0"
             variants={container}
             initial="hidden"
             whileInView="show"
