@@ -81,24 +81,24 @@ export default function AboutHeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden w-screen left-1/2 -ml-[50vw] sm:left-0 sm:ml-0 sm:w-full">
+    <section className="relative w-screen left-1/2 -ml-[50vw] sm:left-0 sm:ml-0 sm:w-full">
       {/* ✅ ORANGE BLOB: Mobile */}
       <motion.div
         className="
           sm:hidden
           pointer-events-none absolute
-          left-[130px] -translate-x-1/2
-          top-0
-          w-[190%]
+          left-1/2 -translate-x-1/2
+          top-[-40px]
+          w-[98%]
           max-w-none
           z-0
-          rotate-180
+          rotate-[175deg]
         "
         aria-hidden="true"
       >
         <svg
           viewBox="7 33.5 186 133"
-          className="w-full h-auto"
+          className="w-full h-[620px]"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
         >
@@ -154,7 +154,7 @@ export default function AboutHeroSection() {
 
         {/* Content */}
         <motion.div
-          className="relative z-10 px-10 pt-10 sm:px-6 sm:pt-12 lg:pt-24"
+          className="relative z-10 px-14 pt-10 sm:px-6 sm:pt-12 lg:pt-24"
           variants={container}
           initial="hidden"
           animate="show"

@@ -1,18 +1,19 @@
 export default function LuumiloLogo({
-  size = 32,
-  className = "h-15 w-20",
+  size = 127,
+  className = "",
 }: {
-  size?: number;
+  size?: number | string;
   className?: string;
 }) {
   return (
     <img
-      src="/assets/howitworks/logo.png"
+      src="/landingpage/Luumilo-logo.svg"
       alt="Luumilo"
       width={size}
-      height={size}
+      height={typeof size === 'number' ? size * (45 / 127) : undefined}
       className={`select-none ${className}`}
       draggable={false}
+      style={{ height: className.includes('h-') ? undefined : 'auto' }}
     />
   );
 }

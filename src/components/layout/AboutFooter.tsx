@@ -37,7 +37,7 @@ export default function AboutFooter() {
         <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 items-start">
           {/* Contact section */}
           <motion.div variants={item}>
-            <Link to="/" className="inline-flex w-fit origin-left scale-[1.8]">
+            <Link to="/" className="inline-flex w-fit origin-left scale-[1.2]">
               <LuumiloLogo />
             </Link>
 
@@ -169,7 +169,7 @@ export default function AboutFooter() {
           </motion.div>
 
           {/* Bedrijf section - only "Over ons" */}
-          <motion.div variants={item} className="mt-8 sm:mt-[67px]">
+          <motion.div variants={item} className="mt-8 sm:mt-[75px]">
             <div className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black ml-0 sm:ml-[40px]">
               <p 
                 className="font-extrabold text-black"

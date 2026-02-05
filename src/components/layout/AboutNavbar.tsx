@@ -97,14 +97,13 @@ export default function AboutNavbar() {
           shellClass,
         ].join(" ")}
         style={{ 
-          backgroundColor: 'rgba(255, 252, 250, 1)',
-          display: mobileMenuOpen ? 'none' : 'flex' 
+          backgroundColor: 'rgba(255, 252, 250, 1)'
         }}
       >
         {/* Inner content container with max-width for PC content alignment */}
         <div className="flex w-full max-w-full md:max-w-[990px] items-center justify-between px-6 py-2 min-h-[75px] md:min-h-0">
-          <Link to="/" className="hidden md:flex items-center gap-0 md:ml-0">
-            <LuumiloLogo size={50} className="h-18 w-auto" />
+          <Link to="/" className="flex items-center gap-0 md:ml-0 lg:py-1.5 lg:mt-2">
+            <LuumiloLogo size={50} className="h-[50px] w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

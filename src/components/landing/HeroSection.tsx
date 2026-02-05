@@ -261,7 +261,7 @@ export default function HeroSection() {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-              className="mx-auto max-w-none sm:max-w-[390px] md:max-w-[400px] lg:max-w-[408px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-6 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu "
+              className="mx-auto w-[92%] sm:w-full max-w-none sm:max-w-[320px] md:max-w-[400px] lg:max-w-[408px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu"
             >
               <div className="flex flex-col items-center md:hidden mb-4">
                 <Link
@@ -361,7 +361,7 @@ export default function HeroSection() {
             <motion.div
               variants={item}
               whileHover={reduce ? undefined : { y: -6, scale: 1.01 }}
-              className="mx-auto lg:mx-0 w-full max-w-none sm:max-w-[380px] md:max-w-[420px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu mt-0 md:mt-8"
+              className="mx-auto lg:mx-0 w-[92%] sm:w-full max-w-none sm:max-w-[380px] md:max-w-[420px] rounded-[22px] sm:rounded-[26px] bg-white/95 p-5 sm:p-6 md:p-8 shadow-[0_22px_55px_rgba(0,0,0,0.12)] ring-1 ring-black/5 transform-gpu mt-0 md:mt-8"
             >
               <h2 
                 className="text-black text-[33px] leading-[1.05] tracking-[-1.5px] md:text-[58px] md:leading-[52.2px] md:tracking-[-2.5px]"

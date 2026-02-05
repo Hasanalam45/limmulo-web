@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 items-start">
           {/* Left section: Logo, Quote (mobile), Socials, Contact */}
           <motion.div variants={item}>
-            <Link to="/" className="inline-flex w-fit origin-left scale-[1.8]">
+            <Link to="/" className="inline-flex w-fit origin-left scale-[1.2]">
               <LuumiloLogo />
             </Link>
 
@@ -170,7 +170,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Bedrijf + Ondersteuning grouped together */}
-          <motion.div variants={item} className="flex gap-4 lg:gap-10 mt-8 sm:mt-[67px]">
+          <motion.div variants={item} className="flex gap-4 lg:gap-10 mt-8 sm:mt-[75px]">
             {/* Company */}
             <div className="space-y-2 text-[12px] sm:text-[11px] font-medium text-black ml-0 sm:ml-[40px]">
               <p 
