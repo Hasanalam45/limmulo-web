@@ -35,13 +35,64 @@ export default function Footer() {
       >
         {/* Contact, Bedrijf, and Ondersteuning inline */}
         <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 items-start">
-          {/* Contact section */}
+          {/* Left section: Logo, Quote (mobile), Socials, Contact */}
           <motion.div variants={item}>
             <Link to="/" className="inline-flex w-fit origin-left scale-[1.8]">
               <LuumiloLogo />
             </Link>
 
-            <div className="mt-6 space-y-1 text-[12px] sm:text-[11px] font-medium leading-5 text-black">
+            {/* Quote specifically for Mobile - from AboutFooter */}
+            <div className="sm:hidden mt-8 pr-4">
+              <p 
+                className="text-black mb-8"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 400,
+                  fontStyle: 'italic',
+                  fontSize: '14px',
+                  lineHeight: '22px',
+                }}
+              >
+                "Het platform dat kinderen vandaag<br />voorbereidt op de wereld van morgen."
+              </p>
+
+              {/* Social icons - Moved up for mobile layout */}
+              <div className="flex items-center gap-2 mb-8">
+                <motion.a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="transition"
+                  whileHover={reduce ? undefined : { y: -2, scale: 1.04 }}
+                  whileTap={reduce ? undefined : { scale: 0.98 }}
+                >
+                  <img 
+                    src="/assets/footer/instagram.png" 
+                    alt="Instagram" 
+                    className="h-5 w-5"
+                  />
+                </motion.a>
+
+                <motion.a
+                  href="https://www.tiktok.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TikTok"
+                  className="transition"
+                  whileHover={reduce ? undefined : { y: -2, scale: 1.04 }}
+                  whileTap={reduce ? undefined : { scale: 0.98 }}
+                >
+                  <img 
+                    src="/assets/footer/tiktok.png" 
+                    alt="TikTok" 
+                    className="h-5 w-5"
+                  />
+                </motion.a>
+              </div>
+            </div>
+
+            <div className="mt-10 sm:mt-6 space-y-1 text-[12px] sm:text-[11px] font-medium leading-5 text-black">
               <p 
                 className="font-extrabold text-black"
                 style={{
@@ -82,7 +133,8 @@ export default function Footer() {
               </a>
             </div>
 
-            <div className="mt-2 flex items-center gap-2">
+            {/* Desktop-only Social Icons */}
+            <div className="hidden sm:flex mt-2 items-center gap-2">
               <motion.a
                 href="https://www.instagram.com/"
                 target="_blank"
@@ -95,7 +147,7 @@ export default function Footer() {
                 <img 
                   src="/assets/footer/instagram.png" 
                   alt="Instagram" 
-                  className="h-5 w-5 sm:h-4 sm:w-4"
+                  className="sm:h-4 sm:w-4"
                 />
               </motion.a>
 
@@ -111,7 +163,7 @@ export default function Footer() {
                 <img 
                   src="/assets/footer/tiktok.png" 
                   alt="TikTok" 
-                  className="h-5 w-5 sm:h-4 sm:w-4"
+                  className="sm:h-4 sm:w-4"
                 />
               </motion.a>
             </div>
@@ -204,10 +256,10 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Quote */}
+          {/* Quote (Desktop Only) */}
           <motion.div
             variants={item}
-            className="text-left sm:text-left lg:ml-auto mt-8 sm:mt-[130px] mr-10"
+            className="hidden sm:block text-left sm:text-left lg:ml-auto mt-8 sm:mt-[130px] mr-10"
           >
             <p 
               className="text-black"

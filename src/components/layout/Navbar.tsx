@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   motion,
   useMotionValueEvent,
@@ -76,9 +76,12 @@ export default function Navbar() {
     ? "ring-1 ring-black/10"
     : "ring-1 ring-black/5";
 
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
   const header = (
     <motion.header
-      className="fixed inset-x-0 top-0 z-[2147483647] isolate flex justify-center px-4"
+      className="absolute md:fixed inset-x-0 top-0 z-[1000] isolate md:flex md:justify-center md:px-4"
       initial={false}
       animate={{
         y: hidden ? -120 : 0,
@@ -89,14 +92,26 @@ export default function Navbar() {
     >
       <div
         className={[
-          "flex w-full max-w-full md:max-w-[990px] items-center justify-between rounded-xl px-4 py-1.5",
+          "flex w-full items-center justify-between md:max-w-[990px] md:rounded-xl rounded-none px-6 py-2 min-h-[75px] md:min-h-0 md:bg-white",
           shellClass,
         ].join(" ")}
-        style={{ backgroundColor: 'rgba(255, 252, 250, 1)' }}
+        style={{ 
+          backgroundColor: (typeof window !== 'undefined' && window.innerWidth >= 768) 
+            ? '#ffffff' 
+            : (isHome && !scrolled ? 'transparent' : 'rgba(255, 252, 250, 1)') 
+        }}
       >
-        <Link to="/" className="flex items-center gap-0 md:ml-0">
-          <LuumiloLogo size={50} className="h-18 w-auto" />
-        </Link>
+        {isHome ? (
+          <Link to="/" className="flex items-center gap-0 md:ml-0">
+            <LuumiloLogo size={50} className="h-18 w-auto" />
+          </Link>
+        ) : (
+          <div className="md:flex hidden">
+            <Link to="/" className="flex items-center gap-0 md:ml-0">
+              <LuumiloLogo size={50} className="h-18 w-auto" />
+            </Link>
+          </div>
+        )}
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
@@ -140,36 +155,14 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex flex-col gap-1.5 p-2 md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          <motion.span
-            className="h-0.5 w-6 rounded-full bg-slate-900"
-            animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="h-0.5 w-6 rounded-full bg-slate-900"
-            animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="h-0.5 w-6 rounded-full bg-slate-900"
-            animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.2 }}
-          />
-        </button>
+        {/* Mobile menu button moved to separate sticky container below for persistent visibility */}
       </div>
     </motion.header>
   );
 
   const mobileMenu = (
     <motion.div
-      className="fixed inset-0 z-[2147483648] md:hidden"
+      className="fixed inset-0 z-[1001] md:hidden"
       initial="closed"
       animate={mobileMenuOpen ? "open" : "closed"}
       variants={{
@@ -193,20 +186,7 @@ export default function Navbar() {
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-         {/* Close Button Top Right */}
-         <div className="absolute top-6 right-6">
-            <button
-             type="button"
-             onClick={() => setMobileMenuOpen(false)}
-             className="p-2"
-             aria-label="Close menu"
-            >
-             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M18 6L6 18" stroke="#C084FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-               <path d="M6 6L18 18" stroke="#C084FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-             </svg>
-            </button>
-         </div>
+         {/* Redundant close button removed - sticky menu button handles this */}
 
           {/* Spacer where logo used to be (optional) or just start menu */}
           <div className="mt-12 w-full"></div>
@@ -269,9 +249,47 @@ export default function Navbar() {
       {/* Spacer so content doesn't jump because navbar is fixed */}
       <div className="h-[86px] sm:h-[92px]" aria-hidden="true" />
 
-      {/* ✅ Portal: ensures navbar is never behind LandingBackground stacking contexts */}
+      {/* ✅ Portals: ensure elements are on top of other content */}
       {createPortal(header, document.body)}
       {createPortal(mobileMenu, document.body)}
+
+      {/* Sticky Mobile Menu Button - Floating outside navbar */}
+      {createPortal(
+        <div className="fixed top-6 right-6 z-[1002] md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex flex-col gap-1.5 p-2 transition-transform active:scale-95"
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="#C084FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6 6L18 18" stroke="#C084FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            ) : (
+              <>
+                <motion.span
+                  className="h-0.5 w-6 rounded-full bg-slate-900"
+                  animate={{ rotate: 0, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                  className="h-0.5 w-6 rounded-full bg-slate-900"
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                  className="h-0.5 w-6 rounded-full bg-slate-900"
+                  animate={{ rotate: 0, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </>
+            )}
+          </button>
+        </div>,
+        document.body
+      )}
     </>
   );
 }
